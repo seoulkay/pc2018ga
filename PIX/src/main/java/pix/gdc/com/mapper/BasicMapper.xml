@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BasicMapper">
+  	<select id="getAllpixArticle"  resultType="pixArticle">
+  		select * from pix_article where is_use = "Y" order by pix_idx desc;
+  	</select>
+  	
+  	<select id="getPixArticleByIdx"  parameterType="Integer" resultType="pixArticle">
+  		select * from pix_article where pix_idx = #{param} and is_use = "Y" order by pix_idx desc;
+  	</select>
+  	
+  	<select id="getPixCommentByIdx" parameterType="Integer" resultType="pixComment">
+  	    select * from pix_comment where pix_idx = #{param} and is_use = "Y" order by pix_comment asc;
+  	</select>
+  	
+  	<select id="getPixArticleByFullName"  resultType="pixArticle" parameterType="String">
+  		select * from pix_article where is_use = "Y" and created_by = #{param} order by pix_idx desc;
+  	</select>
+  	
+	<insert id="insertPixArticle" parameterType="pixArticle">
+	    insert into pix_article
+	    (
+	    created_by				,
+		created_date			,
+		pix_image				,
+		pix_title				,
+		pix_content				,
+		pix_tag					,
+		is_use					,
+		latitude				,
+		longitude
+		)
+		
+		values
+		
+		(
+		#{created_by}			,
+		now()					,
+		#{pix_image}			,
+		#{pix_title}			,
+		#{pix_content}			,
+		#{pix_tag}				,
+		"Y"						,
+		#{latitude}				,
+		#{longitude}
+		)    
+	</insert>
+	
+	<insert id="insertPixLike" parameterType="pixLike">  
+		INSERT INTO pix_like
+		(
+			pix_like_user				,
+			pix_idx
+		)
+		VALUES
+		(
+			#{pix_like_user}		,
+	 		#{pix_idx}
+	 	)    
+	</insert>
+	
+	<select id="selectLikesByUser" parameterType="String" resultType="Integer">
+	    SElECT 
+	    	distinct pix_idx 
+	    FROM 
+	    	pix_like 
+	    WHERE 
+	    	pix_like_user = #{param}    
+	</select>
+	
+	<select id="countLikesByUser" parameterType="String" resultType="pixLike">
+	    SELECT 
+	    	pix_like.pix_idx		, 
+	    	count(*) as likeNum
+	    FROM 
+	    	pix_like 
+	    WHERE 
+	    	pix_like.pix_like_user = #{param}
+	    GROUP BY 
+	    	pix_like.pix_idx;
+	</select>
+	
+	<select id="FestloginCheck" parameterType="FestLogin" resultType="FestLogin">
+	    select 
+	    	*
+	    from 
+	    	pix.fest_login 
+	    where 
+	    	id=#{id}
+	    and 
+	    	password=#{password}
+	</select>
+	
+	<select id="SelectFestEvent" resultType="FestEvent">
+	    select 
+	  		*
+	    from 
+	    	pix.fest_event
+	    order by
+	    	idx desc 
+	</select>
+	
+	<select id="SelectFestEventNameByNumber" parameterType="Integer" resultType="String" >
+	    select 
+	  		title
+	    from 
+	    	pix.fest_ufo
+	    WHERE
+	    	idfest_ufo = #{param}
+	    
+	</select>
+	
+	<select id="SelectOption" parameterType="FestOption" resultType="FestOption">
+	    select
+	    	*
+	    from
+	    	pix.fest_option
+	    where
+	    	event_idx = #{event_idx}
+	    and
+	    	fest_option_q = #{fest_option_q}
+	</select>
+	
+	<select id="SelectQ1" parameterType="Integer" resultType="FestQ1">
+		select 
+			* 
+		from 
+			pix.fest_q1 
+		where
+			event_idx = #{param}
+		order by 
+			idx desc 
+		limit 1; 	 
+	</select>
+	<select id="SelectQ2" parameterType="Integer" resultType="FestQ2">
+		select 
+			* 
+		from 
+			pix.fest_q2 
+		where
+			event_idx = #{param}
+		order by 
+			idx desc 
+		limit 1; 	 
+	</select>
+	<select id="SelectQ3" parameterType="Integer" resultType="FestQ3">
+		select 
+			* 
+		from 
+			pix.fest_q3 
+		where
+			event_idx = #{param}
+		order by 
+			idx desc 
+		limit 1; 	 
+	</select>
+	<select id="SelectQ4" parameterType="Integer" resultType="FestQ4">
+		select 
+			* 
+		from 
+			pix.fest_q4 
+		where
+			event_idx = #{param}
+		order by 
+			idx desc 
+		limit 1; 	 
+	</select>
+	<select id="SelectQ5" parameterType="Integer" resultType="FestQ5">
+		select 
+			* 
+		from 
+			pix.fest_q5 
+		where
+			event_idx = #{param}
+		order by 
+			idx desc 
+		limit 1; 	 
+	</select>
+	<select id="SelectQ6" parameterType="Integer" resultType="FestQ6">
+		select 
+			* 
+		from 
+			pix.fest_q6 
+		where
+			event_idx = #{param}
+		order by 
+			idx desc 
+		limit 1; 	 
+	</select>
+	<select id="SelectQ7" parameterType="Integer" resultType="FestQ7">
+		select 
+			* 
+		from 
+			pix.fest_q7 
+		where
+			event_idx = #{param}
+		order by 
+			idx desc 
+		limit 1; 	 
+	</select>
+	
+	<select id="SelectInfo" parameterType="Integer" resultType="FestEventInfo">
+	    select
+	    	*
+	    from
+	    	pix.fest_event_info
+	    where
+	    	event_idx = #{param}
+	    order by
+	    	idx desc;
+	</select>
+	
+	<select id="SelectNotice" parameterType="Integer" resultType="FestEventNotice">
+	    select
+	    	*
+	    from
+	    	pix.fest_event_notice
+	    where
+	    	event_idx = #{param}
+	    order by
+	    	idx desc;
+	</select>
+	
+	<select id="SelectUfoNotice" parameterType="String" resultType="FestUfoNotice">
+	SELECT 
+	`fest_ufo_notice`.`idfest_ufo_notice`,
+    `fest_ufo_notice`.`para`,
+    `fest_ufo_notice`.`createdBy`,
+    `fest_ufo_notice`.`title`,
+    `fest_ufo_notice`.`content`,
+    `fest_ufo_notice`.`date`,
+    `fest_ufo_notice`.`is_use`
+	FROM `pix`.`fest_ufo_notice`
+	WHERE `fest_ufo_notice`.`para` = #{param}
+	AND `fest_ufo_notice`.`is_use` = 'Y'
+	ORDER BY `fest_ufo_notice`.`idfest_ufo_notice` desc;
+	</select>
+	
+	<select id="SelectUfoParaByNumber" parameterType="Integer" resultType="String">
+		SELECT
+			para
+		FROM
+			fest_ufo
+		WHERE
+			idfest_ufo = #{param}
+	</select>
+	
+	<select id="SelectUfoByNumber" parameterType="Integer" resultType="FestUfo">
+	SELECT `fest_ufo`.`idfest_ufo`,
+    `fest_ufo`.`title`,
+    `fest_ufo`.`logo`,
+    `fest_ufo`.`main_image`,
+    `fest_ufo`.`event_date`,
+    `fest_ufo`.`event_long_description`,
+    `fest_ufo`.`event_short_description`,
+    `fest_ufo`.`info_info_pic`,
+    `fest_ufo`.`info_info_text`,
+    `fest_ufo`.`info_hist_pic`,
+    `fest_ufo`.`info_hist_text`,
+    `fest_ufo`.`q_coupon_img`,
+    `fest_ufo`.`info_program_pic`,
+    `fest_ufo`.`info_program_text`,
+    `fest_ufo`.`info_location_pic`,
+    `fest_ufo`.`info_location_text`,
+    `fest_ufo`.`info_contact_pic`,
+    `fest_ufo`.`info_contact_text`,
+    `fest_ufo`.`q1_img`,
+    `fest_ufo`.`q2_img`,
+    `fest_ufo`.`q3_img`,
+    `fest_ufo`.`q4_img`,
+    `fest_ufo`.`q5_img`,
+    `fest_ufo`.`q6_img`,
+    `fest_ufo`.`q7_img`,
+    `fest_ufo`.`q_coupon_txt`,
+    `fest_ufo`.`q_coupon_txt2`,
+    `fest_ufo`.`q_coupon_txt3`,
+    `fest_ufo`.`ufo_time_stamp`,
+    `fest_ufo`.`q_graphic`,
+    `fest_ufo`.`para`
+	FROM `pix`.`fest_ufo`
+	WHERE `fest_ufo`.`idfest_ufo` = #{param}
+	</select>
+	
+	<select id="SelectUfoOptionQ1ByPara" parameterType="String" resultType="FestOption">
+	SELECT
+		q1_option as fest_option_content
+	FROM
+		pix.fest_ufo_q1
+	WHERE 
+		para = #{param} and is_use = 'Y'
+	ORDER BY
+		orderq asc
+	</select>
+	
+	
+	<select id="SelectUfoOptionQ2ByPara" parameterType="String" resultType="FestOption">
+	SELECT
+		q2_option as fest_option_content
+	FROM
+		fest_ufo_q2
+	WHERE 
+		para = #{param} and is_use = 'Y'
+	ORDER BY
+		orderq asc
+	</select>
+	<select id="SelectUfoOptionQ3ByPara" parameterType="String" resultType="FestOption">
+	SELECT
+		q3_option as fest_option_content
+	FROM
+		fest_ufo_q3
+	WHERE 
+		para = #{param} and is_use = 'Y'
+	ORDER BY
+		orderq asc
+	</select>
+	<select id="SelectUfoOptionQ4ByPara" parameterType="String" resultType="FestOption">
+	SELECT
+		q4_option as fest_option_content
+	FROM
+		fest_ufo_q4
+	WHERE 
+		para = #{param}	and is_use = 'Y'
+	ORDER BY
+		orderq asc
+	</select>
+	<select id="SelectUfoOptionQ5ByPara" parameterType="String" resultType="FestOption">
+	SELECT
+		q5_option as fest_option_content
+	FROM
+		fest_ufo_q5
+	WHERE 
+		para = #{param} and is_use = 'Y'
+	ORDER BY
+		orderq asc
+	</select>
+	<select id="SelectUfoQuestionByPara" parameterType="String" resultType="String">
+	
+	SELECT question 
+	FROM pix.fest_ufo_questions
+	WHERE para = #{param} and is_use = 'Y'
+	ORDER BY orderq asc;
+	
+	</select>
+	
+	<update id="UpdateNoticeContentByKey" parameterType="hashmap">
+		UPDATE 
+			pix.fest_ufo_notice
+		SET
+			content=#{content}
+		WHERE 
+			idfest_ufo_notice=#{fest_id};
+	</update>
+	<insert id="InsertNoticeByModel" parameterType="FestUfoNotice">
+			INSERT INTO `pix`.`fest_ufo_notice`
+		(`para`,
+		`createdBy`,
+		`title`,
+		`content`,
+		`date`,
+		`is_use`)
+		VALUES
+		(#{para},
+		#{createdBy},
+		#{title},
+		#{content},
+		now(),
+		'Y');
+	</insert>
+	<update id="DeleteNoticeContentByKey" parameterType="String">
+		UPDATE 
+			pix.fest_ufo_notice
+		SET
+			is_use='N'
+		WHERE 
+			idfest_ufo_notice=#{fest_id};
+	</update>
+	
+	<select id="SelectUfoForMobileByPara" parameterType="String" resultType="Event_VO">
+	SELECT 
+	
+	A.title							,
+	A.logo							,
+	A.main_image					,
+	A.event_date					,
+	A.event_long_description		,
+	A.info_info_pic					,
+	A.info_info_text				,
+	A.info_hist_pic					,
+	A.info_hist_text				,
+	A.info_program_pic				,
+	A.info_program_text				,
+	A.info_location_pic				,
+	A.info_location_text			,
+	A.info_contact_pic				,
+	A.info_contact_text				,
+	A.q1_img						,
+	A.q2_img						,
+	A.q3_img						,
+	A.q4_img						,
+	A.q5_img						,
+	A.q6_img						,
+	A.q_coupon_img					,
+	A.q_coupon_txt					,
+	A.q_coupon_txt2					,
+	A.q_coupon_txt3					,
+	A.q_graphic						
+	
+	FROM pix.fest_ufo A 
+	
+	WHERE A.para = #{param};
+	</select>
+	
+</mapper>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="pix.gdc.com.vo.PixArticle" alias="pixArticle"/>
+		<typeAlias type="pix.gdc.com.vo.PixLike" alias="pixLike"/>
+		<typeAlias type="pix.gdc.com.vo.PixComment" alias="pixComment"/>
+		<typeAlias type="pix.gdc.com.vo.FestLogin" alias="FestLogin"/>
+		<typeAlias type="pix.gdc.com.vo.FestEvent" alias="FestEvent"/>
+		<typeAlias type="pix.gdc.com.vo.FestEventInfo" alias="FestEventInfo"/>
+		<typeAlias type="pix.gdc.com.vo.FestEventNotice" alias="FestEventNotice"/>
+		<typeAlias type="pix.gdc.com.vo.FestOption" alias="FestOption"/>
+		<typeAlias type="pix.gdc.com.vo.FestQ1" alias="FestQ1"/>
+		<typeAlias type="pix.gdc.com.vo.FestQ2" alias="FestQ2"/>
+		<typeAlias type="pix.gdc.com.vo.FestQ3" alias="FestQ3"/>
+		<typeAlias type="pix.gdc.com.vo.FestQ4" alias="FestQ4"/>
+		<typeAlias type="pix.gdc.com.vo.FestQ5" alias="FestQ5"/>
+		<typeAlias type="pix.gdc.com.vo.FestQ6" alias="FestQ6"/>
+		<typeAlias type="pix.gdc.com.vo.FestQ7" alias="FestQ7"/>
+		<typeAlias type="pix.gdc.com.vo.FestUfoNotice" alias="FestUfoNotice"/>
+		<typeAlias type="pix.gdc.com.vo.FestUfo" alias="FestUfo"/>
+		<typeAlias type="pix.gdc.com.vo.Event_VO" alias="Event_VO"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="pix/gdc/com/mapper/BasicMapper.xml" />
+	</mappers>
+</configuration>
