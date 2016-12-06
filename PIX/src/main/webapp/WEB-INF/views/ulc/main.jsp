@@ -24,18 +24,18 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400,500,700" rel="stylesheet" type="text/css">
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/ionicons.min.css">
-    <link rel="stylesheet" href="css/slick.css">
-    <link rel="stylesheet" href="css/slick-theme.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.css">
-    <link rel="stylesheet" href="css/animate.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/ionicons.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/slick.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/slick-theme.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/animate.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/style.css">
     
     <!-- Custom Colors -->
     <!-- <link rel="stylesheet" href="css/colors/blue/color.css"> -->
     <!--<link rel="stylesheet" href="css/colors/green/color.css">-->
-    <link rel="stylesheet" href="css/colors/orange/color.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/colors/orange/color.css">
     <!--<link rel="stylesheet" href="css/colors/pink/color.css">-->
     <!--<link rel="stylesheet" href="css/colors/yellow/color.css">-->
     
@@ -48,13 +48,13 @@
     	<link rel="stylesheet" href="css/ie-older.css">
     <![endif]-->
     
-    <noscript><link rel="stylesheet" href="css/no-js.css"></noscript>
+    <noscript><link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/no-js.css"></noscript>
     
     <!-- Favicons -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+	<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/ulc/images/favicon.ico">
+	<link rel="apple-touch-icon" href="${pageContext.request.contextPath}/resources/ulc/images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="${pageContext.request.contextPath}/resources/ulc/images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="${pageContext.request.contextPath}/resources/ulc/images/apple-touch-icon-114x114.png">
     
 </head>
 <body>
@@ -78,7 +78,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-brand">
-                        <a href="index.html"><img src="images/logo.png" alt="Logo"></a> <!-- site logo -->
+                        <a href="index.html"><img src="${pageContext.request.contextPath}/resources/ulc/images/logo.png" alt="Logo"></a> <!-- site logo -->
                     </div>
                 </div>
                 
@@ -101,7 +101,7 @@
         <!-- #navigation end -->
         
         <!-- .header-content -->
-        <div class="header-content" style="background-image:url(images/content/bg/1.jpg);">
+        <div class="header-content" style="background-image:url(${pageContext.request.contextPath}/resources/ulc/images/content/bg/1.jpg);">
             
             <!-- .header-overlay -->
             <div class="header-overlay">
@@ -122,13 +122,13 @@
                     <div class="header-img">
                         <figure class="img-layers">
                             <div class="img-layer-left animation" data-animation="animation-fade-in-left" data-delay="200">
-                                <img src="images/content/landing/header-1.png" alt="Image Left">
+                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-1.png" alt="Image Left">
                             </div>
                             <div class="img-layer-center animation" data-animation="animation-fade-in-up" data-delay="800">
-                                <img src="images/content/landing/header-2.png" alt="Image Center">
+                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-2.png" alt="Image Center">
                             </div>
                             <div class="img-layer-right animation" data-animation="animation-fade-in-right" data-delay="200">
-                                <img src="images/content/landing/header-3.png" alt="Image Right">
+                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-3.png" alt="Image Right">
                             </div>
                         </figure>
                     </div>
@@ -207,7 +207,7 @@
                 
                 <div class="col-sm-6 col-md-5 col-lg-4 col-md-offset-0 col-lg-offset-1 img-padding-xs">
                 	<figure class="margin-bottom35-min margin-bottom60-xs animation" data-animation="animation-slide-in-left">
-                    	<img src="images/content/landing/counter-1.png" alt="Image">
+                    	<img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/counter-1.png" alt="Image">
                     </figure>
                 </div>
                 
@@ -259,7 +259,7 @@
     <!-- #counter end -->
     
     <!-- #testimonials -->
-    <div id="testimonials" class="bg-img" style="background-image:url(images/content/bg/2.jpg);">
+    <div id="testimonials" class="bg-img" style="background-image:url(${pageContext.request.contextPath}/resources/ulc/images/content/bg/2.jpg);">
         
         <!-- .bg-overlay -->
         <div class="bg-overlay bg-overlay90 container-padding140">
@@ -372,10 +372,10 @@
                 <div class="col-sm-6 col-md-5 col-lg-4 col-md-offset-0 col-lg-offset-1 img-padding-xs">
                 	<figure class="img-layers2 img-layer-left-front">
                     	<div class="img-layer-left animation" data-animation="animation-slide-in-right">
-                        	<img src="images/content/landing/feature-1-left.png" alt="Image Left">
+                        	<img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/feature-1-left.png" alt="Image Left">
                         </div>
                         <div class="img-layer-right animation" data-animation="animation-fade-in-left" data-delay="1000">
-                        	<img src="images/content/landing/feature-1-right.png" alt="Image Right">
+                        	<img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/feature-1-right.png" alt="Image Right">
                         </div>
                     </figure>
                 </div>
@@ -411,7 +411,7 @@
             	<div class="container">
                 	<div class="row">
                     	<div class="col-lg-10 col-lg-offset-1">
-                        	<figure><img src="images/content/screenshots/1.png" alt="Image"></figure>
+                        	<figure><img src="${pageContext.request.contextPath}/resources/ulc/images/content/screenshots/1.png" alt="Image"></figure>
                         </div>
                     </div>
                 </div>
@@ -421,7 +421,7 @@
             	<div class="container">
                 	<div class="row">
                     	<div class="col-lg-10 col-lg-offset-1">
-                        	<figure><img src="images/content/screenshots/2.png" alt="Image"></figure>
+                        	<figure><img src="${pageContext.request.contextPath}/resources/ulc/images/content/screenshots/2.png" alt="Image"></figure>
                         </div>
                     </div>
                 </div>
@@ -431,7 +431,7 @@
             	<div class="container">
                 	<div class="row">
                     	<div class="col-lg-10 col-lg-offset-1">
-                        	<figure><img src="images/content/screenshots/3.png" alt="Image"></figure>
+                        	<figure><img src="${pageContext.request.contextPath}/resources/ulc/images/content/screenshots/3.png" alt="Image"></figure>
                         </div>
                     </div>
                 </div>
@@ -444,7 +444,7 @@
     <!-- #screenshots end -->
     
     <!-- #download -->
-    <div id="download" class="bg-img" style="background-image:url(images/content/bg/3.jpg);">
+    <div id="download" class="bg-img" style="background-image:url(${pageContext.request.contextPath}/resources/ulc/images/content/bg/3.jpg);">
         
         <!-- .bg-overlay -->
         <div class="bg-overlay container-padding140120">
@@ -542,20 +542,20 @@
 	<![endif]-->
     
     <!-- JavaScripts -->
-	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
-    <script type="text/javascript" src="js/smoothscroll.js"></script>
-	<script type="text/javascript" src="js/response.min.js"></script>
-	<script type="text/javascript" src="js/jquery.placeholder.min.js"></script>
-	<script type="text/javascript" src="js/jquery.fitvids.js"></script>
-	<script type="text/javascript" src="js/waypoints.min.js"></script>
-    <script type="text/javascript" src="js/slick.min.js"></script>
-    <script type="text/javascript" src="js/jquery.fancybox.pack.js"></script>
-    <script type="text/javascript" src="js/jquery.fancybox-media.js"></script>
-    <script type="text/javascript" src="js/jquery.counterup.min.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/smoothscroll.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/response.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery.fitvids.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/waypoints.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/slick.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery.fancybox-media.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/jquery.counterup.min.js"></script>
+	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/ulc/js/script.js"></script>
     
 </body>
 </html>
