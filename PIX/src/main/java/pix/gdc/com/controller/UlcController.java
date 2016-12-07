@@ -11,4 +11,9 @@ public class UlcController {
 	public String ulcMain(){
 		return "ulc/main";
 	}
+	
+	@RequestMapping(value = "REA/", method = RequestMethod.GET)
+	public String reactMain(){
+		return "react/react";
+	}
 }
