@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="UFO79 is a simple and clean design landing page that built-in professional responsive template, elegant style, smooth-animation and have a slew of features.">
     <meta name="keywords" content="Landing Page, One Page Template, Simple Design, Clean Design, Responsive Template, Smooth Animation, App Showcase, PSD, HTML5, CSS3, jQuery">
-    <meta name="author" content="Affapress">
+    <meta name="author" content="TEAM U.F.O.">
     
     <!-- Mobile Specific Meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -78,7 +78,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-brand">
-                        <a href="index.html"><img src="${pageContext.request.contextPath}/resources/ulc/images/logo.png" alt="Logo"></a> <!-- site logo -->
+                        <a href="index.html"><img src="${pageContext.request.contextPath}/resources/ulc/images/logo_ufo_white.png" alt="Logo"></a> <!-- site logo -->
                     </div>
                 </div>
                 
@@ -122,13 +122,13 @@
                     <div class="header-img">
                         <figure class="img-layers">
                             <div class="img-layer-left animation" data-animation="animation-fade-in-left" data-delay="200">
-                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-1.png" alt="Image Left">
+                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-1-ufo.png" alt="Image Left">
                             </div>
                             <div class="img-layer-center animation" data-animation="animation-fade-in-up" data-delay="800">
-                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-2.png" alt="Image Center">
+                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-2-ufo.png" alt="Image Center">
                             </div>
                             <div class="img-layer-right animation" data-animation="animation-fade-in-right" data-delay="200">
-                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-3.png" alt="Image Right">
+                                <img src="${pageContext.request.contextPath}/resources/ulc/images/content/landing/header-3-ufo.png" alt="Image Right">
                             </div>
                         </figure>
                     </div>
@@ -157,33 +157,33 @@
                 <div class="col-sm-4"> <!-- 1 -->
                 	<div class="affa-feature-icon">
                     	<div class="feature-icon-heading">
-                        	<i class="ion ion-ipad"></i>
-                            <p>Minima Landing</p>
-                            <h4>Responsive Display</h4>
+                        	<i class="ion ion-ios-world-outline"></i>
+                            <p>UFO The platform</p>
+                            <h4>축제 관리를 위해 최적화된 플랫폼</h4>
                         </div>
-                        <p>Proident sunt denim culpa qui officia dsaf deserunt mollit anim perspiciatis adelin malesuada sociosqu class aptent turpis mi aenean.</p>
+                        <p>UFO는 축제 정보와 콘텐츠를 쉽게 관리하고 제작할 수 있도록 도와줍니다.</p>
                     </div>
                 </div>
                 
                 <div class="col-sm-4"> <!-- 2 -->
                 	<div class="affa-feature-icon">
                     	<div class="feature-icon-heading">
-                        	<i class="ion ion-lock-combination"></i>
-                            <p>Minima Landing</p>
-                            <h4>Quality Support</h4>
+                        	<i class="ion ion-android-laptop"></i>
+                            <p>UFO Hybrid solution</p>
+                            <h4>모바일 앱과 웹 사이트 동시 제작</h4>
                         </div>
-                        <p>Proident sunt denim culpa qui officia dsaf deserunt mollit anim perspiciatis adelin malesuada sociosqu class aptent turpis mi aenean.</p>
+                        <p>UFO는 축제용 웹 사이트와 모바일 앱을 동시에 제작하는 솔루션으로 구축 비용 및 시간을 절감시킵니다.</p>
                     </div>
                 </div>
                 
                 <div class="col-sm-4"> <!-- 3 -->
                 	<div class="affa-feature-icon">
                     	<div class="feature-icon-heading">
-                        	<i class="ion ion-soup-can-outline"></i>
-                            <p>Minima Landing</p>
-                            <h4>E-Commerce Features</h4>
+                        	<i class="ion ion-android-contacts"></i>
+                            <p>UFO Analytics</p>
+                            <h4>축제 참여자 피드백 분석 서비스</h4>
                         </div>
-                        <p>Proident sunt denim culpa qui officia dsaf deserunt mollit anim perspiciatis adelin malesuada sociosqu class aptent turpis mi aenean.</p>
+                        <p>UFO는 방문자의 축제 참여 활동, 축제 전반에 대한 피드백 자료를 분석하여 제공합니다.</p>
                     </div>
                 </div>
                 
@@ -330,23 +330,23 @@
                 <div class="col-sm-6 col-lg-5 col-sm-offset-0 col-md-offset-1 margin-bottom40-xs">
                 	<div class="padding-top140 padding-top80-sm padding-top0-xs text-center-xs">
                     	<div class="post-heading-left">
-                        	<p>Minimalist</p>
-                            <h2>Anytime, Anywhere.</h2>
-                            <h5>Morbi condimentum, lorem ac tur vulputate augue elementum, tellus dolor dictum mauris erat.</h5>
+                        	<p>UFO 서베이 서비스</p>
+                            <h2>축제 방문객의 참여와 피드백을 이끌어내는 간편한 매개체</h2>
+                            <h5>UFO는 설문조사, 퀴즈, 미션 등을 생성하여 축제 방문객의 참여를 유도하고 피드백을 받을 수 있는 서베이 서비스를 제공합니다. </h5>
                         </div>
                         
                         <div class="row">
                         	<div class="col-sm-6"> <!-- 1 -->
                             	<div class="affa-feature-icon2">
-                                    <i class="ion ion-android-phone-portrait"></i>
-                                    <p><strong>Mobile apps.</strong> Mauris in dolor arcu volupat quis interdum sit orci.</p>
+                                    <i class="ion ion-paper-airplane"></i>
+                                    <p><strong>스토리가 있는 서베이</strong> 방문객의 참여를 최대로 이끌어낼 수 있도록 컨설팅 지원</p>
                                 </div>
                             </div>
                             
                             <div class="col-sm-6"> <!-- 2 -->
                             	<div class="affa-feature-icon2">
-                                    <i class="ion ion-android-lock"></i>
-                                    <p><strong>Secure codes.</strong> Mauris in dolor arcu volupat quis interdum sit orci.</p>
+                                    <i class="ion ion-speakerphone"></i>
+                                    <p><strong>맞춤형 서베이 폼</strong> 객/주관식 문항, 사진 올리기 등 원하는 형태의 설문조사 제작 지원</p>
                                 </div>
                             </div>
                         </div>
@@ -354,15 +354,15 @@
                         <div class="row">
                         	<div class="col-sm-6"> <!-- 3 -->
                             	<div class="affa-feature-icon2">
-                                    <i class="ion ion-android-happy"></i>
-                                    <p><strong>Easy to use.</strong> Mauris in dolor arcu volupat quis interdum sit orci.</p>
+                                    <i class="ion ion-trophy"></i>
+                                    <p><strong>보상 프로그램</strong> 설문조사에 참여하는 참가자들에게 제공하는 상품 쿠폰 발행 가능</p>
                                 </div>
                             </div>
                             
                             <div class="col-sm-6"> <!-- 4 -->
                             	<div class="affa-feature-icon2">
-                                    <i class="ion ion-android-archive"></i>
-                                    <p><strong>Cloud hosting.</strong> Mauris in dolor arcu volupat quis interdum sit orci.</p>
+                                    <i class="ion ion-stats-bars"></i>
+                                    <p><strong>피드백 결과 분석</strong> 참가자에게 받은 피드백을 심층적으로 분석한 서베이 결과 제공</p>
                                 </div>
                             </div>
                         </div>
