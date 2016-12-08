@@ -2,22 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html ng-app="project">
+<html>
 <jsp:include page="ufoHeaderHtml.jsp" flush="false">
 <jsp:param name="param" value="value1"/>
 </jsp:include>
-	<script src="${pageContext.request.contextPath}/resources/pix/angular/project.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/pix/angular/project-list.js"></script>
-
+	<script type="text/jsx" src="${pageContext.request.contextPath}/resources/react/reactApp.jsx"></script>
+	<script type="text/jsx" src="${pageContext.request.contextPath}/resources/react/pixGeneral.jsx"></script>
+	
     <body data-spy="scroll" data-offset="80">
-
+		
         <jsp:include page="ufoHeader.jsp" flush="true">
         	<jsp:param name="param" value="value1"/>
         </jsp:include>
+                        	
         <section id="blog-wrapper" class="section-padding">
             <div class="container">
-            <div ng-view></div>
                 <div class="row">
+
                     <div class="col-sm-9">              	
                       	<div class='col lg 12'>
                       		<H1>${ufo.title }</H1>
@@ -26,6 +27,9 @@
                             <H3>${ufo.event_date}</H3>
                             <H5>${ufo.event_long_description}</H5>                            
                             <textarea id="long_desc">${ufo.event_long_description }</textarea>
+                            <div id="exampleRec"></div>
+                            <a href="#" class="btn-example" onclick="layer_open('layer2');return false;">새로 생성</a>
+                            <div id="genCreate"></div>
                       	</div>
                                         
                     	<div class="blog-post-wrap">
@@ -265,5 +269,40 @@
 // 	                        	$("div").click(divClicked);
 // 	                        });
                         </script>  	
+                        <script type="text/javascript">
+                        
+							function layer_open(el){
+						
+								var temp = $('#' + el);
+								var bg = temp.prev().hasClass('bg');	//dimmed 레이어를 감지하기 위한 boolean 변수
+						
+								if(bg){
+									$('.layer').fadeIn();	//'bg' 클래스가 존재하면 레이어가 나타나고 배경은 dimmed 된다. 
+								}else{
+									temp.fadeIn();
+								}
+						
+								// 화면의 중앙에 레이어를 띄운다.
+								if (temp.outerHeight() < $(document).height() ) temp.css('margin-top', '-'+temp.outerHeight()/2+'px');
+								else temp.css('top', '0px');
+								if (temp.outerWidth() < $(document).width() ) temp.css('margin-left', '-'+temp.outerWidth()/2+'px');
+								else temp.css('left', '0px');
+						
+								temp.find('a.cbtn').click(function(e){
+									if(bg){
+										$('.layer').fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다. 
+									}else{
+										temp.fadeOut();
+									}
+									e.preventDefault();
+								});
+						
+								$('.layer .bg').click(function(e){	//배경을 클릭하면 레이어를 사라지게 하는 이벤트 핸들러
+									$('.layer').fadeOut();
+									e.preventDefault();
+								});
+						
+							}				
+						</script>
     </body>    
 </html>
