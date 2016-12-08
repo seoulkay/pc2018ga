@@ -53,3 +53,5 @@ local.properties
 .recommenders/
 /.DS_Store
 /PIX/
+/classes/
+/test-classes/
