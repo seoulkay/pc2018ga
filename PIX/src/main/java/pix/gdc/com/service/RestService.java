@@ -18,7 +18,7 @@ import pix.gdc.com.vo.Geodata;
 @Service
 public class RestService {
 	private static final String filePath = "/home/ubuntu/base/image/"; //server
-	// private static final String filePath = "/Users/apple/Documents/base/image"; //client
+	//private static final String filePath = "/Users/Kay/Documents/base/image"; //client
 	
 	
 	@Resource(name="fileUtil")

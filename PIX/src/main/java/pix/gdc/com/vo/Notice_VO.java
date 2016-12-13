@@ -5,6 +5,9 @@ public class Notice_VO {
 	    private String content;
 	    private String createdBy;
 	    private String date;
+	    private String photoFile;
+	    private String photoLatitude;
+	    private String photoLongitude;
 
 
 	    public String getTitle() {
@@ -38,4 +41,30 @@ public class Notice_VO {
 	    public void setDate(String date) {
 	        this.date = date;
 	    }
+
+		public String getPhotoFile() {
+			return photoFile;
+		}
+
+		public void setPhotoFile(String photoFile) {
+			this.photoFile = photoFile;
+		}
+
+		public String getPhotoLatitude() {
+			return photoLatitude;
+		}
+
+		public void setPhotoLatitude(String photoLatitude) {
+			this.photoLatitude = photoLatitude;
+		}
+
+		public String getPhotoLongitude() {
+			return photoLongitude;
+		}
+
+		public void setPhotoLongitude(String photoLongitude) {
+			this.photoLongitude = photoLongitude;
+		}
+
+		
 }

@@ -269,11 +269,36 @@ public class FestController {
 	}
 	
 	@RequestMapping(value = "FEV/updateNotice", method = RequestMethod.POST)
-	public String updateNotice(@RequestParam("idfest_ufo_notice") Integer fest_id, @RequestParam("content") String content){
+	public String updateNotice(@RequestParam("idfest_ufo_notice") Integer fest_id, @RequestParam("content") String content, @RequestParam("title") String title, @RequestParam("file") MultipartFile file){
 		HashMap<String, Object> vo = new HashMap<String, Object>();
-		vo.put("fest_id", fest_id);
-		vo.put("content", content);
-		dao.UpdateNoticeContentByKey(vo);
+		
+		
+		if (!file.isEmpty()) {
+            try {
+                String[] fileInfo = restService.writeFileToServer(file);
+                vo.put("photo_file", fileInfo[0]);
+                vo.put("photo_latitude", fileInfo[1]);
+                vo.put("photo_longitude", fileInfo[2]);
+        		
+                vo.put("fest_id", fest_id);
+        		vo.put("content", content);
+        		vo.put("title", title);
+        		
+        		dao.UpdateNoticeContentByKey(vo);
+        		
+                System.out.println("You successfully uploaded " + fileInfo[0] + " into " + fileInfo[0] + "-uploaded at Create Notice!");
+                
+            } catch (Exception e) {
+            	System.out.println("You failed to upload => " + e.getMessage() + "at createNotice");
+            }
+        } else {
+        	System.out.println("You failed to upload because the file was empty. at createNotice");
+        	vo.put("fest_id", fest_id);
+    		vo.put("content", content);
+    		vo.put("title", title);
+    		dao.UpdateNoticeContentByKey(vo);
+        }
+		
 		
 		return "redirect:festNotice";
 	}
@@ -284,10 +309,30 @@ public class FestController {
 	}
 	
 	@RequestMapping(value = "FEV/createNotice", method = RequestMethod.POST)
-	public String createNotice(@ModelAttribute("") FestUfoNotice vo){
+	public String createNotice(@ModelAttribute("") FestUfoNotice vo, @RequestParam("file") MultipartFile file){
 		
-		vo.setPara(dao.SelectUfoParaByNumber(Integer.parseInt(vo.getPara())));
-		dao.InsertNoticeByModel(vo);
+		if (!file.isEmpty()) {
+            try {
+                String[] fileInfo = restService.writeFileToServer(file);
+              
+                vo.setPhoto_file(fileInfo[0]);
+                vo.setPhoto_latitude(fileInfo[1]);
+                vo.setPhoto_longitude(fileInfo[2]);
+                
+                vo.setPara(dao.SelectUfoParaByNumber(Integer.parseInt(vo.getPara())));
+        		dao.InsertNoticeByModel(vo);
+        		
+                System.out.println("You successfully uploaded " + fileInfo[0] + " into " + fileInfo[0] + "-uploaded at Create Notice!");
+                
+            } catch (Exception e) {
+            	System.out.println("You failed to upload => " + e.getMessage() + "at createNotice");
+            }
+        } else {
+        	System.out.println("You failed to upload because the file was empty. at createNotice");
+        	vo.setPara(dao.SelectUfoParaByNumber(Integer.parseInt(vo.getPara())));
+    		dao.InsertNoticeByModel(vo);
+        }
+
 		
 		return "redirect:festNotice";
 	}

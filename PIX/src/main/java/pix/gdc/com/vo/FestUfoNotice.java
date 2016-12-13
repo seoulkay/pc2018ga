@@ -10,6 +10,9 @@ public class FestUfoNotice {
 	private String content;
 	private Date date;
 	private String is_use;
+	private String photo_file;
+    private String photo_latitude;
+    private String photo_longitude;
 	
 	public String getIdfest_ufo_notice() {
 		return idfest_ufo_notice;
@@ -52,6 +55,24 @@ public class FestUfoNotice {
 	}
 	public void setIs_use(String is_use) {
 		this.is_use = is_use;
+	}
+	public String getPhoto_file() {
+		return photo_file;
+	}
+	public void setPhoto_file(String photo_file) {
+		this.photo_file = photo_file;
+	}
+	public String getPhoto_latitude() {
+		return photo_latitude;
+	}
+	public void setPhoto_latitude(String photo_latitude) {
+		this.photo_latitude = photo_latitude;
+	}
+	public String getPhoto_longitude() {
+		return photo_longitude;
+	}
+	public void setPhoto_longitude(String photo_longitude) {
+		this.photo_longitude = photo_longitude;
 	}
 	
 	

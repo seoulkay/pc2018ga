@@ -223,13 +223,7 @@
 	
 	<select id="SelectUfoNotice" parameterType="String" resultType="FestUfoNotice">
 	SELECT 
-	`fest_ufo_notice`.`idfest_ufo_notice`,
-    `fest_ufo_notice`.`para`,
-    `fest_ufo_notice`.`createdBy`,
-    `fest_ufo_notice`.`title`,
-    `fest_ufo_notice`.`content`,
-    `fest_ufo_notice`.`date`,
-    `fest_ufo_notice`.`is_use`
+	*
 	FROM `pix`.`fest_ufo_notice`
 	WHERE `fest_ufo_notice`.`para` = #{param}
 	AND `fest_ufo_notice`.`is_use` = 'Y'
@@ -346,7 +340,13 @@
 		UPDATE 
 			pix.fest_ufo_notice
 		SET
-			content=#{content}
+			content=#{content},
+			title=#{title}
+			<if test="photo_file != null and photo_file != ''">
+				,photo_file=#{photo_file}
+				,photo_latitude=#{photo_latitude}
+				,photo_longitude=#{photo_longitude}
+			</if>
 		WHERE 
 			idfest_ufo_notice=#{fest_id};
 	</update>
@@ -357,14 +357,20 @@
 		`title`,
 		`content`,
 		`date`,
-		`is_use`)
+		`is_use`,
+		`photo_file`,
+		`photo_latitude`,
+		`photo_longitude`)
 		VALUES
 		(#{para},
 		#{createdBy},
 		#{title},
 		#{content},
 		now(),
-		'Y');
+		'Y',
+		#{photo_file},
+		#{photo_latitude},
+		#{photo_longitude});
 	</insert>
 	<update id="DeleteNoticeContentByKey" parameterType="String">
 		UPDATE 

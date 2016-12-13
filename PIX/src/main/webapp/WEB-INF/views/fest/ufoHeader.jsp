@@ -12,7 +12,7 @@
                             <span class="icon-bar">설문작성</span>
                             <span class="icon-bar">통계</span> -->                           
                         </button>
-                        <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/resources/pix/img/symbol.png" class="img-responsive" width="120em"></a>
+                        <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/resources/pix/img/symbol.png" class="img-responsive" width="50em"></a>
                     </div>
                     
                     <div class="navbar-collapse collapse">	
@@ -22,24 +22,28 @@
                             <li><a href="festInfo?idx=${sessionScope.currentEvent }">축제정보</a></li>                          
                             <li><a href="festQuestion?idx=${sessionScope.currentEvent }">설문작성</a></li>
                             <li><a href="festStat?idx=${sessionScope.currentEvent }">통계</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> ${sessionScope.UserName }</a></li>
-                            <li><a href="signOut"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>    
+                            <li><a href="#"><span class="glyphicon glyphicon-user" ></span> ${sessionScope.UserName }</a></li>
+                            <li><a href="signOut"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>   
+                            <li><div style="padding-top: 10px; padding-left: 10px">
+                           			 <div class="dropdown pull-right">
+									  <button class="btn btn-default dropdown-toggle dropdown-menu-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+									    행사 선택
+									    <span class="caret"></span>
+									  </button>
+									  
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									  	<c:forEach var="var" items="${sessionScope.eventNames}" varStatus="status">
+										    <li><a href="festChange?idx=${var.key}"> ${var.value}</a></li>
+									    </c:forEach> 
+									  </ul>
+									</div>
+                            	</div>
+                            </li> 
                         </ul>
                          
 						
                     </div><!--/.nav-collapse -->
-                    			<div class="dropdown pull-right">
-								  <button class="btn btn-default dropdown-toggle dropdown-menu-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-								    행사 선택
-								    <span class="caret"></span>
-								  </button>
-								  
-								  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								  	<c:forEach var="var" items="${sessionScope.eventNames}" varStatus="status">
-									    <li><a href="festChange?idx=${var.key}"> ${var.value}</a></li>
-								    </c:forEach> 
-								  </ul>
-								</div>
+	                    			
                  
                 </div><!--/.container -->  
             </div><!--navbar-default-->

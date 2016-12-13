@@ -1,11 +1,16 @@
 /**
  * 
  */
+/*import {layer_open} from './ReactUtil.js';*/
+import "/resources/react/ReactUtil.js";
 
 class CreateNew extends React.Component{    
     render() {
         return(
-            <div className="layer">
+           <div>
+                <a href="#" className="btn-example" onClick="layer_open('layer2');return false;">새로 생성</a>
+                <a href="" onClick="kayLog()"></a>
+                <div className="layer">
                 <div className="bg"></div>
                     <div id="layer2" className="pop-layer">
                         <div className="pop-container">
@@ -19,12 +24,12 @@ class CreateNew extends React.Component{
                         </div>
                     </div>
                </div>
+            </div>
             );
         }
     }
 
 ReactDOM.render(
         <CreateNew />,
-        <script>CKEDITOR.replace('genInput')</script>,
         document.getElementById('genCreate')
 );

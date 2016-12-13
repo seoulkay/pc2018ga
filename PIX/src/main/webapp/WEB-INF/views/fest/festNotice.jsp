@@ -20,37 +20,30 @@
                 <div class="row">
                     <div class="col-sm-9">
                     	<div>
-                    					
-                    					<p class="text-left" id="BtnShow" style="display: block">
-                                            <button onClick="showForm(); return false;" class="btn btn-dark btn-sm" style="width: 100%">
-                                                글쓰기
-                                            </button>
-                                        </p>
-                                        <p class="text-left" style="display:none">
-                                            <button onClick="hideForm(); return false;" class="btn btn-dark btn-sm">
-                                                숨기기
-                                            </button>
-                                        </p>
-                                        
-                            <!-- 인픗 시 -->            
-                            <div class="blog-post-wrap" id="UfoEventForm" style="display: none">
-                          	          
-                           			 	
-                                        
-                                        
-<!--                             <form action="UfoEventInput" method="POST" enctype="multipart/form-data"> -->
-                            
-                            <div class="row">
-                            <form id="newNoticeForm" name="newNoticeForm" action="createNotice" method="post">                                
-	                           	<input type="text" name="title" id="titleContent" class="form-control" placeholder="제목 입력하세요." required>
-	                            <textarea style="display:block;" name="content" id="notiNew" required></textarea>
-	                            <input type="hidden" name="createdBy" value="${sessionScope.UserName }">
-	                            <input type="hidden" name="para" value="${sessionScope.currentEvent }">
-                            </form>
-                            <button onClick="submitNotiNew();" class="btn btn-dark btn-sm" style="width: 100%">등록하기</button>
-                            </div>
-<!--                             </form> -->
-                        	</div><!-- 인픗 끝-->
+                    	
+                    	<button onClick="layer_open('layer2New','New');return false;" class="btn btn-dark btn-sm">
+                                                새글쓰기
+                            </button>
+                            <div class="layer" id="layerNew">
+				                <div class="bg" id="bg"></div>
+				                    <div id="layer2New" class="pop-layer">
+				                        <div class="pop-container">
+				                            <div class="pop-conts">
+				                            	<form id="newNoticeForm" name="newNoticeForm" action="createNotice" method="post" enctype="multipart/form-data">
+				                                <p class="ctxt mb20"><input type="text" name="title" style="width:100%"></input></p>
+				                                <textarea style="display:block;" name="content" id="notiNew" required></textarea>
+				                                <input type="file" name="file" class="form-control"><br>
+					                            <input type="hidden" name="createdBy" value="${sessionScope.UserName }">
+					                            <input type="hidden" name="para" value="${sessionScope.currentEvent }">
+				                                </form>
+				                                <div class="btn-r">
+				                                	<a href="#" class="sbtn" onClick="submitNotiNew();" >새글쓰기</a>
+				                                    <a href="#" class="cbtn">닫기</a>
+				                                </div>
+				                            </div>
+				                        </div>
+				                    </div>
+				               </div>
                         </div>
                         	
                       	
@@ -77,32 +70,42 @@
 <!--                                         </a>  -->
 <!--                                         </div> -->
                                         <div class="col-sm-12">
-                                        <h3><a href="#">${var.title }</a> <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></h3>
+                                        <h3><a href="#" onClick="layer_open('layer2${var.idfest_ufo_notice }',${var.idfest_ufo_notice });return false;">${var.title }</a></h3>
                                         
                                         <ul class="list-inline xs-post-info visible-xs">
                                             <li><i class="fa fa-user"></i> <a href="#">만든사람 {var.createdBy}</a></li>
                                             <li><i class="fa fa-tag"></i> <a href="#">태그</a></li>
                                             <li><i class="fa fa-comment"></i> <a href="#">3 Comments</a></li>
                                         </ul>
-                                        <form id="formContentFest${var.idfest_ufo_notice }" method="post" action="updateNotice">
-                                        	 <!--제목 인풋 처리 안이쁘다 -->
-                                        	 <input type="text" name="title${var.idfest_ufo_notice }" value=${var.title }></input>
-                                        	 <div id="notiDisplay${var.idfest_ufo_notice }">${var.content }</div>
-                                        	 <input type="hidden" name="idfest_ufo_notice" value="${var.idfest_ufo_notice }">
-                                        	 <textarea style="display:none;" name="content" id="noti${var.idfest_ufo_notice }" >${var.content }</textarea>
-                                       	</form>
-                                            <a href="javascript:void(0)" id="editNoti${var.idfest_ufo_notice }" onClick="editNoti(${var.idfest_ufo_notice })" class="btn btn-dark btn-sm">
-                                                수정하기
-                                            </a>
-                                            <a href="javascript:void(0)" id="submitNoti${var.idfest_ufo_notice }" onClick="submitNoti(${var.idfest_ufo_notice })" class="btn btn-dark btn-sm" style="display:none;">
-                                              	수정등록
-                                            </a>
-                                       		<a href="javascript:void(0)" id="delNoti${var.idfest_ufo_notice }" onClick="delNoti(${var.idfest_ufo_notice })" class="btn btn-dark btn-sm">
-                                                삭제하기
-                                            </a>
-                                        <form id="formContentFestDel${var.idfest_ufo_notice }" method="post" action="delNotice">
-                                        	 <input type="hidden" name="idfest_ufo_notice" value="${var.idfest_ufo_notice }">
+                                        
+							            <div class="layer" id="layer${var.idfest_ufo_notice }">
+							                <div class="bg" id="bg${var.idfest_ufo_notice }"></div>
+							                    <div id="layer2${var.idfest_ufo_notice }" class="pop-layer">
+							                        <div class="pop-container">
+							                            <div class="pop-conts">
+							                            	<form id="formContentFest${var.idfest_ufo_notice }" method="post" action="updateNotice" enctype="multipart/form-data">
+							                                <p class="ctxt mb20"><input type="text" name="title" id="notiDisplay${var.idfest_ufo_notice }" value="${var.title }" style="width:100%"></input></p>
+							                                <textarea id="noti${var.idfest_ufo_notice }" name="content">${var.content }</textarea>
+							                                <input type="hidden" name="idfest_ufo_notice" value="${var.idfest_ufo_notice }">
+							                                <input type="file" name="file" class="form-control"><br>
+							                                </form>
+							                                <div class="btn-r">
+							                                	<a href="#" class="sbtn" onClick="submitNoti(${var.idfest_ufo_notice })">수정하기</a>
+							                                	<a href="#" class="sbtn" onClick="delNoti(${var.idfest_ufo_notice })">삭제하기</a>
+							                                    <a href="#" class="cbtn">닫기</a>
+							                                </div>
+							                            </div>
+							                        </div>
+							                    </div>
+							               </div>
+							            <form id="formContentFestDel${var.idfest_ufo_notice }" method="post" action="delNotice">
+                                        <input type="hidden" name="idfest_ufo_notice" value="${var.idfest_ufo_notice }">
                                         </form>
+                                        	<c:if test="${var.photo_file ne null}">
+                                        		<img src="/ufoimg/image${var.photo_file}" class="img-responsive" alt="" style="width:300px">
+                                        	</c:if>
+							               	<div><p>${var.content }</p></div>
+							               	      
                                         </div>
                                     </div>
                                 </div>
@@ -114,6 +117,7 @@
                             <li><a href="#">Next Page</a></li>
                         </ul>
                     </div><!--blog-post col-->
+                    
                     <jsp:include page="sideBar.jsp" flush="false">
 			        	<jsp:param name="param" value="value1"/>
 			        </jsp:include>
@@ -150,9 +154,15 @@
             
             
             function delNoti(param){
+            	var r = confirm("삭제하시겠습니까?");
+            	if(r == true){
             	$('form#formContentFestDel'+param).submit();
             	alert("삭제완료");
+            	} else {
+            		alert("취소되었습니다.")
+            	} 
             }
+            
             
             function submitNotiNew(){
             	if(validateFormNew()){
@@ -195,7 +205,45 @@
                     return (elm == null || elm == "" || elm == "undefined" || elm == " ") ? true : false
             }
             
-            CKEDITOR.replace('notiNew');
+            
+            
+            
+            function layer_open(el, para){
+                
+            	var temp = $('#' + el);
+            	var bg = temp.prev().hasClass('bg');    //dimmed 레이어를 감지하기 위한 boolean 변수
+            	//document.getElementById('bg'+para).className="bg";
+            	
+            	if(bg){
+            	    $('#layer'+para).fadeIn();   //'bg' 클래스가 존재하면 레이어가 나타나고 배경은 dimmed 된다. 
+            	    CKEDITOR.replace( 'noti'+para);
+            	}else{
+            		alert("레이어드 인풋 에러")
+            	    temp.fadeIn();
+            	}
+
+            	// 화면의 중앙에 레이어를 띄운다.
+            	if (temp.outerHeight() < $(document).height() ) temp.css('margin-top', '-'+temp.outerHeight()/2+'px');
+            	else temp.css('top', '0px');
+            	if (temp.outerWidth() < $(document).width() ) temp.css('margin-left', '-'+temp.outerWidth()/2+'px');
+            	else temp.css('left', '0px');
+
+            	temp.find('a.cbtn').click(function(e){
+            	    if(bg){
+            	        $('#layer'+para).fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다. 
+            	    }else{
+            	        temp.fadeOut();
+            	    }
+            	    e.preventDefault();
+            	});
+
+            	$('.layer .bg').click(function(e){  //배경을 클릭하면 레이어를 사라지게 하는 이벤트 핸들러
+            	    $('#layer'+para).fadeOut();
+            	        e.preventDefault();
+            	    });
+
+            	}      
+            
         </script>
         
     </body>
