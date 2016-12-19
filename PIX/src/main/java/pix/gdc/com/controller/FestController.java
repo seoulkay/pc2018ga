@@ -178,12 +178,63 @@ public class FestController {
 			return "redirect:festLoginForm";
 		}
 		
-		List<FestEventInfo> info = new ArrayList<FestEventInfo>();
-		info = dao.SelectInfo(idx);
+		List<FestEventInfo> infor = new ArrayList<FestEventInfo>();
+		infor = dao.SelectInfo(idx);
+		
 		
 		FestUfo ufo = dao.SelectUfoByNumber(idx);
+		
+		List<FestUfoNotice> noticeList = new ArrayList<FestUfoNotice>();
+		
+		//ufo를 notice list로 바꿔 보자!
+		FestUfoNotice info = new FestUfoNotice();
+		FestUfoNotice hist = new FestUfoNotice();
+		FestUfoNotice prog = new FestUfoNotice();
+		FestUfoNotice loca = new FestUfoNotice();
+		FestUfoNotice cont = new FestUfoNotice();
+		FestUfoNotice desc = new FestUfoNotice();
+		
+		
+		info.setVoType("info");
+		info.setContent(ufo.getInfo_hist_text());
+		info.setPhoto_file(ufo.getInfo_info_pic());
+		
+		
+		hist.setVoType("hist");
+		hist.setContent(ufo.getInfo_hist_text());
+		hist.setPhoto_file(ufo.getInfo_hist_pic());
+		
+		
+		prog.setVoType("prog");
+		prog.setContent(ufo.getInfo_program_text());
+		prog.setPhoto_file(ufo.getInfo_program_pic());
+		
+		
+		loca.setVoType("loca");
+		loca.setContent(ufo.getInfo_location_text());
+		loca.setPhoto_file(ufo.getInfo_location_pic());
+		
+		
+		cont.setVoType("cont");
+		cont.setContent(ufo.getInfo_contact_text());
+		cont.setPhoto_file(ufo.getInfo_contact_pic());
+		
+		cont.setVoType("desc");
+		cont.setContent(ufo.getEvent_long_description());
+		cont.setPhoto_file(ufo.getMain_image());
+		
+		noticeList.add(desc);
+		noticeList.add(info);
+		noticeList.add(hist);
+		noticeList.add(prog);
+		noticeList.add(loca);
+		noticeList.add(cont);
+		
+		
+		
+		model.addAttribute("noticeList", noticeList);
 		model.addAttribute("ufo", ufo);
-		model.addAttribute("info", info);
+		model.addAttribute("info", infor);
 		
 		return "fest/festInfo";
 	}
@@ -194,11 +245,11 @@ public class FestController {
 			return "redirect:festLoginForm";
 		}
 		
-		List<FestEventNotice> notice = new ArrayList<FestEventNotice>();
+		//List<FestEventNotice> notice = new ArrayList<FestEventNotice>();
 		
 		Integer currentEvent =  (Integer)session.getAttribute("currentEvent");
 		
-		notice = dao.SelectNotice(currentEvent);
+		//notice = dao.SelectNotice(currentEvent);
 		String para = dao.SelectUfoParaByNumber(currentEvent);
 		
 		List<FestUfoNotice> noticeList = dao.SelectUfoNotice(para);
@@ -207,7 +258,7 @@ public class FestController {
 		model.addAttribute("ufo", ufo);
 		
 		model.addAttribute("noticeList", noticeList);
-		model.addAttribute("notice", notice);
+		//model.addAttribute("notice", notice);
 		return "fest/festNotice";
 	}
 	

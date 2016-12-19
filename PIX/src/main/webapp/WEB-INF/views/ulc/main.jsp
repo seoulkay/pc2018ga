@@ -78,7 +78,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <div class="navbar-brand">
-                        <a href="index.html"><img src="${pageContext.request.contextPath}/resources/ulc/images/logo_ufo_white.png" alt="Logo"></a> <!-- site logo -->
+                        <a href="index"><img src="${pageContext.request.contextPath}/resources/ulc/images/logo_ufo_white.png" alt="Logo"></a> <!-- site logo -->
                     </div>
                 </div>
                 
@@ -90,7 +90,7 @@
                         <li><a href="#counter" class="smooth-scroll">Counter</a></li>
                         <li><a href="#testimonials" class="smooth-scroll">Reviews</a></li>
                         <li><a href="#screenshots" class="smooth-scroll">Screenshots</a></li>
-                        <li><a href="page.html">Page</a></li>
+                        <li><a href="page">Page</a></li>
                     </ul>
                 </div>
                 

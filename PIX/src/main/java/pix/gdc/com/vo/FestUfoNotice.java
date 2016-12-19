@@ -13,6 +13,9 @@ public class FestUfoNotice {
 	private String photo_file;
     private String photo_latitude;
     private String photo_longitude;
+    
+    //이것은 역사. 정보 등의 타입을 적어두기 위한 값이다.
+    private String voType;
 	
 	public String getIdfest_ufo_notice() {
 		return idfest_ufo_notice;
@@ -73,6 +76,12 @@ public class FestUfoNotice {
 	}
 	public void setPhoto_longitude(String photo_longitude) {
 		this.photo_longitude = photo_longitude;
+	}
+	public String getVoType() {
+		return voType;
+	}
+	public void setVoType(String voType) {
+		this.voType = voType;
 	}
 	
 	
