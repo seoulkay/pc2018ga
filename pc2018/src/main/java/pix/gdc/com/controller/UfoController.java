@@ -211,8 +211,8 @@ public class UfoController {
 //	}
 		
 		
-	//승리자를 찾기
-	@Scheduled(cron="0 0 11,14,17 * * *", zone="Asia/Seoul")
+	//승리자를 찾기 UFO79에서만 하면 됨.
+	//@Scheduled(cron="0 0 11,14,17 * * *", zone="Asia/Seoul")
 	public void winnerPicker(){
 		List<String> paras = dao.selectAllPara();
 		for(String ele : paras){

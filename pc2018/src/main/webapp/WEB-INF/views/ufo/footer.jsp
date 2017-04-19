@@ -142,7 +142,7 @@ function addLogin(){
  */
 window.fbAsyncInit = function() {
     FB.init({
-     appId      : '1074619385980281',
+     appId      : '1508199992578149',
      version    : 'v2.8',
  	 status: true, // check login status
      cookie: true, // enable cookies to allow the server to access thesession
