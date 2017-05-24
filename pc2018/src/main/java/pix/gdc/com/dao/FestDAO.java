@@ -28,6 +28,7 @@ import pix.gdc.com.vo.FestSnsLog;
 import pix.gdc.com.vo.FestUfo;
 import pix.gdc.com.vo.FestUfoNotice;
 import pix.gdc.com.vo.Notice_VO;
+import pix.gdc.com.vo.UfoBarcodeLog;
 import pix.gdc.com.vo.UfoGoRecord;
 import pix.gdc.com.vo.UfoGoVO;
 import pix.gdc.com.vo.UfoShare;
@@ -485,6 +486,13 @@ public class FestDAO extends SqlSessionDaoSupport{
 	public int selectPartDoneStamp(UfoGoRecord vo){
 		return getSqlSession().selectOne("BasicMapper.selectPartDoneStamp", vo);
 	}
+	
+	//바코드 로그
+	public int insertBarcodeLog(UfoBarcodeLog vo){
+		return getSqlSession().insert("BasicMapper.insertBarcodeLog", vo);
+	}
+	
+	
 	
 	
 }

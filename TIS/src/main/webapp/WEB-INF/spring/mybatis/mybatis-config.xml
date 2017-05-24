@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+	
+	<typeAliases>
+		<typeAlias type="tis.pye.team.vo.TisAccom" alias="TisAccom"/>
+		<typeAlias type="tis.pye.team.vo.TisEmployee" alias="TisEmployee"/>
+		<typeAlias type="tis.pye.team.vo.TisEvent" alias="TisEvent"/>
+		<typeAlias type="tis.pye.team.vo.TisFlight" alias="TisFlight"/>
+		<typeAlias type="tis.pye.team.vo.TisVenue" alias="TisVenue"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="tis/pye/team/mapper/TisMapper.xml" />
+	</mappers>
+</configuration>

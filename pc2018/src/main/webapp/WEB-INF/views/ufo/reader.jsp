@@ -15,6 +15,10 @@ UFO79 Reader ${para }
 	src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/jquery-1.12.4.min.js"></script>
 <script>
 
+var str = "//dd";
+var match = test.match(\(\/\/.*){2}\);
+console.log(match);
+
 $(document).keypress(function(e) {
     if(e.which == 13) {
     	var link = "https://www.ufo79.com/PIX/ufo/${para}/result/";

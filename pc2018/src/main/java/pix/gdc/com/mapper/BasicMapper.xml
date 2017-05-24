@@ -989,4 +989,10 @@
  	then '1' else '0' end FROM pix.ufo_go 
  	where go_para = #{para} and ufo_go_type = 'go'
 	</select>
+	<insert id="insertBarcodeLog" parameterType="UfoBarcodeLog">
+	INSERT into ufo_barcode_log 
+	(uid, barcode_timestmp, para, gid)
+	Values
+	(#{uid}, now(), #{para}, #{gid})
+	</insert>
 </mapper>
