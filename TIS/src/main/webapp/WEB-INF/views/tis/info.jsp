@@ -36,6 +36,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/tis/css/style.css">
+    <script src="${pageContext.request.contextPath}/resources/tis/js/main.js"></script>
     
  
     <!--<link rel="stylesheet" href="css/colors/pink/color.css">-->
@@ -55,7 +56,6 @@
     <!-- Favicons -->
 	<link rel="shortcut icon" href="https://www.ufo79.com/image/favicon.ico">
 </head>
-<body>    
 <nav class="navbar navbar-default" style="height: 6em ; background-size: 2000px 7em; background-image: url('${pageContext.request.contextPath}/resources/tis/image/headerGeneric.png')">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -70,15 +70,37 @@
 <!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
 <!--     </div>/.navbar-collapse -->
 <!--   </div> -->
-</nav>	
-
+</nav>
+<!-- 아몰랑 탭 스크롤 나중에 찾자 -->
+<!-- 	<div class="page-nav-space-holder"> -->
+<!-- 		<div id="page-nav-wrapper" class="page-nav-wrapper text-center"> -->
+<!-- 			<div class="container"> -->
+<!-- 				<ul id="page-nav" class="nav page-nav list-inline"> -->
+<!-- 					<li ><a href="#accom">1</a></li> -->
+<!-- 					<li class="active"><a href="#accom">2</a></li> -->
+<!-- 					<li ><a href="#accom">3</a></li> -->
+<!-- 				</ul> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 <div class="container">
 	<div class="row">	
-		<h4>${em.first_name } ${em.last_name }</h4>
+	<div class="col-sm-2">
+	 <img class="img-responsive" alt="" src="https://www.ufo79.com/image/tisImage/KayLee.png" >
+	</div>
+	<div class="col-sm-10">
+	<h4>${em.first_name } ${em.last_name }</h4>
 		<h5>${em.job_title }</h5>
 		<h5>${em.tel }</h5>
 		<h5>${em.email }</h5>
-		<h3><span class="label label-success">My accomodation</span></h3>
+	</div>
+	</div>
+	
+	<div class="row">	
+	<h3><span class="label label-success" id="accom">My accomodation</span></h3>
+	</div>
+	<div class="row">	
+	<div id="map" style="height: 25em;"></div>
 	</div>
 			<c:forEach items="${ta }" var="ele">
 			<div class="row">	
@@ -133,7 +155,7 @@
 			</c:forEach>
 			
 	<div class="row">	
-	<h3><span class="label label-success">My Itinerary</span></h3>
+	<h3><span class="label label-success">My Travel</span></h3>
 	</div>
 	<div class="row">
 	<h4>2017-02-22 Airport to Hotel(#Trip 1 Title#)</h4>
@@ -161,6 +183,70 @@
 				      </c:forEach>
 				    </tbody>
 				  </table>
+	</div>
+	<div class="row">	
+	<h3><span class="label label-success">My Group</span></h3>
+	</div>
+	<div class="row">
+	<h4>2017 Test Event 01</h4>
+	</div>
+	<div class="row">
+	<table class="table table-bordered">
+	      <tr class="info">
+	        <th rowspan="3">A</th>
+	        <th>Support Title</th>
+	        <th>Telephone</th>
+	        <th>Support Staff</th>
+	      </tr>
+	      <tr>
+			<td>IT DM</td>
+			<td>+82-33-350-1234</td>
+			<td>YT LEE</td>
+	      </tr>
+	       <tr>
+			<td>IT DM</td>
+			<td>+82-33-350-1234</td>
+			<td>YT LEE</td>
+	      </tr>
+	  </table>
+	  
+	  <table class="table table-bordered">
+	      <tr class="info">
+	        <th rowspan="3">B</th>
+	        <th>Support Title</th>
+	        <th>Telephone</th>
+	        <th>Support Staff</th>
+	      </tr>
+	      <tr>
+			<td>IT DM</td>
+			<td>+82-33-350-1234</td>
+			<td>YT LEE</td>
+	      </tr>
+	       <tr>
+			<td>IT DM</td>
+			<td>+82-33-350-1234</td>
+			<td>YT LEE</td>
+	      </tr>
+	  </table>
+	  
+	  <table class="table table-bordered">
+	      <tr class="info">
+	        <th rowspan="3">C</th>
+	        <th>Support Title</th>
+	        <th>Telephone</th>
+	        <th>Support Staff</th>
+	      </tr>
+	      <tr>
+			<td>IT DM</td>
+			<td>+82-33-350-1234</td>
+			<td>YT LEE</td>
+	      </tr>
+	       <tr>
+			<td>IT DM</td>
+			<td>+82-33-350-1234</td>
+			<td>YT LEE</td>
+	      </tr>
+	  </table>
 	</div>
 </div>
 
@@ -205,6 +291,29 @@
 
    <div id="fb-root"></div> 
 </body>
+<script>
+var neighborhoods = [];
+var markers = [];
+var map;
+/**
+ * 
+*/
+function initMap() {
+	map = new google.maps.Map(document.getElementById('map'), {
+	    zoom: 18,
+	    center: {lat: 37.752, lng: 128.891},
+	    zoomControl: true,
+	    mapTypeControl: false,
+	    scaleControl: true,
+	    streetViewControl: false,
+	    rotateControl: false,
+	    fullscreenControl: true
+	  });
+}
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN9VDOjhzw7kPKEbFw7LEVoVreCXiz87E&callback=initMap" async defer></script>
 
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

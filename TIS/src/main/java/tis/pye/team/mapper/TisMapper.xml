@@ -7,8 +7,7 @@
   		from
   		tis.employee
   		where 
-  		event_id = #{event_id}
-  		and first_name = #{first_name}
+  		first_name = #{first_name}
   		and last_name = #{last_name}
   	</select>
   	<select id="selectEmployeeByAtosId" resultType="TisEmployee" parameterType="TisEmployee">
@@ -68,6 +67,12 @@
   		where 
  		active = 'Y'
   	</select>
+  	<select id="selectAllEvent" resultType="TisEvent">
+  		select
+  		*
+  		from
+  		tis.event
+  	</select>
   	<select id="selectFlightByAtosId" resultType="TisFlight" parameterType="TisEmployee">
   		select
   		*
@@ -85,4 +90,222 @@
   		where 
   		event_id = #{event_id}
   	</select>
+  	<select id="selectAdminByAdminId" resultType="TisAdmin" parameterType="TisAdmin">
+  		SELECT
+  		*
+  		FROM
+  		tis.admin
+  		WHERE
+  		admin_id = #{admin_id}
+  	</select>
+  	<insert id="insertEvent" parameterType="TisEvent">
+  		INSERT into
+  		tis.event
+  		(
+  		event_name
+  		,event_desc
+  		,active
+  		)
+  		values
+  		(
+  		#{event_name}
+  		,#{event_desc}
+  		,#{active}
+  		)
+  	</insert>
+  	<update id="updateEvent" parameterType="TisEvent">
+  	UPDATE tis.event
+  	SET 
+  	event_name = #{event_name}
+ 	,event_desc = #{event_desc}
+	,active = #{active}
+	WHERE
+	id = #{id}
+  	</update>
+  	<select id="selectAllVenue" resultType="TisVenue">
+  	SELECT *
+  	FROM tis.venue
+  	</select>
+  	<insert id="insertVenue" parameterType="TisVenue">
+  	INSERT INTO `tis`.`venue`
+	(
+	`event_id`,
+	`venue_pic`,
+	`venue_name`,
+	`venue_name_loc`,
+	`venue_address`,
+	`venue_address_loc`,
+	`venue_type`,
+	`venue_desc`,
+	`lat`,
+	`lng`)
+	VALUES
+	(
+	#{event_id},
+	#{venue_pic},
+	#{venue_name},
+	#{venue_name_loc},
+	#{venue_address},
+	#{venue_address_loc},
+	#{venue_type},
+	#{venue_desc},
+	#{lat},
+	#{lng});
+  	</insert>
+  	<update id="updateVenue" parameterType="TisVenue">
+  	UPDATE `tis`.`venue`
+	SET
+	`event_id` = #{event_id},
+	`venue_pic` = #{venue_pic},
+	`venue_name` = #{venue_name},
+	`venue_name_loc` = #{venue_name_loc},
+	`venue_address` = #{venue_address},
+	`venue_address_loc` = #{venue_address_loc},
+	`venue_type` = #{venue_type},
+	`venue_desc` = #{venue_desc},
+	`lat` = #{lat},
+	`lng` = #{lng}
+	WHERE `id` = #{id};
+  	</update>
+  	<select id="selectFac" resultType="TisFacilities">
+  	SELECT * 
+  	FROM tis.facilities
+  	</select>
+  	<insert id="insertFac" parameterType="TisFacilities">
+  	INSERT INTO `tis`.`facilities`
+	(
+	`fac_title`,
+	`fac_title_loc`,
+	`fac_icon`)
+	VALUES
+	(
+	#{fac_title},
+	#{fac_title_loc},
+	#{fac_icon});
+  	</insert>
+  	<update id="updateFac" parameterType="TisFacilities">
+  	UPDATE `tis`.`facilities`
+	SET
+	`fac_title` = #{fac_title},
+	`fac_title_loc` = #{fac_title_loc},
+	`fac_icon` = #{fac_icon}
+	WHERE `id` = #{id};
+  	</update>
+  	<select id="selectPol" resultType="TisPolicies">
+  	SELECT * 
+  	FROM tis.Policies
+  	</select>
+  	<insert id="insertPol" parameterType="TisPolicies">
+  	INSERT INTO `tis`.`Policies`
+	(
+	`pol_title`,
+	`pol_title_loc`,
+	`pol_icon`)
+	VALUES
+	(
+	#{pol_title},
+	#{pol_title_loc},
+	#{pol_icon});
+  	</insert>
+  	<update id="updatePol" parameterType="TisPolicies">
+  	UPDATE `tis`.`Policies`
+	SET
+	`pol_title` = #{pol_title},
+	`pol_title_loc` = #{pol_title_loc},
+	`pol_icon` = #{pol_icon}
+	WHERE `id` = #{id};
+  	</update>
+  	<select id="selectTrs" resultType="TisTransportations">
+  	SELECT * 
+  	FROM tis.Transportations
+  	</select>
+  	<insert id="insertTrs" parameterType="TisTransportations">
+  	INSERT INTO `tis`.`Transportations`
+	(
+	`trs_title`,
+	`trs_title_loc`,
+	`trs_icon`)
+	VALUES
+	(
+	#{trs_title},
+	#{trs_title_loc},
+	#{trs_icon});
+  	</insert>
+  	<update id="updateTrs" parameterType="TisTransportations">
+  	UPDATE `tis`.`Transportations`
+	SET
+	`trs_title` = #{trs_title},
+	`trs_title_loc` = #{trs_title_loc},
+	`trs_icon` = #{trs_icon}
+	WHERE `id` = #{id};
+  	</update>
+  	<select id="selectSupports" resultType="TisSupports">
+  	SELECT * 
+  	FROM tis.supports
+  	</select>
+  	<insert id="insertSupports" parameterType="TisSupports">
+  	INSERT INTO `tis`.`supports`
+	(
+	`event_id`,
+	`support_title`,
+	`support_tel`)
+	VALUES
+	(
+	#{event_id},
+	#{support_title},
+	#{support_tel});
+  	</insert>
+  	<update id="updateSupports" parameterType="TisSupports">
+	UPDATE `tis`.`supports`
+	SET
+	`event_id` = #{event_id},
+	`support_title` = #{support_title},
+	`support_tel` = #{support_tel}
+	WHERE `id` = #{id};
+  	</update>
+  	<select id="selectAllEmployee" resultType="TisEmployee">
+  		SELECT *
+  		FROM tis.employee
+  	</select>
+  	<insert id="insertEmployee" parameterType="TisEmployee">
+  	INSERT INTO `tis`.`employee`
+	(
+	`event_id`,
+	`picture`,
+	`first_name`,
+	`last_name`,
+	`employee_group`,
+	`tel`,
+	`email`,
+	`job_title`,
+	`atos_id`,
+	`pin`)
+	VALUES
+	(
+	#{event_id},
+	#{picture},
+	#{first_name},
+	#{last_name},
+	#{employee_group},
+	#{tel},
+	#{email},
+	#{job_title},
+	#{atos_id},
+	#{pin});
+  	</insert>
+  	<update id="updateEmployee" parameterType="TisEmployee">
+  	UPDATE `tis`.`employee`
+	SET
+	`event_id` = #{event_id},
+	`picture` = #{picture},
+	`first_name` = #{first_name},
+	`last_name` = #{last_name},
+	`employee_group` = #{employee_group},
+	`tel` = #{tel},
+	`email` = #{email},
+	`job_title` = #{job_title},
+	`atos_id` = #{atos_id},
+	`pin` = #{pin}
+	WHERE `id` = #{id};
+  	</update>
 </mapper>
