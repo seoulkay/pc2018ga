@@ -19,6 +19,14 @@
   		atos_id = #{atos_id}
   		and event_id = #{event_id}
   	</select>
+  	<select id="selectEmployeeByAtosIdOnly" resultType="TisEmployee" parameterType="TisEmployee">
+  		select
+  		*
+  		from
+  		tis.employee
+  		where 
+  		id = #{id}
+  	</select>
   	<select id="selectAccomByAtosId" resultType="TisAccom" parameterType="TisEmployee">
   	SELECT 
 	a.id
@@ -56,7 +64,6 @@
 	,v.venue_desc
 	FROM tis.accom a left join tis.venue v on a.venue_id = v.id 
 	where a.event_id = #{id} 
-	
   	</select>
   	
   	<select id="selectActiveEvent" resultType="TisEvent">
@@ -72,6 +79,14 @@
   		*
   		from
   		tis.event
+  	</select>
+  	<select id="selectEventById" resultType="TisEvent" parameterType="TisEvent">
+  		select
+  		*
+  		from
+  		tis.event
+  		WHERE
+  		id = #{id}
   	</select>
   	<select id="selectFlightByAtosId" resultType="TisFlight" parameterType="TisEmployee">
   		select
@@ -89,6 +104,14 @@
   		tis.venue
   		where 
   		event_id = #{event_id}
+  	</select>
+  	<select id="selectHotelVenue" resultType="TisVenue">
+  		select
+  		*
+  		from
+  		tis.venue
+  		where 
+  		venue_type = 'hotel'
   	</select>
   	<select id="selectAdminByAdminId" resultType="TisAdmin" parameterType="TisAdmin">
   		SELECT

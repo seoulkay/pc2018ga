@@ -8,14 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import tis.pye.team.dao.TisDao;
 import tis.pye.team.vo.TisAccom;
 import tis.pye.team.vo.TisAdmin;
 import tis.pye.team.vo.TisEmployee;
+import tis.pye.team.vo.TisEmployeeList;
 import tis.pye.team.vo.TisEvent;
 import tis.pye.team.vo.TisFacilities;
 import tis.pye.team.vo.TisFlight;
@@ -72,8 +76,8 @@ public class TisController {
 		}
 	}
 	
-	@RequestMapping(value = "/infoAdmin", method = RequestMethod.GET)
-	public String tisLoginadminAdminGet(Model model, HttpSession session){
+	@RequestMapping(value = "/infoTrip", method = RequestMethod.GET)
+	public String tisinfoTrip(Model model, HttpSession session){
 		try{
 			if(session.getAttribute("user_name").equals("")){
 				return "tis/homeAdmin";
@@ -92,6 +96,115 @@ public class TisController {
 				model.addAttribute("tpol", tpol);
 				model.addAttribute("ttrs", ttrs);
 				model.addAttribute("tsup", tsup);
+				model.addAttribute("temp", temp);
+				return "tis/infoTrip";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return "tis/homeAdmin";
+		}
+		
+	}
+	@RequestMapping(value = "/infoTripForm", method = RequestMethod.GET)
+	public String tisinfoTripForm(Model model, HttpSession session){
+		try{
+			if(session.getAttribute("user_name").equals("")){
+				return "tis/homeAdmin";
+			}else{
+				List<TisEvent> te = dao.selectAllEvent();
+				List<TisVenue> tv = dao.selectAllVenue();
+				List<TisVenue> thv = dao.selectHotelVenue();
+				List<TisFacilities> tfac = dao.selectFac();
+				List<TisPolicies> tpol = dao.selectPol();
+				List<TisTransportations> ttrs = dao.selectTrs();
+				List<TisSupports> tsup = dao.selectSupports();
+				List<TisEmployee> temp = dao.selectEmployee();
+				
+				
+				model.addAttribute("te", te);
+				model.addAttribute("tv", tv);
+				model.addAttribute("thv", thv);
+				model.addAttribute("tfac", tfac);
+				model.addAttribute("tpol", tpol);
+				model.addAttribute("ttrs", ttrs);
+				model.addAttribute("tsup", tsup);
+				model.addAttribute("temp", temp);
+				return "tis/infoTripForm";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return "tis/homeAdmin";
+		}
+		
+	}
+	
+	@RequestMapping(value = "/infoShift", method = RequestMethod.GET)
+	public String infoShift(Model model, HttpSession session){
+		try{
+			if(session.getAttribute("user_name").equals("")){
+				return "tis/homeAdmin";
+			}else{
+				List<TisEvent> te = dao.selectAllEvent();
+				List<TisVenue> tv = dao.selectAllVenue();
+				List<TisFacilities> tfac = dao.selectFac();
+				List<TisPolicies> tpol = dao.selectPol();
+				List<TisTransportations> ttrs = dao.selectTrs();
+				List<TisSupports> tsup = dao.selectSupports();
+				List<TisEmployee> temp = dao.selectEmployee();
+				
+				model.addAttribute("te", te);
+				model.addAttribute("tv", tv);
+				model.addAttribute("tfac", tfac);
+				model.addAttribute("tpol", tpol);
+				model.addAttribute("ttrs", ttrs);
+				model.addAttribute("tsup", tsup);
+				model.addAttribute("temp", temp);
+				return "tis/infoShift";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return "tis/homeAdmin";
+		}
+		
+	}
+	
+	@RequestMapping(value = "/infoTripcodes", method = RequestMethod.GET)
+	public String infoTripcodes(Model model, HttpSession session){
+		try{
+			if(session.getAttribute("user_name").equals("")){
+				return "tis/homeAdmin";
+			}else{
+				List<TisEvent> te = dao.selectAllEvent();
+				List<TisVenue> tv = dao.selectAllVenue();
+				List<TisFacilities> tfac = dao.selectFac();
+				List<TisPolicies> tpol = dao.selectPol();
+				List<TisTransportations> ttrs = dao.selectTrs();
+				List<TisSupports> tsup = dao.selectSupports();
+				
+				model.addAttribute("te", te);
+				model.addAttribute("tv", tv);
+				model.addAttribute("tfac", tfac);
+				model.addAttribute("tpol", tpol);
+				model.addAttribute("ttrs", ttrs);
+				model.addAttribute("tsup", tsup);
+				return "tis/infoTripcodes";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return "tis/homeAdmin";
+		}
+		
+	}
+	
+	@RequestMapping(value = "/infoAdmin", method = RequestMethod.GET)
+	public String tisLoginadminAdminGet(Model model, HttpSession session){
+		try{
+			if(session.getAttribute("user_name").equals("")){
+				return "tis/homeAdmin";
+			}else{
+
+				List<TisEmployee> temp = dao.selectEmployee();
+				
 				model.addAttribute("temp", temp);
 				return "tis/infoAdmin";
 			}
@@ -216,6 +329,31 @@ public class TisController {
 			return "tis/home";
 		}
 	}
-	
-	
+	@RequestMapping(value = "getEmp/{id}", method = RequestMethod.POST)
+	public @ResponseBody TisEmployee getEmp(@PathVariable("id")int id){
+		TisEmployee vo = new TisEmployee();
+		vo.setId(id);
+		return dao.selectEmployeeByAtosIdOnly(vo);
+	}
+	@RequestMapping(value = "getEvent/{id}", method = RequestMethod.POST)
+	public @ResponseBody TisEvent getEvent(@PathVariable("id")int id){
+		TisEvent vo = new TisEvent();
+		vo.setId(id);
+		return dao.selectEventById(vo);
+	}
+	@RequestMapping(value = "save", method = RequestMethod.POST)
+	public String save(@ModelAttribute("TisEmployeeList") TisEmployeeList vo) {
+		System.out.println(vo);
+		System.out.println(vo.getEmployees());
+		List<TisEmployee> contacts = vo.getEmployees();
+		
+		if(null != contacts && contacts.size() > 0) {
+			//ContactController.contacts = contacts;
+			for (TisEmployee contact : contacts) {
+				System.out.printf("%s \t %s \n", contact.getFirst_name(), contact.getLast_name());
+			}
+		}
+		
+		return "redirect:infoShift";
+	}
 }

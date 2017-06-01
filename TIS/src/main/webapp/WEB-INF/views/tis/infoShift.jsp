@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="ie ie6" lang="en"><![endif]-->
 <!--[if IE 7]><html class="ie ie7" lang="en"><![endif]-->
@@ -63,7 +63,6 @@
 <!--       <a class="navbar-brand" href="#" style="padding-top: 2em;color: WHITE"> -->
       	<h4 class="navbar-brand" style="color: WHITE; font-size: 1.5em; padding-top: 1.5em;">Trip Info System <Strong>ADMIN</Strong> ${sessionScope.user_name}</h4>
 <!--       </a> -->
-		
      <img class="img-responsive" alt="" src="${pageContext.request.contextPath}/resources/tis/image/Atos.svg" style="max-height: 2em; max-width:15%;margin-top: 2em;margin-right: 1em; float:right;"  >
     </div>
    
@@ -71,128 +70,212 @@
 <!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
 <!--     </div>/.navbar-collapse -->
 <!--   </div> -->
-
 </nav>	
-		
+
 <div class="container">
 <div class="row">
 		<ul class="nav nav-tabs nav-justified">
-		  <li role="presentation" class="active"><a href="infoAdmin">Profiles</a></li>
+		  <li role="presentation"><a href="infoAdmin">Profiles</a></li>
 		  <li role="presentation"><a href="infoTrip">Trips</a></li>
-		  <li role="presentation"><a href="infoShift">Shifts</a></li>
+		  <li role="presentation" class="active"><a href="infoShift">Shifts</a></li>
 		  <li role="presentation"><a href="infoTripcodes">Trip-codes</a></li>
 		</ul>
 </div>
 <div style="height: 2em"></div>
-<div class="row">	
-	<h3>Profiles</h3>
-	<h4>Profiles <span class="label label-success" onclick="openForm('Profiles')">Add new</span></h4>
+	<div class="row">	
+	<h3>Shifts</h3>	
+	<h4>Supports <span class="label label-success" onclick="openForm('Supports')">Add new</span></h4>
 	</div>
 	<div class="row">	
 	<table class="table table-bordered">
 	    <thead>
 	      <tr class="info">
 	        <th>id</th>
-	        <th>first_name</th>
-	        <th>last_name</th>
-	        <th>picture</th>
-	        <th>job_title</th>
-	        <th>tel</th>
-	        <th>email</th>
-	        <th>pin</th>
+	        <th>event_id</th>
+	        <th>support_title</th>
+	        <th>support_tel</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	    <c:forEach items="${temp }" var="ele">
-	    	<tr onclick="openUpdateProForm('ProUpdate', '${ele.id }')" id="ProUpdate_${ele.id }">
-	        <td>${ele.id}</td>
-	        <td>${ele.first_name}</td>
-	        <td>${ele.last_name}</td>
-	        <td>${ele.picture}</td>
-	        <td>${ele.job_title}</td>
-	        <td>${ele.tel}</td>
-	        <td>${ele.email}</td>
-	        <td>${ele.pin}</td>
+	    <c:forEach items="${tsup }" var="ele">
+	    	<tr>
+	        <td>${ele.id} <span class="label label-success" onclick="openAssignSupForm(${ele.event_id}, ${ele.id}, 3)"> Assign</span></td>
+	        <td onclick="openUpdateSupForm('SupUpdate', '${ele.id }')" id="SupUpdate_${ele.id }">${ele.event_id}</td>
+	        <td onclick="openUpdateSupForm('SupUpdate', '${ele.id }')" id="SupUpdate_${ele.id }">${ele.support_title}</td>
+	        <td onclick="openUpdateSupForm('SupUpdate', '${ele.id }')" id="SupUpdate_${ele.id }">${ele.support_tel}</td>
 	      	</tr>
 	    </c:forEach>
 	    </tbody>
 	  </table>
 	</div>
-	<div class="modal" id="Profiles" role="dialog">
+	<div class="modal" id="Supports" role="dialog">
 		<div class="modal-dialog">
 		<div class="modal-content">
 		<div class="modal-header">
-		Profiles
+		Supports
 		</div>
 		<div class="modal-body">
-		<form id="ProForm" action="ProForm" method="POST">
-			<label>first_name</label>
-			<input type="text" name="first_name" placeholder="first_name" class="form-control">
-			<label>last_name</label>
-			<input type="text" name="last_name" placeholder="last_name" class="form-control">
-			<label>picture</label>
-			<input type="text" name="picture" placeholder="picture" class="form-control">
-			<label>job_title</label>
-			<input type="text" name="job_title" placeholder="job_title" class="form-control">
-			<label>tel</label>
-			<input type="text" name="tel" placeholder="tel" class="form-control">
-			<label>email</label>
-			<input type="text" name="email" placeholder="email" class="form-control">
-			<label>pin</label>
-			<input type="text" name="pin" placeholder="pin" class="form-control">
+		<form id="SupForm" action="SupForm" method="POST">
+			<label>event_id</label>
+			<select name="event_id" class="form-control">
+			<c:forEach items="${te }" var="ele">
+				<option value="${ele.id}">${ele.event_name }</option>
+			</c:forEach>
+			</select>
+			<label>support_title</label>
+			<input type="text" name="support_title" placeholder="support_title" class="form-control">
+			<label>support_tel</label>
+			<input type="text" name="support_tel" placeholder="support_tel" class="form-control">
 		</form>
 		</div>
 		<div class="modal-footer">
-	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('ProForm')">Submit</button>
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('SupForm')">Submit</button>
 	  	</div>
 		</div>
 		</div>
 	</div>
-	<div class="modal" id="ProUpdate" role="dialog">
+	<div class="modal" id="SupUpdate" role="dialog">
 		<div class="modal-dialog">
 		<div class="modal-content">
 		<div class="modal-header">
-		Profiles
+		Supports
 		</div>
 		<div class="modal-body">
-		<form id="ProUpdateForm" action="ProUpdateForm" method="POST">
-		<label>first_name</label>
-			<input type="text" id="ProUpdate_first_name" name="first_name" placeholder="first_name" class="form-control">
-			<label>last_name</label>
-			<input type="text" id="ProUpdate_last_name" name="last_name" placeholder="last_name" class="form-control">
-			<label>picture</label>
-			<input type="text" id="ProUpdate_picture" name="picture" placeholder="picture" class="form-control">
-			<label>job_title</label>
-			<input type="text" id="ProUpdate_job_title" name="job_title" placeholder="job_title" class="form-control">
-			<label>tel</label>
-			<input type="text" id="ProUpdate_tel" name="tel" placeholder="tel" class="form-control">
-			<label>email</label>
-			<input type="text" id="ProUpdate_email" name="email" placeholder="email" class="form-control">
-			<label>pin</label>
-			<input type="text" id="ProUpdate_pin" name="pin" placeholder="pin" class="form-control">
-		  	<input type="hidden" name="id" id="ProUpdate_id">
+		<form id="SupUpdateForm" action="SupUpdateForm" method="POST">
+			<label>event_id</label>
+			<select id="SupUpdate_event_id" name="event_id" class="form-control">
+			<c:forEach items="${te }" var="ele">
+				<option value="${ele.id}">${ele.event_name }</option>
+			</c:forEach>
+			</select>
+			<label>support_title</label>
+			<input type="text" id="SupUpdate_support_title" name="support_title" placeholder="support_title" class="form-control">
+			<label>support_tel</label>
+			<input type="text" id="SupUpdate_support_tel" name="support_tel" placeholder="support_tel" class="form-control">
+		  	<input type="hidden" name="id" id="SupUpdate_id">
 		</form>
 		</div>
 		<div class="modal-footer">
-	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('ProUpdateForm')">Submit</button>
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('SupUpdateForm')">Submit</button>
 	  	</div>
 		</div>
 		</div>
 	</div>
-
-<script>
-function openUpdateProForm(para, id){
-	$("#"+para+"_id").val($("#"+para+"_"+id+" td:nth-child(1)").text());
-	$("#"+para+"_first_name").val($("#"+para+"_"+id+" td:nth-child(2)").text());
-	$("#"+para+"_last_name").val($("#"+para+"_"+id+" td:nth-child(3)").text());
-	$("#"+para+"_picture").val($("#"+para+"_"+id+" td:nth-child(4)").text());
-	$("#"+para+"_job_title").val($("#"+para+"_"+id+" td:nth-child(5)").text());
-	$("#"+para+"_tel").val($("#"+para+"_"+id+" td:nth-child(6)").text());
-	$("#"+para+"_email").val($("#"+para+"_"+id+" td:nth-child(7)").text());
-	$("#"+para+"_pin").val($("#"+para+"_"+id+" td:nth-child(8)").text());
-	$('#'+para).modal('show');
-}
-</script>
+	<div class="modal" id="SupportsAss" role="dialog">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		Supports Assign
+		</div>
+		<form:form method="post" action="SupAssForm" modelAttribute="TisShifteList" id="SupAssForm">
+		<div class="modal-body">
+		
+			<c:forTokens items = "A,B,C" delims = "," var = "name" varStatus="status">
+			<label>${name }</label>
+			<select name="shifts[${status.index}].emp_id">
+			<c:forEach items="${temp }" var="ele">
+				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
+			</c:forEach>
+			</select>
+			<input type="hidden" name="shifts[${status.index}].event_id" id="shifts[${status.index}].event_id">
+			<input type="hidden" name="shifts[${status.index}].supports_id" id="shifts[${status.index}].supports_id">
+			<input type="hidden" name="shifts[${status.index}].group_name" value="${name }">
+			</c:forTokens>
+		
+		</div>
+		<div class="modal-footer">
+<!-- 	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('SupForm')">Submit</button> -->
+	    <input type="submit" value="Save" />
+	    </div>
+	    </form:form>
+		</div>
+		</div>
+	</div>
+	<script>
+	function openUpdateSupForm(para, id){
+		$("#"+para+"_id").val($("#"+para+"_"+id+" td:nth-child(1)").text());
+		$("#"+para+"_event_id").val($("#"+para+"_"+id+" td:nth-child(2)").text());
+		$("#"+para+"_support_title").val($("#"+para+"_"+id+" td:nth-child(3)").text());
+		$("#"+para+"_support_tel").val($("#"+para+"_"+id+" td:nth-child(4)").text());
+		$('#'+para).modal('show');
+	}
+	
+	function openAssignSupForm(par1, par2, length){
+		for(i = 0 ; i < length ; i++){
+		$("#shifts["+i+"].event_id").val(par1);
+		//alert($("#shifts[0].event_id").val());
+		$("#shifts["+i+"].supports_id").val(par2);
+		}
+		
+		$('#SupportsAss').modal('show');
+	}
+	</script>
+	<div class="row">
+	<table class="table table-bordered" id="shift_tbl">
+		<tr><td class="info">Event</td><td>
+			<select id="event_id_sel" name="event_id" class="form-control">
+			<c:forEach items="${te }" var="ele">
+				<option value="${ele.id}">${ele.event_name}</option>
+			</c:forEach>
+			</select></td></tr>
+		
+		<c:forEach items="${tsup }" var="ele">
+		<tr>
+		<td class="info">${ele.support_title }</td><td>
+		<c:forTokens items = "A,B,C" delims = "," var = "name">
+			${name }
+			<select name="group_name">
+			<c:forEach items="${temp }" var="ele">
+				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
+			</c:forEach>
+			</select>
+			
+		</c:forTokens>
+			
+			
+			<select id="employee_id_sel" name="employee_id">
+			<c:forEach items="${temp }" var="ele">
+				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
+			</c:forEach>
+			</select>
+			<select id="employee_id_sel" name="employee_id">
+			<c:forEach items="${temp }" var="ele">
+				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
+			</c:forEach>
+			</select>
+			</td>
+		</tr>
+		</c:forEach>
+		
+	</table>
+	</div>
+	<div class="row" style="padding: 1em">
+		<button class="btn btn-success" >Update</button>
+	</div>
+	<div class="row">
+	<form:form method="post" action="save" modelAttribute="TisEmployeeList">
+		<table>
+		<tr>
+			<th>No.</th>
+			<th>Name</th>
+			<th>Lastname</th>
+			<th>Email</th>
+			<th>Phone</th>
+		</tr>
+		<c:forEach items="${temp}" var="TisEmployee" varStatus="status">
+			<tr>
+				<td align="center">${status.count}</td>
+				<td><input name="employees[${status.index}].first_name" value="${TisEmployee.first_name}"/></td>
+				<td><input name="employees[${status.index}].last_name" value="${TisEmployee.last_name}"/></td>
+				<td><input name="employees[${status.index}].email" value="${TisEmployee.email}"/></td>
+				<td><input name="employees[${status.index}].tel" value="${TisEmployee.tel}"/></td>
+			</tr>
+		</c:forEach>
+	</table>	
+	<br/>
+	<input type="submit" value="Save" />
+	</form:form>
+	</div>
 </div>
 <script>
 function openForm(para){

@@ -131,6 +131,19 @@ public class TisDao extends SqlSessionDaoSupport{
 	public int updateEmployee(TisEmployee vo){
 		return getSqlSession().update("TisMapper.updateEmployee", vo);
 	}
+	//인간정보오직 아이디로만
+	public TisEmployee selectEmployeeByAtosIdOnly(TisEmployee vo){
+		return getSqlSession().selectOne("TisMapper.selectEmployeeByAtosIdOnly", vo);
+	}
+	//
+	public TisEvent selectEventById(TisEvent vo){
+		return getSqlSession().selectOne("TisMapper.selectEventById", vo);
+	}
+	//
+	public List<TisVenue> selectHotelVenue(){
+		return getSqlSession().selectList("TisMapper.selectHotelVenue");
+	}
+	
 }
 
 

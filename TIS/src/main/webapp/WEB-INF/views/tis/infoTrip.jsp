@@ -36,7 +36,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/tis/css/style.css">
-    <script src="${pageContext.request.contextPath}/resources/tis/js/main.js"></script>
     
  
     <!--<link rel="stylesheet" href="css/colors/pink/color.css">-->
@@ -56,13 +55,15 @@
     <!-- Favicons -->
 	<link rel="shortcut icon" href="https://www.ufo79.com/image/favicon.ico">
 </head>
-<nav class="navbar navbar-default" style="height: 6em ; background-size: 2000px 7em; background-image: url('${pageContext.request.contextPath}/resources/tis/image/headerGeneric.png'); border-radius:0; border:0">
+<body>    
+<nav class="navbar navbar-default" style="height: 6em ; background-size: 2000px 7em; background-image: url('${pageContext.request.contextPath}/resources/tis/image/headerGeneric.png');border-radius:0; border:0">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
 <!--     <div class="navbar-header" >  -->
 <!--       <a class="navbar-brand" href="#" style="padding-top: 2em;color: WHITE"> -->
-      	<h4 class="navbar-brand" style="color: WHITE; font-size: 1.5em; padding-top: 1.5em;">Trip Info System</h4>
+      	<h4 class="navbar-brand" style="color: WHITE; font-size: 1.5em; padding-top: 1.5em;">Trip Info System <Strong>ADMIN</Strong> ${sessionScope.user_name}</h4>
 <!--       </a> -->
+
      <img class="img-responsive" alt="" src="${pageContext.request.contextPath}/resources/tis/image/Atos.svg" style="max-height: 2em; max-width:15%;margin-top: 2em;margin-right: 1em; float:right;"  >
     </div>
    
@@ -70,186 +71,134 @@
 <!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
 <!--     </div>/.navbar-collapse -->
 <!--   </div> -->
-</nav>
-<!-- 아몰랑 탭 스크롤 나중에 찾자 -->
-<!-- 	<div class="page-nav-space-holder"> -->
-<!-- 		<div id="page-nav-wrapper" class="page-nav-wrapper text-center"> -->
-<!-- 			<div class="container"> -->
-<!-- 				<ul id="page-nav" class="nav page-nav list-inline"> -->
-<!-- 					<li ><a href="#accom">1</a></li> -->
-<!-- 					<li class="active"><a href="#accom">2</a></li> -->
-<!-- 					<li ><a href="#accom">3</a></li> -->
-<!-- 				</ul> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
-<div class="container">
-	<div class="row">	
-	<div class="col-sm-2">
-	 <img class="img-responsive" alt="" src="https://www.ufo79.com/image/tisImage/${em.picture }" >
-	</div>
-	<div class="col-sm-10">
-	<h4>${em.first_name } ${em.last_name }</h4>
-		<h5>${em.job_title }</h5>
-		<h5>${em.tel }</h5>
-		<h5>${em.email }</h5>
-	</div>
-	</div>
-	
-	<div class="row">	
-	<h3><span class="label label-success" id="accom">My accomodation</span></h3>
-	</div>
-	<div class="row">	
-	<div id="map" style="height: 25em;"></div>
-	</div>
-			<c:forEach items="${ta }" var="ele">
-			<div class="row">	
-				<p><strong>Confirmation No : </strong>YYYYMMDD001AA</p>
-				<p><strong>Name :</strong> ${ele.venue_name } / ${ele.venue_name_loc}</p>
-				<p><strong>Address :</strong> ${ele.venue_address }<br> ${ele.venue_address_loc}</p>
-				
-				<table class="table table-bordered">
-				    <thead>
-				      <tr class="info">
-				        <th>Check-in</th>
-				        <th>Check-out</th>
-				        <th>Night(s)</th>
-				        <th>Room No.</th>
-				        <th>Note</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				      <tr>
-				        <td>${ele.acc_begin }</td>
-				        <td>${ele.acc_end }</td>
-				        <td>john@example.com</td>
-				        <td>${ele.acc_room }</td>
-				        <td>${ele.acc_pin}</td>
-				      </tr>
-				    </tbody>
-				  </table>
-			</div>
-			<div class="row">
-				  <h4 style="color: #008FD4">Facilities</h4>
-			</div>
-			<div class="row">	
-				  <div class="col-sm-4">.col-sm-4</div>
-				  <div class="col-sm-4">.col-sm-4</div>
-				  <div class="col-sm-4">.col-sm-4</div>
-			</div>
-			<div style="height: 1em"></div>
-			<div class="row">
-			<h4 style="color: RED">Policy</h4>
-			<ul>
-				<li>High-speed wireless internet access, TV with cable channels</li>
-				<li>Towels and Hair dryer are included</li>
-				<li>Breakfast is not included</li>
-				<li>NO SMOKING in the room</li>
-				<li>NO SHOES in the room</li>
-				<li>Check-out time is 12:00 PM </li>
-			</ul>
-			<p>${ele.acc_desc }</p>
-			
-			</div>
-			 
-			</c:forEach>
-			
-	<div class="row">	
-	<h3><span class="label label-success">My Travel</span></h3>
-	</div>
-	<div class="row">
-	<h4>2017-02-22 Airport to Hotel(#Trip 1 Title#)</h4>
-	</div>
-	<div class="row">
-				<table class="table table-bordered">
-				    <thead>
-				      <tr class="info">
-				        <th>Check-in</th>
-				        <th>Check-out</th>
-				        <th>Night(s)</th>
-				        <th>Room No.</th>
-				        <th>Note</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				    <c:forEach items="${tf }" var="ele">
-				      <tr>
-				        <td>${ele.flight_from }</td>
-				        <td>${ele.flight_from_desc }</td>
-				        <td>${ele.flight_to }</td>
-				        <td>${ele.flight_to_time }</td>
-				        <td>${ele.flight_to_desc }</td>
-				      </tr>
-				      </c:forEach>
-				    </tbody>
-				  </table>
-	</div>
-	<div class="row">	
-	<h3><span class="label label-success">My Group</span></h3>
-	</div>
-	<div class="row">
-	<h4>2017 Test Event 01</h4>
-	</div>
-	<div class="row">
-	<table class="table table-bordered">
-	      <tr class="info">
-	        <th rowspan="3">A</th>
-	        <th>Support Title</th>
-	        <th>Telephone</th>
-	        <th>Support Staff</th>
-	      </tr>
-	      <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	       <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	  </table>
-	  
-	  <table class="table table-bordered">
-	      <tr class="info">
-	        <th rowspan="3">B</th>
-	        <th>Support Title</th>
-	        <th>Telephone</th>
-	        <th>Support Staff</th>
-	      </tr>
-	      <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	       <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	  </table>
-	  
-	  <table class="table table-bordered">
-	      <tr class="info">
-	        <th rowspan="3">C</th>
-	        <th>Support Title</th>
-	        <th>Telephone</th>
-	        <th>Support Staff</th>
-	      </tr>
-	      <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	       <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	  </table>
-	</div>
-</div>
 
+</nav>	
+
+<div class="container">
+<div class="row">
+		<ul class="nav nav-tabs nav-justified">
+		  <li role="presentation"><a href="infoAdmin">Profiles</a></li>
+		  <li role="presentation" class="active"><a href="infoTrip">Trips</a></li>
+		  <li role="presentation"><a href="infoShift">Shifts</a></li>
+		  <li role="presentation"><a href="infoTripcodes">Trip-codes</a></li>
+		</ul>
+</div>
+<div style="height: 2em"></div>
+	<div class="row">	
+	<h3>Trips</h3>
+	<h4>Trips 
+<!-- 	<span class="label label-success" onclick="openForm('TripCodes')">Add new</span> -->
+	<a href="infoTripForm"><span class="label label-success">Add new</span></a>
+	</h4>
+	</div>
+	<div class="row">	
+	<table class="table table-bordered">
+	    <thead>
+	      <tr class="info">
+	        <th>id</th>
+	        <th>event_name</th>
+	        <th>event_desc</th>
+	        <th>active</th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	    <c:forEach items="${te }" var="ele">
+	    	<tr onclick="openUpdateForm('TripCodesUpdate', '${ele.id }')" id="TripCodesUpdate_${ele.id }">
+	        <td>${ele.id }</td>
+	        <td>${ele.event_name }</td>
+	        <td>${ele.event_desc }</td>
+	        <td>${ele.active }</td>
+	      	</tr>
+	    </c:forEach>
+	    </tbody>
+	  </table>
+	</div>
+	<div class="modal" id="TripCodes" role="dialog">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		TripCodes
+		</div>
+		<div class="modal-body">
+		<form id="TripCodesForm" action="TripCodesForm" method="POST">
+			<label>event_name</label>
+			<input type="text" name="event_name" placeholder="event_name" class="form-control">
+			<label>event_desc</label>
+			<input type="text" name="event_desc" placeholder="event_desc" class="form-control">
+			<label>Active</label>
+			<div class="input-group">
+			<label class="radio-inline">
+			<input type="radio" name="active" value="Y" class="form-control">Yes
+			</label>
+			<label class="radio-inline">
+		  	<input type="radio" name="active" value="N" class="form-control" checked>No
+		  	</label>
+		  	</div>
+		</form>
+		</div>
+		<div class="modal-footer">
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('TripCodesForm')">Submit</button>
+	  	</div>
+		</div>
+		</div>
+	</div>
+	<div class="modal" id="TripCodesUpdate" role="dialog">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		TripCodes
+		</div>
+		<div class="modal-body">
+		<form id="TripCodesUpdateForm" action="TripCodesUpdateForm" method="POST">
+			<label>event_name</label>
+			<input type="text" id="TripCodesUpdate_event_name" name="event_name" placeholder="event_name" class="form-control">
+			<label>event_desc</label>
+			<input type="text" id="TripCodesUpdate_event_desc" name="event_desc" placeholder="event_desc" class="form-control">
+			<label>Active</label>
+			<div class="input-group">
+			<label class="radio-inline">
+			<input type="radio" id="TripCodesUpdate_active_Y" name="active" value="Y" class="form-control">Yes
+			</label>
+			<label class="radio-inline">
+		  	<input type="radio" id="TripCodesUpdate_active_N" name="active" value="N" class="form-control">No
+		  	</label>
+		  	</div>
+		  	<input type="hidden" name="id" id="TripCodesUpdate_id">
+		</form>
+		</div>
+		<div class="modal-footer">
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('TripCodesUpdateForm')">Submit</button>
+	  	</div>
+		</div>
+		</div>
+	</div>
+
+<script>
+function openUpdateForm(para, id){
+	$("#"+para+"_id").val($("#"+para+"_"+id+" td:nth-child(1)").text());
+	$("#"+para+"_event_name").val($("#"+para+"_"+id+" td:nth-child(2)").text());
+	$("#"+para+"_event_desc").val($("#"+para+"_"+id+" td:nth-child(3)").text());
+	if($("#"+para+"_"+id+" td:nth-child(4)").text() == "Y"){
+		$("#"+para+"_active_Y").prop("checked", true);
+	}else{
+		$("#"+para+"_active_N").prop("checked", true);
+	}
+	
+	
+	$('#'+para).modal('show');
+}
+</script>
+
+	
+</div>
+<script>
+function openForm(para){
+	$('#'+para).modal('show');
+}
+function submitForm(para){
+	$('#'+para).submit();
+}
+</script>
     
     <!-- #footer -->
     <footer id="footer">
@@ -289,31 +238,7 @@
 	<![endif]-->
     
 
-   <div id="fb-root"></div> 
 </body>
-<script>
-var neighborhoods = [];
-var markers = [];
-var map;
-/**
- * 
-*/
-function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
-	    zoom: 18,
-	    center: {lat: 37.752, lng: 128.891},
-	    zoomControl: true,
-	    mapTypeControl: false,
-	    scaleControl: true,
-	    streetViewControl: false,
-	    rotateControl: false,
-	    fullscreenControl: true
-	  });
-}
-
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN9VDOjhzw7kPKEbFw7LEVoVreCXiz87E&callback=initMap" async defer></script>
 
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

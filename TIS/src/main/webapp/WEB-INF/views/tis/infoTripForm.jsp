@@ -36,7 +36,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/tis/css/style.css">
-    <script src="${pageContext.request.contextPath}/resources/tis/js/main.js"></script>
     
  
     <!--<link rel="stylesheet" href="css/colors/pink/color.css">-->
@@ -56,13 +55,15 @@
     <!-- Favicons -->
 	<link rel="shortcut icon" href="https://www.ufo79.com/image/favicon.ico">
 </head>
-<nav class="navbar navbar-default" style="height: 6em ; background-size: 2000px 7em; background-image: url('${pageContext.request.contextPath}/resources/tis/image/headerGeneric.png'); border-radius:0; border:0">
+<body>    
+<nav class="navbar navbar-default" style="height: 6em ; background-size: 2000px 7em; background-image: url('${pageContext.request.contextPath}/resources/tis/image/headerGeneric.png');border-radius:0; border:0">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
 <!--     <div class="navbar-header" >  -->
 <!--       <a class="navbar-brand" href="#" style="padding-top: 2em;color: WHITE"> -->
-      	<h4 class="navbar-brand" style="color: WHITE; font-size: 1.5em; padding-top: 1.5em;">Trip Info System</h4>
+      	<h4 class="navbar-brand" style="color: WHITE; font-size: 1.5em; padding-top: 1.5em;">Trip Info System <Strong>ADMIN</Strong> ${sessionScope.user_name}</h4>
 <!--       </a> -->
+
      <img class="img-responsive" alt="" src="${pageContext.request.contextPath}/resources/tis/image/Atos.svg" style="max-height: 2em; max-width:15%;margin-top: 2em;margin-right: 1em; float:right;"  >
     </div>
    
@@ -70,186 +71,175 @@
 <!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
 <!--     </div>/.navbar-collapse -->
 <!--   </div> -->
-</nav>
-<!-- 아몰랑 탭 스크롤 나중에 찾자 -->
-<!-- 	<div class="page-nav-space-holder"> -->
-<!-- 		<div id="page-nav-wrapper" class="page-nav-wrapper text-center"> -->
-<!-- 			<div class="container"> -->
-<!-- 				<ul id="page-nav" class="nav page-nav list-inline"> -->
-<!-- 					<li ><a href="#accom">1</a></li> -->
-<!-- 					<li class="active"><a href="#accom">2</a></li> -->
-<!-- 					<li ><a href="#accom">3</a></li> -->
-<!-- 				</ul> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
-<!-- 	</div> -->
+
+</nav>	
+
 <div class="container">
+<div class="row">
+		<ul class="nav nav-tabs nav-justified">
+		  <li role="presentation"><a href="infoAdmin">Profiles</a></li>
+		  <li role="presentation" class="active"><a href="infoTrip">Trips</a></li>
+		  <li role="presentation"><a href="infoShift">Shifts</a></li>
+		  <li role="presentation"><a href="infoTripcodes">Trip-codes</a></li>
+		</ul>
+</div>
+<div style="height: 2em"></div>
 	<div class="row">	
-	<div class="col-sm-2">
-	 <img class="img-responsive" alt="" src="https://www.ufo79.com/image/tisImage/${em.picture }" >
+	<h3>Trips form</h3>
+	<h4>Profile</h4>
 	</div>
-	<div class="col-sm-10">
-	<h4>${em.first_name } ${em.last_name }</h4>
-		<h5>${em.job_title }</h5>
-		<h5>${em.tel }</h5>
-		<h5>${em.email }</h5>
-	</div>
-	</div>
-	
-	<div class="row">	
-	<h3><span class="label label-success" id="accom">My accomodation</span></h3>
-	</div>
-	<div class="row">	
-	<div id="map" style="height: 25em;"></div>
-	</div>
-			<c:forEach items="${ta }" var="ele">
-			<div class="row">	
-				<p><strong>Confirmation No : </strong>YYYYMMDD001AA</p>
-				<p><strong>Name :</strong> ${ele.venue_name } / ${ele.venue_name_loc}</p>
-				<p><strong>Address :</strong> ${ele.venue_address }<br> ${ele.venue_address_loc}</p>
-				
-				<table class="table table-bordered">
-				    <thead>
-				      <tr class="info">
-				        <th>Check-in</th>
-				        <th>Check-out</th>
-				        <th>Night(s)</th>
-				        <th>Room No.</th>
-				        <th>Note</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				      <tr>
-				        <td>${ele.acc_begin }</td>
-				        <td>${ele.acc_end }</td>
-				        <td>john@example.com</td>
-				        <td>${ele.acc_room }</td>
-				        <td>${ele.acc_pin}</td>
-				      </tr>
-				    </tbody>
-				  </table>
-			</div>
-			<div class="row">
-				  <h4 style="color: #008FD4">Facilities</h4>
-			</div>
-			<div class="row">	
-				  <div class="col-sm-4">.col-sm-4</div>
-				  <div class="col-sm-4">.col-sm-4</div>
-				  <div class="col-sm-4">.col-sm-4</div>
-			</div>
-			<div style="height: 1em"></div>
-			<div class="row">
-			<h4 style="color: RED">Policy</h4>
-			<ul>
-				<li>High-speed wireless internet access, TV with cable channels</li>
-				<li>Towels and Hair dryer are included</li>
-				<li>Breakfast is not included</li>
-				<li>NO SMOKING in the room</li>
-				<li>NO SHOES in the room</li>
-				<li>Check-out time is 12:00 PM </li>
-			</ul>
-			<p>${ele.acc_desc }</p>
-			
-			</div>
-			 
+	<div class="row">
+	<table class="table table-bordered" id="profile_tbl">
+		<tr>
+			<td class="info">
+			Name
+			</td>
+			<td>
+			<select id="employee_id_sel" name="employee_id" class="form-control">
+			<c:forEach items="${temp }" var="ele">
+				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
 			</c:forEach>
-			
-	<div class="row">	
-	<h3><span class="label label-success">My Travel</span></h3>
-	</div>
-	<div class="row">
-	<h4>2017-02-22 Airport to Hotel(#Trip 1 Title#)</h4>
-	</div>
-	<div class="row">
-				<table class="table table-bordered">
-				    <thead>
-				      <tr class="info">
-				        <th>Check-in</th>
-				        <th>Check-out</th>
-				        <th>Night(s)</th>
-				        <th>Room No.</th>
-				        <th>Note</th>
-				      </tr>
-				    </thead>
-				    <tbody>
-				    <c:forEach items="${tf }" var="ele">
-				      <tr>
-				        <td>${ele.flight_from }</td>
-				        <td>${ele.flight_from_desc }</td>
-				        <td>${ele.flight_to }</td>
-				        <td>${ele.flight_to_time }</td>
-				        <td>${ele.flight_to_desc }</td>
-				      </tr>
-				      </c:forEach>
-				    </tbody>
-				  </table>
+			</select>
+			</td>
+		</tr>
+		<tr><td class="info">Id</td><td></td></tr>
+		<tr><td class="info">Job title</td><td></td></tr>
+		<tr><td class="info">Telephone</td><td></td></tr>
+		<tr><td class="info">Email</td><td></td></tr>
+	</table>
 	</div>
 	<div class="row">	
-	<h3><span class="label label-success">My Group</span></h3>
+	<h4>Event</h4>
 	</div>
 	<div class="row">
-	<h4>2017 Test Event 01</h4>
+	<table class="table table-bordered" id="event_tbl">
+		<tr>
+			<td class="info">
+			Event
+			</td>
+			<td>
+			<select id="event_id_sel" name="event_id" class="form-control">
+			<c:forEach items="${te }" var="ele">
+				<option value="${ele.id}">${ele.event_name}</option>
+			</c:forEach>
+			</select>
+			</td>
+		</tr>
+		<tr><td class="info">Date</td><td></td></tr>
+	</table>
+	</div>
+	<div class="row">	
+	<h4>Accommodation <button class="btn btn-success">+</button></h4>
 	</div>
 	<div class="row">
-	<table class="table table-bordered">
-	      <tr class="info">
-	        <th rowspan="3">A</th>
-	        <th>Support Title</th>
-	        <th>Telephone</th>
-	        <th>Support Staff</th>
-	      </tr>
-	      <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	       <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	  </table>
-	  
-	  <table class="table table-bordered">
-	      <tr class="info">
-	        <th rowspan="3">B</th>
-	        <th>Support Title</th>
-	        <th>Telephone</th>
-	        <th>Support Staff</th>
-	      </tr>
-	      <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	       <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	  </table>
-	  
-	  <table class="table table-bordered">
-	      <tr class="info">
-	        <th rowspan="3">C</th>
-	        <th>Support Title</th>
-	        <th>Telephone</th>
-	        <th>Support Staff</th>
-	      </tr>
-	      <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	       <tr>
-			<td>IT DM</td>
-			<td>+82-33-350-1234</td>
-			<td>YT LEE</td>
-	      </tr>
-	  </table>
+	<table class="table table-bordered" id="acc_tbl">
+		<tr>
+			<td class="info">
+			Acc. Name
+			</td>
+			<td>
+			<select id="acc_id_sel" name="acc_id" class="form-control">
+			<c:forEach items="${thv }" var="ele">
+				<option value="${ele.id}">${ele.venue_name}</option>
+			</c:forEach>
+			</select>
+			</td>
+		</tr>
+		<tr><td class="info">Address</td><td></td></tr>
+		<tr><td class="info">Check-in</td><td><input type="text" class="form-control"></td></tr>
+		<tr><td class="info">Check-out</td><td><input type="text" class="form-control"></td></tr>
+		<tr><td class="info">Night(s)</td><td></td></tr>
+		<tr><td class="info">Room No.</td><td><input type="text" class="form-control"></td></tr>
+		<tr><td class="info">Acc. Note</td><td><input type="text" class="form-control"></td></tr>
+		<tr><td class="info">Facilities</td><td>
+		<c:forEach items="${tfac }" var="ele">
+		<input type="checkbox" aria-label="" value="${ele.id }"> ${ele.fac_title }
+		</c:forEach>
+		</td></tr>
+		<tr><td class="info">Policy</td><td>
+		<c:forEach items="${tpol }" var="ele">
+		<input type="checkbox" aria-label="" value="${ele.id }"> ${ele.pol_title }
+		</c:forEach>
+		</td></tr>
+		<tr><td class="info">information</td><td><textarea type="text" class="form-control">In case of doubts, please contact Janet Kim, Administrator at Atos (+82-33-350-3679) or Janice Shin, HR & Admin Advisor at Atos (+82-33-350-3536).</textarea></td></tr>
+	</table>
+	</div>
+	<div class="row">	
+	<h4>Itinerary <button class="btn btn-success">+</button></h4>
+	</div>
+	<div class="row">
+	<table class="table table-bordered" id="event_tbl">
+		<tr>
+			<td class="info">
+			Itinerary title
+			</td>
+			<td>
+			<input type="text" class="form-control">
+			</td>
+		</tr>
+		<tr><td class="info">Date</td><td><input type="text" class="form-control"></td></tr>
+		<tr><td class="info">Schedule <button class="btn btn-success">+</button></td><td><input type="text" class="form-control"></td></tr>
+	</table>
+	</div>
+	<div class="row">	
+	<h4>Others</h4>
+	</div>
+	<div class="row">
+	<table class="table table-bordered" id="event_tbl">
+		<tr><td class="info">Note</td><td><input type="text" class="form-control"></td></tr>
+	</table>
+	</div>
+	<div class="row" style="padding: 1em">
+		<button class="btn btn-success" >Update</button>
 	</div>
 </div>
+<script>
+$( "#employee_id_sel" ).change(function() {
+	  var val = $("#employee_id_sel").val();
+	  var url = '/TIS/getEmp/'+val;
+	  $.ajax({
+	      url: url,
+	      method: "POST",
+	      dataType: 'json',
+	      processData: false,
+	      contentType: false,
+	      success: function(result){
+	    	  $("#profile_tbl  tr:nth-child(2) td:nth-child(2)").text(result.id);
+	    	  $("#profile_tbl  tr:nth-child(3) td:nth-child(2)").text(result.job_title);
+	    	  $("#profile_tbl  tr:nth-child(4) td:nth-child(2)").text(result.tel);
+	    	  $("#profile_tbl  tr:nth-child(5) td:nth-child(2)").text(result.email);
+	      },
+	      error: function(er){
+	    	  console.log("err. : "+er);
+	      }
+	  });
+	});
+	
+$( "#event_id_sel" ).change(function() {
+	  var val = $("#event_id_sel").val();
+	  var url = '/TIS/getEvent/'+val;
+	  $.ajax({
+	      url: url,
+	      method: "POST",
+	      dataType: 'json',
+	      processData: false,
+	      contentType: false,
+	      success: function(result){
+	    	  $("#event_tbl  tr:nth-child(2) td:nth-child(2)").text(result.event_desc);
+	      },
+	      error: function(er){
+	    	  console.log("err. : "+er);
+	      }
+	  });
+	});
 
+function openForm(para){
+	$('#'+para).modal('show');
+}
+function submitForm(para){
+	$('#'+para).submit();
+}
+</script>
     
     <!-- #footer -->
     <footer id="footer">
@@ -289,31 +279,7 @@
 	<![endif]-->
     
 
-   <div id="fb-root"></div> 
 </body>
-<script>
-var neighborhoods = [];
-var markers = [];
-var map;
-/**
- * 
-*/
-function initMap() {
-	map = new google.maps.Map(document.getElementById('map'), {
-	    zoom: 18,
-	    center: {lat: 37.752, lng: 128.891},
-	    zoomControl: true,
-	    mapTypeControl: false,
-	    scaleControl: true,
-	    streetViewControl: false,
-	    rotateControl: false,
-	    fullscreenControl: true
-	  });
-}
-
-</script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN9VDOjhzw7kPKEbFw7LEVoVreCXiz87E&callback=initMap" async defer></script>
 
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
