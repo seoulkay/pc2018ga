@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
+
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="ie ie6" lang="en"><![endif]-->
 <!--[if IE 7]><html class="ie ie7" lang="en"><![endif]-->
@@ -63,6 +66,7 @@
 <!--       <a class="navbar-brand" href="#" style="padding-top: 2em;color: WHITE"> -->
       	<h4 class="navbar-brand" style="color: WHITE; font-size: 1.5em; padding-top: 1.5em;">Trip Info System <Strong>ADMIN</Strong> ${sessionScope.user_name}</h4>
 <!--       </a> -->
+
      <img class="img-responsive" alt="" src="${pageContext.request.contextPath}/resources/tis/image/Atos.svg" style="max-height: 2em; max-width:15%;margin-top: 2em;margin-right: 1em; float:right;"  >
     </div>
    
@@ -70,172 +74,147 @@
 <!--     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
 <!--     </div>/.navbar-collapse -->
 <!--   </div> -->
+
 </nav>	
 
 <div class="container">
 <div class="row">
 		<ul class="nav nav-tabs nav-justified">
 		  <li role="presentation"><a href="infoAdmin">Profiles</a></li>
-		  <li role="presentation"><a href="infoTrip">Trips</a></li>
-		  <li role="presentation" class="active"><a href="infoShift">Shifts</a></li>
+		  <li role="presentation" class="active"><a href="infoTrip">Trips</a></li>
+		  <li role="presentation"><a href="infoShift">Shifts</a></li>
 		  <li role="presentation"><a href="infoTripcodes">Trip-codes</a></li>
 		</ul>
 </div>
 <div style="height: 2em"></div>
 	<div class="row">	
-	<h3>Shifts</h3>	
-	<h4>Supports <span class="label label-success" onclick="openForm('Supports')">Add new</span></h4>
+	<h3>itinerary Detail</h3>
+	<h4>itinerary</h4>
+	</div>
+	<div class="row">
+	<table class="table table-bordered" id="profile_tbl">
+		<tr class="info">
+			<td>Iti Time</td>
+			<td>Desc</td>
+			<td>Local desc</td>
+			<td>Emp name</td>
+			<td>Event name</td>
+		</tr>
+		<tr>
+			<td>${ti.stmp }</td>
+			<td>${ti.desc }</td>
+			<td>${ti.desc_local }</td>
+			<td>${ti.first_name} ${ti.last_name }</td>
+			<td>${ti.event_name}</td>
+		</tr>
+	</table>
 	</div>
 	<div class="row">	
-	<table class="table table-bordered">
-	    <thead>
-	      <tr class="info">
-	        <th>id</th>
-	        <th>event_id</th>
-	        <th>support_title</th>
-	        <th>support_tel</th>
-	        <th>Assign</th>
-	      </tr>
-	    </thead>
-	    <tbody>
-	    <c:forEach items="${tsup }" var="ele">
-	    	<tr id="SupUpdate_${ele.id }">
-	        <td onclick="openUpdateSupForm('SupUpdate', '${ele.id }')">${ele.id}</td>
-	        <td onclick="openUpdateSupForm('SupUpdate', '${ele.id }')">${ele.event_name}</td>
-	        <td onclick="openUpdateSupForm('SupUpdate', '${ele.id }')">${ele.support_title}</td>
-	        <td onclick="openUpdateSupForm('SupUpdate', '${ele.id }')">${ele.support_tel}</td>
-          	<td><span class="label label-success" onclick="openAssignSupForm(${ele.event_id}, ${ele.id}, 3)"> Assign</span></td>
-	      	</tr>
-	    </c:forEach>
-	    </tbody>
-	  </table>
+	<h4>Detail <button class="btn" onclick="openForm('itiDetForm')">+</button></h4>
 	</div>
-	<div class="modal" id="Supports" role="dialog">
-		<div class="modal-dialog">
-		<div class="modal-content">
-		<div class="modal-header">
-		Supports
-		</div>
-		<div class="modal-body">
-		<form id="SupForm" action="SupForm" method="POST">
-			<label>event_id</label>
-			<select name="event_id" class="form-control">
-			<c:forEach items="${te }" var="ele">
-				<option value="${ele.id}">${ele.event_name }</option>
-			</c:forEach>
-			</select>
-			<label>support_title</label>
-			<input type="text" name="support_title" placeholder="support_title" class="form-control">
-			<label>support_tel</label>
-			<input type="text" name="support_tel" placeholder="support_tel" class="form-control">
-		</form>
-		</div>
-		<div class="modal-footer">
-	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('SupForm')">Submit</button>
-	  	</div>
-		</div>
-		</div>
-	</div>
-	<div class="modal" id="SupUpdate" role="dialog">
-		<div class="modal-dialog">
-		<div class="modal-content">
-		<div class="modal-header">
-		Supports
-		</div>
-		<div class="modal-body">
-		<form id="SupUpdateForm" action="SupUpdateForm" method="POST">
-			<label>event_id</label>
-			<select id="SupUpdate_event_id" name="event_id" class="form-control">
-			<c:forEach items="${te }" var="ele">
-				<option value="${ele.id}">${ele.event_name }</option>
-			</c:forEach>
-			</select>
-			<label>support_title</label>
-			<input type="text" id="SupUpdate_support_title" name="support_title" placeholder="support_title" class="form-control">
-			<label>support_tel</label>
-			<input type="text" id="SupUpdate_support_tel" name="support_tel" placeholder="support_tel" class="form-control">
-		  	<input type="hidden" name="id" id="SupUpdate_id">
-		</form>
-		</div>
-		<div class="modal-footer">
-	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('SupUpdateForm')">Submit</button>
-	  	</div>
-		</div>
-		</div>
-	</div>
-	<div class="modal" id="SupportsAss" role="dialog">
-		<div class="modal-dialog">
-		<div class="modal-content">
-		<div class="modal-header">
-		Supports Assign
-		</div>
-		<form:form method="post" action="SupAssForm" modelAttribute="TisShifteList" id="SupAssForm">
-		<div class="modal-body">
-		
-			<c:forTokens items = "A,B,C" delims = "," var = "name" varStatus="status">
-			<label>${name }</label>
-			<select name="shifts[${status.index}].emp_id" id="${status.index}emp_id">
-			<option value="0">None</option>
-			<c:forEach items="${temp }" var="ele">
-				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
-			</c:forEach>
-			</select>
-			<input type="hidden" name="shifts[${status.index}].event_id" id="${status.index}event_id">
-			<input type="hidden" name="shifts[${status.index}].supports_id" id="${status.index}supports_id">
-			<input type="hidden" name="shifts[${status.index}].group_name" value="${name }">
-			</c:forTokens>
-		
-		</div>
-		<div class="modal-footer">
-<!-- 	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('SupForm')">Submit</button> -->
-	    <input type="submit" value="Save" />
-	    </div>
-	    </form:form>
-		</div>
-		</div>
-	</div>
-	<script>
-	function openUpdateSupForm(para, id){
-		$("#"+para+"_id").val($("#"+para+"_"+id+" td:nth-child(1)").text());
-		$("#"+para+"_event_id").val($("#"+para+"_"+id+" td:nth-child(2)").text());
-		$("#"+para+"_support_title").val($("#"+para+"_"+id+" td:nth-child(3)").text());
-		$("#"+para+"_support_tel").val($("#"+para+"_"+id+" td:nth-child(4)").text());
-		$('#'+para).modal('show');
-	}
+	<div class="row">
+	<table class="table table-bordered" id="profile_tbl">
+		<tr class="info">
+			<td>id</td>
+			<td>desc</td>
+			<td>desc_local</td>
+			<td>stmp</td>
+			<td>note</td>
+			<td>note_local</td>
+		</tr>
+		<c:forEach items="${tidl}" var="ele">
+		<tr class="updateIti">
+			<td class="iti_id">${ele.id}</td>
+			<td>${ele.desc}</td>
+			<td>${ele.desc_local}</td>
+			<td><fmt:formatDate value='${ele.stmp}' pattern = 'yyyy-MM-dd HH:mm' /></td>
+			<td>${ele.note}</td>
+			<td>${ele.note_local}</td>
+		</tr>
+		</c:forEach>
+	</table>
 	
-	function openAssignSupForm(par1, par2, length){
-		for(i = 0 ; i < length ; i++){
-		$("#"+i+"event_id").val(par1);
-		$("#"+i+"supports_id").val(par2);
-		
-		$("#"+i+"emp_id").val("0");
-		}
-		
-
-		  var url = '/TIS/getShift/'+par2;
-		  $.ajax({
-		      url: url,
-		      method: "POST",
-		      dataType: 'json',
-		      processData: false,
-		      contentType: false,
-		      success: function(result){
-		    	  for(var ele in result){
-		    		  console.log(result[ele].emp_id);
-		    		  $("#"+ele+"emp_id").val(result[ele].emp_id);
-		    	  }
-		      },
-		      error: function(er){
-		    	  console.log("err. : "+er);
-		      }
-		  });
-		
-		
-		$('#SupportsAss').modal('show');
-	}
-	</script>
+	<div class="modal" id="itiDetForm" role="dialog">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		Itinerary Detail
+		</div>
+		<div class="modal-body">
+		<form id="itiDetInsertForm" action="itiDetForm" method="POST">
+			<label>desc</label>
+			<input type="text" name="desc" placeholder="desc" class="form-control">
+			<label>desc_local</label>
+			<input type="text" name="desc_local" placeholder="desc_local" class="form-control">
+			<label>stmp</label>
+			<input type="datetime-local" class="form-control" name="stmp" pattern = 'yyyy-MM-ddTHH:mm'>
+			<input type="hidden" name="iti_id" value="${ti.id }">
+			<label>note</label>
+			<input type="text" name="note" placeholder="note" class="form-control">
+			<label>note_local</label>
+			<input type="text" name="note_local" placeholder="note_local" class="form-control">
+		</form>
+		</div>
+		<div class="modal-footer">
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('itiDetInsertForm')">Submit</button>
+	  	</div>
+		</div>
+		</div>
+	</div>
+	
+	<div class="modal" id="itiDetUpdateForm" role="dialog">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		Itinerary Detail
+		</div>
+		<div class="modal-body">
+		<form id="itiDetUpdate" action="itiDetUpdateForm" method="POST">
+			<label>desc</label>
+			<input type="text" id="iti_desc" name="desc" placeholder="desc" class="form-control">
+			<label>desc_local</label>
+			<input type="text" id="iti_desc_local" name="desc_local" placeholder="desc_local" class="form-control">
+			<label>stmp</label>
+			<input type="datetime-local" class="form-control" id="iti_stmp" name="stmp" pattern = 'yyyy-MM-ddTHH:mm'>
+			<label>note</label>
+			<input type="text" id="iti_note" name="note" placeholder="note" class="form-control">
+			<label>note_local</label>
+			<input type="text" id="iti_note_local" name="note_local" placeholder="note_local" class="form-control">
+			<input type="hidden" name="iti_id" value="${ti.id }">
+			<input type="hidden" id="iti_det_id" name="id">
+		</form>
+		</div>
+		<div class="modal-footer">
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('itiDetUpdate')">Submit</button>
+	  	</div>
+		</div>
+		</div>
+	</div>
+	
+	</div>
+	
 </div>
+
+
 <script>
+$(".updateIti").click(function() {
+    var id = $(this).closest("tr").find(".iti_id");
+	var desc = id.next();
+    var desc_local = desc.next();
+    var stmp = desc_local.next();
+    var note = stmp.next();
+    var note_local = note.next();
+
+    $('#iti_desc').val(desc.text());
+    $('#iti_desc_local').val(desc_local.text());
+    $('#iti_stmp').val(stmp.text().replace(" ", "T"));
+    $('#iti_det_id').val(id.text());
+    $('#iti_note').val(note.text());
+    $('#iti_note_local').val(note_local.text());
+    
+    $('#itiDetUpdateForm').modal('show');
+});
+
 function openForm(para){
 	$('#'+para).modal('show');
 }
@@ -284,13 +263,15 @@ function submitForm(para){
 
 </body>
 
-<script>(function(d, s, id) {
+<script>
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1074619385980281";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

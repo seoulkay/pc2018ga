@@ -5,6 +5,9 @@ public class TisSupports {
 	private int event_id;
 	private String support_title;
 	private String support_tel;
+	
+	private String event_name;
+	
 	public int getId() {
 		return id;
 	}
@@ -28,6 +31,12 @@ public class TisSupports {
 	}
 	public void setSupport_tel(String support_tel) {
 		this.support_tel = support_tel;
+	}
+	public String getEvent_name() {
+		return event_name;
+	}
+	public void setEvent_name(String event_name) {
+		this.event_name = event_name;
 	}
 	
 	

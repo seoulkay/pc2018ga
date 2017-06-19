@@ -38,6 +38,8 @@
 	,a.acc_end
 	,a.acc_pin
 	,a.acc_desc
+	,a.acc_fac
+	,a.acc_pol
 	,v.venue_pic
 	,v.venue_name
 	,v.venue_name_loc
@@ -45,8 +47,8 @@
 	,v.venue_address_loc
 	,v.venue_desc
 	FROM tis.accom a left join tis.venue v on a.venue_id = v.id 
-	where a.event_id = #{id} 
-	and a.employee_id = #{event_id};
+	where a.event_id = #{event_id} 
+	and a.employee_id = #{id};
   	</select>
   	<select id="selectAccomByAtosName" resultType="TisAccom" parameterType="TisEmployee">
   	SELECT 
@@ -263,8 +265,14 @@
 	WHERE `id` = #{id};
   	</update>
   	<select id="selectSupports" resultType="TisSupports">
-  	SELECT * 
-  	FROM tis.supports
+  	SELECT
+  	a.id
+  	,a.event_id
+  	,a.support_title
+  	,a.support_tel
+  	,b.event_name
+  	FROM tis.supports a LEFT JOIN tis.event b 
+  	ON a.event_id = b.id
   	</select>
   	<insert id="insertSupports" parameterType="TisSupports">
   	INSERT INTO `tis`.`supports`
@@ -331,4 +339,234 @@
 	`pin` = #{pin}
 	WHERE `id` = #{id};
   	</update>
+  	<select id="existTisShift" parameterType="TisShift" resultType="Integer">
+  	SELECT EXISTS(SELECT * FROM tis.shift WHERE 
+  	event_id = #{event_id}
+  	and supports_id = #{supports_id}
+  	and group_name = #{group_name}
+  	);
+  	</select>
+  	<insert id="insertShift" parameterType="TisShift">
+  	INSERT INTO `tis`.`shift`
+	(
+	`event_id`,
+	`emp_id`,
+	`supports_id`,
+	`group_name`)
+	VALUES
+	(
+	#{event_id},
+	#{emp_id},
+	#{supports_id},
+	#{group_name});
+  	</insert>
+  	<update id="updateShift" parameterType="TisShift">
+  	UPDATE `tis`.`shift`
+	SET
+	`emp_id` = #{emp_id}
+	WHERE 
+	event_id = #{event_id}
+  	and supports_id = #{supports_id}
+  	and group_name = #{group_name}
+  	</update>
+  	<select id="selectShiftBySupportId" parameterType="Integer" resultType="TisShift">
+  	SELECT * FROM `tis`.`shift`
+  	WHERE supports_id = #{param}
+  	</select>
+  	<select id="selectTripsJoinDesc" resultType="TisTrip">
+	select 
+	a.id, a.emp_id, a.event_id, b.event_name, c.first_name, c.last_name 
+	from tis.trip a 
+	left join `tis`.`event` b on a.event_id = b.id
+	left join tis.employee c on a.emp_id = c.id;
+  	</select>
+  	<insert id="insertTrip" parameterType="TisTrip">
+  	INSERT INTO `tis`.`trip`
+	(
+	`emp_id`,
+	`event_id`)
+	VALUES
+	(
+	#{emp_id},
+	#{event_id});	  	
+  	</insert>
+  	<select id="existTisTrip" parameterType="TisTrip" resultType="Integer">
+  	SELECT EXISTS
+  	(SELECT * FROM tis.trip WHERE 
+  	emp_id = #{emp_id}
+  	and event_id = #{event_id}
+  	);
+  	</select>
+  	<select id="selectTripByParam" parameterType="TisTrip" resultType="TisTrip">
+  	SELECT * FROM tis.trip
+  	WHERE emp_id = #{emp_id}
+  	and event_id = #{event_id}
+  	</select>
+  	
+  	<select id="existAcc" parameterType="TisAccom" resultType="Integer">
+  	SELECT EXISTS
+  	(SELECT * FROM tis.accom WHERE 
+  	employee_id = #{employee_id}
+  	and event_id = #{event_id}
+  	);
+  	</select>
+  	<insert id="insertAcc" parameterType="TisAccom">
+  	INSERT INTO `tis`.`accom`
+	(
+	`employee_id`,
+	`venue_id`,
+	`event_id`,
+	`acc_room`,
+	`acc_begin`,
+	`acc_end`,
+	`acc_pin`,
+	`acc_desc`,
+	`acc_fac`,
+	`acc_pol`)
+	VALUES
+	(
+	#{employee_id},
+	#{venue_id},
+	#{event_id},
+	#{acc_room},
+	#{acc_begin},
+	#{acc_end},
+	#{acc_pin},
+	#{acc_desc},
+	#{acc_fac},
+	#{acc_pol});
+  	</insert>
+  	<update id="updateAcc" parameterType="TisAccom">
+  	UPDATE `tis`.`accom`
+	SET
+	`employee_id` = #{employee_id},
+	`venue_id` = #{venue_id},
+	`event_id` = #{event_id},
+	`acc_room` = #{acc_room},
+	`acc_begin` = #{acc_begin},
+	`acc_end` = #{acc_end},
+	`acc_pin` = #{acc_pin},
+	`acc_desc` = #{acc_desc},
+	`acc_fac` = #{acc_fac},
+	`acc_pol` = #{acc_pol}
+	WHERE
+	employee_id = #{employee_id}
+  	and event_id = #{event_id}
+  	</update>
+  	<select id="selectItiByTrip" parameterType="Integer" resultType="TisIti">
+  	SELECT * FROM tis.iti WHERE trip_id = #{param}
+  	</select>
+  	<insert id="insertIti" parameterType="TisIti">
+	INSERT INTO `tis`.`iti`
+	(
+	`trip_id`,
+	`stmp`,
+	`desc`,
+	`desc_local`)
+	VALUES
+	(
+	#{trip_id},
+	#{stmp},
+	#{desc},
+	#{desc_local});
+  	</insert>
+  	<update id="updateIti" parameterType="TisIti">
+  	UPDATE `tis`.`iti`
+	SET
+	`trip_id` = #{trip_id},
+	`stmp` = #{stmp},
+	`desc` = #{desc},
+	`desc_local` = #{desc_local}
+	WHERE `id` = #{id};
+  	</update>
+  	<select id="existTisOther" parameterType="TisOther" resultType="Integer">
+  	SELECT EXISTS(SELECT * FROM tis.other WHERE 
+  	event_id = #{event_id}
+  	and emp_id = #{emp_id}
+  	);
+  	</select>
+  	<insert id="insertTisOther" parameterType="TisOther">
+  	INSERT INTO
+  	tis.other
+  	(
+  	event_id
+  	,emp_id
+  	,note
+  	)
+  	VALUES
+  	(
+  	#{event_id}
+  	,#{emp_id}
+  	,#{note}
+  	)
+  	</insert>
+  	<update id="updateTisOther" parameterType="TisOther">
+  	UPDATE tis.other
+  	SET
+  	note = #{note}
+  	WHERE
+  	event_id = #{event_id}
+  	AND 
+  	emp_id = #{emp_id}
+  	</update>
+  	<select id="selectTisOtherByEventEmp" parameterType="TisOther" resultType="TisOther">
+  	SELECT *
+  	FROM tis.other
+  	WHERE
+  		event_id = #{event_id}
+  	AND
+  		emp_id = #{emp_id}
+  	</select>
+  	<select id="selectTisItiById" parameterType="Integer" resultType="TisIti">
+  	SELECT  
+	i.id
+	,i.trip_id
+	,i.stmp
+	,i.`desc`
+	,i.desc_local
+	,e.first_name
+	,e.last_name
+	,ev.event_name
+	FROM tis.iti i 
+	left join tis.trip t on t.id = i.trip_id
+	left join tis.employee e on e.id = t.emp_id
+	left join tis.`event` ev on ev.id = t.event_id
+	WHERE i.id = #{param}
+  	</select>
+  	<insert id="insertItiDet" parameterType="TisItiDetail">
+  	INSERT INTO `tis`.`iti_detail`
+	(
+	`stmp`,
+	`trs_id`,
+	`iti_id`,
+	`desc`,
+	`desc_local`,
+	`note`,
+	`note_local`)
+	VALUES
+	(
+	#{stmp},
+	#{trs_id},
+	#{iti_id},
+	#{desc},
+	#{desc_local},
+	#{note},
+	#{note_local})
+  	</insert>
+  	<update id="updateItiDet" parameterType="TisItiDetail">
+  	UPDATE `tis`.`iti_detail`
+	SET
+	`id` = #{id},
+	`stmp` = #{stmp},
+	`trs_id` = #{trs_id},
+	`iti_id` = #{iti_id},
+	`desc` = #{desc},
+	`desc_local` = #{desc_local},
+	`note` = #{note},
+	`note_local` = #{note_local}
+	WHERE `id` = #{id};
+  	</update>
+  	<select id="selectItiDetById" parameterType="Integer" resultType="TisItiDetail">
+  	SELECT * FROM tis.iti_detail WHERE iti_id = #{param}
+  	</select>
 </mapper>

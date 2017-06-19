@@ -2,13 +2,17 @@ package tis.pye.team.vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TisAccom {
 	private int id;
 	private int employee_id;
 	private int venue_id;
 	private int event_id;
 	private String acc_room;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date acc_begin;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date acc_end;
 	private String acc_pin;
 	private String acc_desc;
@@ -18,6 +22,11 @@ public class TisAccom {
 	private String venue_name_loc;
 	private String venue_address;
 	private String venue_address_loc;
+	
+	private String acc_fac;
+	private String[] acc_fac_list;
+	private String acc_pol;
+	private String[] acc_pol_list;
 	public int getId() {
 		return id;
 	}
@@ -107,6 +116,30 @@ public class TisAccom {
 	}
 	public void setVenue_address_loc(String venue_address_loc) {
 		this.venue_address_loc = venue_address_loc;
+	}
+	public String getAcc_fac() {
+		return acc_fac;
+	}
+	public void setAcc_fac(String acc_fac) {
+		this.acc_fac = acc_fac;
+	}
+	public String getAcc_pol() {
+		return acc_pol;
+	}
+	public void setAcc_pol(String acc_pol) {
+		this.acc_pol = acc_pol;
+	}
+	public String[] getAcc_fac_list() {
+		return acc_fac_list;
+	}
+	public void setAcc_fac_list(String[] acc_fac_list) {
+		this.acc_fac_list = acc_fac_list;
+	}
+	public String[] getAcc_pol_list() {
+		return acc_pol_list;
+	}
+	public void setAcc_pol_list(String[] acc_pol_list) {
+		this.acc_pol_list = acc_pol_list;
 	}
 	
 }

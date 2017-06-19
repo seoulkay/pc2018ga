@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 
 <!DOCTYPE html>
 <!--[if lt IE 7]><html class="ie ie6" lang="en"><![endif]-->
@@ -95,17 +98,16 @@
 			Name
 			</td>
 			<td>
-			<select id="employee_id_sel" name="employee_id" class="form-control">
+			
+			<select id="employee_id_sel" name="employee_id" class="form-control" disabled>
 			<c:forEach items="${temp }" var="ele">
-				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
+				<option value="${ele.id}"
+				<c:if test="${tripinfo.emp_id eq ele.id}">selected</c:if>
+				>${ele.first_name } ${ele.last_name }</option>
 			</c:forEach>
 			</select>
 			</td>
 		</tr>
-		<tr><td class="info">Id</td><td></td></tr>
-		<tr><td class="info">Job title</td><td></td></tr>
-		<tr><td class="info">Telephone</td><td></td></tr>
-		<tr><td class="info">Email</td><td></td></tr>
 	</table>
 	</div>
 	<div class="row">	
@@ -118,82 +120,211 @@
 			Event
 			</td>
 			<td>
-			<select id="event_id_sel" name="event_id" class="form-control">
+			<select id="event_id_sel" name="event_id" class="form-control" disabled>
 			<c:forEach items="${te }" var="ele">
-				<option value="${ele.id}">${ele.event_name}</option>
+				<option value="${ele.id}"
+				<c:if test="${tripinfo.event_id eq ele.id}">selected</c:if>
+				>${ele.event_name}</option>
 			</c:forEach>
 			</select>
 			</td>
 		</tr>
-		<tr><td class="info">Date</td><td></td></tr>
 	</table>
 	</div>
 	<div class="row">	
-	<h4>Accommodation <button class="btn btn-success">+</button></h4>
+	<h4>Accommodation <button class="btn" disabled="disabled">+</button></h4>
 	</div>
 	<div class="row">
+	<form:form method="post" action="TripAccForm" modelAttribute="TisAccom" id="TripAccForm">
+	<input type="hidden" name="employee_id" value="${tripinfo.emp_id }"> 
+	<input type="hidden" name="event_id" value="${tripinfo.event_id }"> 
+	<input type="hidden" name="emp_id" value="${tripinfo.emp_id }">
 	<table class="table table-bordered" id="acc_tbl">
 		<tr>
 			<td class="info">
 			Acc. Name
 			</td>
 			<td>
-			<select id="acc_id_sel" name="acc_id" class="form-control">
+			<select id="acc_id_sel" name="venue_id" class="form-control">
+			<option value="0">Select one</option>
 			<c:forEach items="${thv }" var="ele">
-				<option value="${ele.id}">${ele.venue_name}</option>
+				<option value="${ele.id}"
+				<c:if test="${tacc.venue_id eq ele.id}">selected</c:if>
+				>${ele.venue_name}</option>
 			</c:forEach>
 			</select>
 			</td>
 		</tr>
-		<tr><td class="info">Address</td><td></td></tr>
-		<tr><td class="info">Check-in</td><td><input type="text" class="form-control"></td></tr>
-		<tr><td class="info">Check-out</td><td><input type="text" class="form-control"></td></tr>
+<!-- 		<tr><td class="info">Address</td><td></td></tr> -->
+		<tr><td class="info">Check-in</td><td><input type="date" class="form-control" value="<fmt:formatDate value='${tacc.acc_begin }' pattern = 'yyyy-MM-dd' />" name="acc_begin"></td></tr>
+		<tr><td class="info">Check-out</td><td><input type="date" class="form-control" value="<fmt:formatDate value='${tacc.acc_end }' pattern = 'yyyy-MM-dd' />" name="acc_end"></td></tr>
 		<tr><td class="info">Night(s)</td><td></td></tr>
-		<tr><td class="info">Room No.</td><td><input type="text" class="form-control"></td></tr>
-		<tr><td class="info">Acc. Note</td><td><input type="text" class="form-control"></td></tr>
+		<tr><td class="info">Room No.</td><td><input type="text" class="form-control" value="${tacc.acc_room }" name="acc_room"></td></tr>
+		<tr><td class="info">Acc. Note</td><td><input type="text" class="form-control" value="${tacc.acc_pin }" name="acc_pin"></td></tr>
 		<tr><td class="info">Facilities</td><td>
 		<c:forEach items="${tfac }" var="ele">
-		<input type="checkbox" aria-label="" value="${ele.id }"> ${ele.fac_title }
+		<input type="checkbox" aria-label="" value="${ele.id }" name="acc_fac_list"
+		<c:set var="fac_var" value=" ${ele.id },"/>
+		<c:if test = "${fn:contains(tacc.acc_fac, fac_var)}">
+		checked
+		</c:if>
+		>
+		${fac_var }
+		 ${ele.fac_title }
 		</c:forEach>
 		</td></tr>
 		<tr><td class="info">Policy</td><td>
 		<c:forEach items="${tpol }" var="ele">
-		<input type="checkbox" aria-label="" value="${ele.id }"> ${ele.pol_title }
+		<input type="checkbox" aria-label="" value="${ele.id }" name="acc_pol_list"
+		<c:set var="pol_var" value=" ${ele.id },"/>
+		<c:if test = "${fn:contains(tacc.acc_pol, pol_var)}">
+		checked
+		</c:if>
+		> ${ele.pol_title }
 		</c:forEach>
 		</td></tr>
-		<tr><td class="info">information</td><td><textarea type="text" class="form-control">In case of doubts, please contact Janet Kim, Administrator at Atos (+82-33-350-3679) or Janice Shin, HR & Admin Advisor at Atos (+82-33-350-3536).</textarea></td></tr>
+		<tr><td class="info">information</td><td>
+		<input class="form-control" name="acc_desc" value = 
+		<c:choose>
+			<c:when test="${empty tacc.acc_desc}">
+			"In case of doubts, please contact Janet Kim, Administrator at Atos (+82-33-350-3679) or Janice Shin, HR & Admin Advisor at Atos (+82-33-350-3536)."
+			</c:when>
+			<c:otherwise>
+			"${tacc.acc_desc }"
+			</c:otherwise>
+		</c:choose>
+		>
+		</td></tr>
 	</table>
+		<input type="submit" class="btn" value="Submit">
+	</form:form>
+	<br>
 	</div>
 	<div class="row">	
-	<h4>Itinerary <button class="btn btn-success">+</button></h4>
+	<h4>Itinerary <button class="btn" onclick="openForm('itiForm')">+</button></h4>
 	</div>
 	<div class="row">
 	<table class="table table-bordered" id="event_tbl">
-		<tr>
-			<td class="info">
-			Itinerary title
-			</td>
-			<td>
-			<input type="text" class="form-control">
-			</td>
+<!-- 		<tr> -->
+<!-- 			<td class="info"> -->
+<!-- 			Itinerary title -->
+<!-- 			</td> -->
+<!-- 			<td> -->
+<!-- 			<input type="text" class="form-control"> -->
+<!-- 			</td> -->
+<!-- 		</tr> -->
+<!-- 		<tr><td class="info">Date</td><td><input type="text" class="form-control"></td></tr> -->
+<!-- 		<tr><td class="info">Schedule <button class="btn btn-success">+</button></td><td><input type="text" class="form-control"></td></tr> -->
+		<tr class="info">
+			<td>Detail</td>
+			<td>ID</td>
+			<td>Desc</td>
+			<td>Desc Local</td>
+			<td>Time</td>
 		</tr>
-		<tr><td class="info">Date</td><td><input type="text" class="form-control"></td></tr>
-		<tr><td class="info">Schedule <button class="btn btn-success">+</button></td><td><input type="text" class="form-control"></td></tr>
+		<c:forEach items="${ti }" var="ele">
+		<tr>
+			<td><button class="btn" onclick="location.href='itiForm?id=${ele.id}'">D</button></td>
+			<td class="updateIti iti_id">${ele.id }</td>
+			<td class="updateIti">${ele.desc }</td>
+			<td class="updateIti">${ele.desc_local }</td>
+			<td class="updateIti"><fmt:formatDate value='${ele.stmp }' pattern = 'yyyy-MM-dd HH:mm' /></td>
+		</tr>
+		</c:forEach>
+	
 	</table>
+	<div class="modal" id="itiForm" role="dialog">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		Itinerary
+		</div>
+		<div class="modal-body">
+		<form id="itiInsertForm" action="ItiForm" method="POST">
+			<label>desc</label>
+			<input type="text" name="desc" placeholder="desc" class="form-control">
+			<label>desc_local</label>
+			<input type="text" name="desc_local" placeholder="desc_local" class="form-control">
+			<label>stmp</label>
+			<input type="datetime-local" class="form-control" name="stmp" pattern = 'yyyy-MM-ddTHH:mm'>
+			<input type="hidden" name="trip_id" value="${tripinfo.id }">
+			<input type="hidden" name="event_id" value="${tripinfo.event_id }">
+			<input type="hidden" name="emp_id" value="${tripinfo.emp_id }">
+		</form>
+		</div>
+		<div class="modal-footer">
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('itiInsertForm')">Submit</button>
+	  	</div>
+		</div>
+		</div>
+	</div>
+
+	<div class="modal" id="ItiUpdate" role="dialog">
+		<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-header">
+		TripCodes
+		</div>
+		<div class="modal-body">
+		<form id="ItiUpdateForm" action="ItiUpdateForm" method="POST">
+			<label>desc</label>
+			<input type="text" name="desc" id="iti_desc" placeholder="desc" class="form-control">
+			<label>desc_local</label>
+			<input type="text" name="desc_local" id="iti_desc_local" placeholder="desc_local" class="form-control">
+			<label>stmp</label>
+			<input type="datetime-local" class="form-control" name="stmp" id ="iti_stmp" pattern = 'yyyy-MM-dd HH:mm'>
+			<input type="hidden" name="trip_id" id="iti_trip_id" value="${tripinfo.id }">
+			<input type="hidden" name="id" id="iti_id">
+			<input type="hidden" name="event_id" value="${tripinfo.event_id }">
+			<input type="hidden" name="emp_id" value="${tripinfo.emp_id }">
+		</form>
+		</div>
+		<div class="modal-footer">
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('ItiUpdateForm')">Submit</button>
+	  	</div>
+		</div>
+		</div>
+	</div>
+
 	</div>
 	<div class="row">	
 	<h4>Others</h4>
 	</div>
+	<form method="POST" action="OtherForm">
 	<div class="row">
 	<table class="table table-bordered" id="event_tbl">
-		<tr><td class="info">Note</td><td><input type="text" class="form-control"></td></tr>
+		<tr><td class="info">Note</td></tr>
+		<tr><td><textarea id="otherNote" name="note" >${to.note }</textarea></td></tr>
 	</table>
+	<input type="hidden" name="event_id" value="${tripinfo.event_id }">
+	<input type="hidden" name="emp_id" value="${tripinfo.emp_id }">
+	<input type="hidden" name="id" value="${tripinfo.emp_id }">	
+	<input type="submit" class="btn" value="Submit">
 	</div>
-	<div class="row" style="padding: 1em">
-		<button class="btn btn-success" >Update</button>
+	</form>
+	<div class="row" style="height: 2em">	
 	</div>
 </div>
+
+<script src="https://cdn.ckeditor.com/4.7.0/standard/ckeditor.js"></script>
 <script>
+            CKEDITOR.replace( 'otherNote' );
+</script>
+<script>
+$(".updateIti").click(function() {
+    var id = $(this).closest("tr").find(".iti_id");
+	var desc = id.next();
+    var desc_local = desc.next();
+    var stmp = desc_local.next();     
+
+    $('#iti_desc').val(desc.text());
+    $('#iti_desc_local').val(desc_local.text());
+    $('#iti_stmp').val(stmp.text().replace(" ", "T"));
+    $('#iti_id').val(id.text());
+    
+    $('#ItiUpdate').modal('show');
+});
+
 $( "#employee_id_sel" ).change(function() {
 	  var val = $("#employee_id_sel").val();
 	  var url = '/TIS/getEmp/'+val;
@@ -281,13 +412,15 @@ function submitForm(para){
 
 </body>
 
-<script>(function(d, s, id) {
+<script>
+(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1074619385980281";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));
+</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

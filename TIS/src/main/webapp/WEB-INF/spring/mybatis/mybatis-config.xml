@@ -20,6 +20,10 @@
 		<typeAlias type="tis.pye.team.vo.TisTransportations" alias="TisTransportations"/>
 		<typeAlias type="tis.pye.team.vo.TisSupports" alias="TisSupports"/>
 		<typeAlias type="tis.pye.team.vo.TisShift" alias="TisShift"/>
+		<typeAlias type="tis.pye.team.vo.TisTrip" alias="TisTrip"/>
+		<typeAlias type="tis.pye.team.vo.TisIti" alias="TisIti"/>
+		<typeAlias type="tis.pye.team.vo.TisItiDetail" alias="TisItiDetail"/>
+		<typeAlias type="tis.pye.team.vo.TisOther" alias="TisOther"/>
 	</typeAliases>
 	
 	<mappers>

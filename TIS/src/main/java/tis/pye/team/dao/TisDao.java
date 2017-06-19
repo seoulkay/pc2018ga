@@ -11,9 +11,14 @@ import tis.pye.team.vo.TisEmployee;
 import tis.pye.team.vo.TisEvent;
 import tis.pye.team.vo.TisFacilities;
 import tis.pye.team.vo.TisFlight;
+import tis.pye.team.vo.TisIti;
+import tis.pye.team.vo.TisItiDetail;
+import tis.pye.team.vo.TisOther;
 import tis.pye.team.vo.TisPolicies;
+import tis.pye.team.vo.TisShift;
 import tis.pye.team.vo.TisSupports;
 import tis.pye.team.vo.TisTransportations;
+import tis.pye.team.vo.TisTrip;
 import tis.pye.team.vo.TisVenue;
 
 @Repository
@@ -143,7 +148,88 @@ public class TisDao extends SqlSessionDaoSupport{
 	public List<TisVenue> selectHotelVenue(){
 		return getSqlSession().selectList("TisMapper.selectHotelVenue");
 	}
-	
+	//
+	public int insertUpdateShift(TisShift vo){
+		if(getSqlSession().selectOne("TisMapper.existTisShift", vo).equals(1)){
+			getSqlSession().update("TisMapper.updateShift", vo);
+			return 1;
+		}else{
+			getSqlSession().insert("TisMapper.insertShift", vo);
+			return 0;
+		}
+	}
+	//
+	public List<TisShift> selectShiftBySupportId(int param){
+		return getSqlSession().selectList("TisMapper.selectShiftBySupportId", param);
+	}
+	//selectTripsJoinDesc
+	public List<TisTrip> selectTripsJoinDesc(){
+		return getSqlSession().selectList("TisMapper.selectTripsJoinDesc");
+	}
+	//event_id 
+	public int insertTrip(TisTrip vo){
+		if(getSqlSession().selectOne("TisMapper.existTisTrip", vo).equals(1)){
+			return 0;
+		}else{
+			return getSqlSession().insert("TisMapper.insertTrip", vo);
+		}	
+	}
+	//existAcc
+	public int insertUpdateAcc(TisAccom vo){
+		if(getSqlSession().selectOne("TisMapper.existAcc", vo).equals(1)){
+			getSqlSession().update("TisMapper.updateAcc", vo);
+			return 1;
+		}else{
+			getSqlSession().insert("TisMapper.insertAcc", vo);
+			return 0;
+		}
+	}
+	//파라미터로 트립 넘버 찾기
+	public TisTrip selectTripByParam(TisTrip vo){
+		return getSqlSession().selectOne("TisMapper.selectTripByParam", vo);
+	}
+	//
+	public List<TisIti> selectItiByTrip(int param){
+		return getSqlSession().selectList("TisMapper.selectItiByTrip", param);
+	}
+	//
+	public int insertIti(TisIti vo){
+		return getSqlSession().insert("TisMapper.insertIti", vo);
+	}
+	//
+	public int updateIti(TisIti vo){
+		return getSqlSession().update("TisMapper.updateIti", vo);
+	}
+	//
+	public int insertUpdateOther(TisOther vo){
+		if(getSqlSession().selectOne("TisMapper.existTisOther", vo).equals(1)){
+			getSqlSession().update("TisMapper.updateTisOther", vo);
+			return 1;
+		}else{
+			getSqlSession().insert("TisMapper.insertTisOther", vo);
+			return 0;
+		}
+	}	
+	//
+	public TisOther selectTisOtherByEventEmp(TisOther vo){
+		return getSqlSession().selectOne("TisMapper.selectTisOtherByEventEmp", vo);
+	}
+	//
+	public TisIti selectTisItiById(int vo){
+		return getSqlSession().selectOne("TisMapper.selectTisItiById", vo);
+	}
+	//
+	public List<TisItiDetail> selectItiDetById(int vo){
+		return getSqlSession().selectList("TisMapper.selectItiDetById", vo);
+	}
+	//
+	public int insertItiDet(TisItiDetail vo){
+		return getSqlSession().insert("TisMapper.insertItiDet", vo);
+	}
+	//
+	public int updateItiDet(TisItiDetail vo){
+		return getSqlSession().update("TisMapper.updateItiDet", vo);
+	}
 }
 
 

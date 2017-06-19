@@ -87,8 +87,8 @@
 	<div class="row">	
 	<h3>Trips</h3>
 	<h4>Trips 
-<!-- 	<span class="label label-success" onclick="openForm('TripCodes')">Add new</span> -->
-	<a href="infoTripForm"><span class="label label-success">Add new</span></a>
+	<span class="label label-success" onclick="openForm('AddTripForm')">Add new</span>
+<!-- 	<a href="infoTripForm"><span class="label label-success">Add new</span></a> -->
 	</h4>
 	</div>
 	<div class="row">	
@@ -96,78 +96,77 @@
 	    <thead>
 	      <tr class="info">
 	        <th>id</th>
-	        <th>event_name</th>
-	        <th>event_desc</th>
-	        <th>active</th>
+	        <th>event_id</th>
+	        <th>emp_id</th>
 	      </tr>
 	    </thead>
 	    <tbody>
-	    <c:forEach items="${te }" var="ele">
-	    	<tr onclick="openUpdateForm('TripCodesUpdate', '${ele.id }')" id="TripCodesUpdate_${ele.id }">
+	    <c:forEach items="${ttr }" var="ele">
+	    	
+	    	<tr onclick="goinfoTripForm(${ele.event_id},${ele.emp_id})">
 	        <td>${ele.id }</td>
 	        <td>${ele.event_name }</td>
-	        <td>${ele.event_desc }</td>
-	        <td>${ele.active }</td>
+	        <td>${ele.first_name } ${ele.last_name }</td>
 	      	</tr>
 	    </c:forEach>
 	    </tbody>
 	  </table>
 	</div>
-	<div class="modal" id="TripCodes" role="dialog">
-		<div class="modal-dialog">
-		<div class="modal-content">
-		<div class="modal-header">
-		TripCodes
-		</div>
-		<div class="modal-body">
-		<form id="TripCodesForm" action="TripCodesForm" method="POST">
-			<label>event_name</label>
-			<input type="text" name="event_name" placeholder="event_name" class="form-control">
-			<label>event_desc</label>
-			<input type="text" name="event_desc" placeholder="event_desc" class="form-control">
-			<label>Active</label>
-			<div class="input-group">
-			<label class="radio-inline">
-			<input type="radio" name="active" value="Y" class="form-control">Yes
-			</label>
-			<label class="radio-inline">
-		  	<input type="radio" name="active" value="N" class="form-control" checked>No
-		  	</label>
-		  	</div>
-		</form>
-		</div>
-		<div class="modal-footer">
-	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('TripCodesForm')">Submit</button>
-	  	</div>
-		</div>
-		</div>
+	
+
+<div class="modal" id="AddTripForm" role="dialog">
+	<div class="modal-dialog">
+	<div class="modal-content">
+	<div class="modal-header">
+	TripCodes
 	</div>
-	<div class="modal" id="TripCodesUpdate" role="dialog">
-		<div class="modal-dialog">
-		<div class="modal-content">
-		<div class="modal-header">
-		TripCodes
-		</div>
-		<div class="modal-body">
-		<form id="TripCodesUpdateForm" action="TripCodesUpdateForm" method="POST">
-			<label>event_name</label>
-			<input type="text" id="TripCodesUpdate_event_name" name="event_name" placeholder="event_name" class="form-control">
-			<label>event_desc</label>
-			<input type="text" id="TripCodesUpdate_event_desc" name="event_desc" placeholder="event_desc" class="form-control">
-			<label>Active</label>
-			<div class="input-group">
-			<label class="radio-inline">
-			<input type="radio" id="TripCodesUpdate_active_Y" name="active" value="Y" class="form-control">Yes
-			</label>
-			<label class="radio-inline">
-		  	<input type="radio" id="TripCodesUpdate_active_N" name="active" value="N" class="form-control">No
-		  	</label>
-		  	</div>
-		  	<input type="hidden" name="id" id="TripCodesUpdate_id">
-		</form>
-		</div>
+	<div class="modal-body">
+	
+	<h3>Trips form</h3>
+	<h4>Profile</h4>
+	<form id="AddTripFormForm" action="tripForm" method="POST">
+	<table class="table table-bordered" id="profile_tbl">
+		<tr>
+			<td class="info">
+			Name
+			</td>
+			<td>
+			<select id="employee_id_sel" name="emp_id" class="form-control">
+			<option value="0">Select one</option>
+			<c:forEach items="${temp }" var="ele">
+				<option value="${ele.id}">${ele.first_name } ${ele.last_name }</option>
+			</c:forEach>
+			</select>
+			</td>
+		</tr>
+		<tr><td class="info">Id</td><td></td></tr>
+		<tr><td class="info">Job title</td><td></td></tr>
+		<tr><td class="info">Telephone</td><td></td></tr>
+		<tr><td class="info">Email</td><td></td></tr>
+	</table>
+
+	<h4>Event</h4>
+
+	<table class="table table-bordered" id="event_tbl">
+		<tr>
+			<td class="info">
+			Event
+			</td>
+			<td>
+			<select id="event_id_sel" name="event_id" class="form-control">
+			<option value="0">Select one</option>
+			<c:forEach items="${te }" var="ele">
+				<option value="${ele.id}">${ele.event_name}</option>
+			</c:forEach>
+			</select>
+			</td>
+		</tr>
+		<tr><td class="info">Date</td><td></td></tr>
+	</table>
+	</form>
+</div>
 		<div class="modal-footer">
-	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('TripCodesUpdateForm')">Submit</button>
+	    <button type="button" class="btn" data-backdrop="static" data-keyboard="false" data-dismiss="modal" onclick="submitForm('AddTripFormForm')">Submit</button>
 	  	</div>
 		</div>
 		</div>
@@ -186,6 +185,47 @@ function openUpdateForm(para, id){
 	
 	
 	$('#'+para).modal('show');
+}
+$( "#employee_id_sel" ).change(function() {
+	  var val = $("#employee_id_sel").val();
+	  var url = '/TIS/getEmp/'+val;
+	  $.ajax({
+	      url: url,
+	      method: "POST",
+	      dataType: 'json',
+	      processData: false,
+	      contentType: false,
+	      success: function(result){
+	    	  $("#profile_tbl  tr:nth-child(2) td:nth-child(2)").text(result.id);
+	    	  $("#profile_tbl  tr:nth-child(3) td:nth-child(2)").text(result.job_title);
+	    	  $("#profile_tbl  tr:nth-child(4) td:nth-child(2)").text(result.tel);
+	    	  $("#profile_tbl  tr:nth-child(5) td:nth-child(2)").text(result.email);
+	      },
+	      error: function(er){
+	    	  console.log("err. : "+er);
+	      }
+	  });
+	});
+	
+$( "#event_id_sel" ).change(function() {
+	  var val = $("#event_id_sel").val();
+	  var url = '/TIS/getEvent/'+val;
+	  $.ajax({
+	      url: url,
+	      method: "POST",
+	      dataType: 'json',
+	      processData: false,
+	      contentType: false,
+	      success: function(result){
+	    	  $("#event_tbl  tr:nth-child(2) td:nth-child(2)").text(result.event_desc);
+	      },
+	      error: function(er){
+	    	  console.log("err. : "+er);
+	      }
+	  });
+	});
+function goinfoTripForm(event_id, emp_id){
+	window.location.href = "infoTripForm?event_id="+event_id+"&emp_id="+emp_id;
 }
 </script>
 

@@ -2,14 +2,18 @@ package tis.pye.team.vo;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class TisFlight {
 	private int id;
 	private int employee_id;
 	private int event_id;
 	private String flight_from;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private Date flight_from_time;
 	private String flight_from_desc;
 	private String flight_to;
+	@DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
 	private Date flight_to_time;
 	private String flight_to_desc;
 	public int getId() {
