@@ -254,7 +254,66 @@
 	</select>
 	
 	<select id="SelectUfoByPara" parameterType="String" resultType="FestUfo">
-	SELECT *
+	SELECT `fest_ufo`.`idfest_ufo`,
+    `fest_ufo`.`title`,
+    `fest_ufo`.`logo`,
+    `fest_ufo`.`main_image`,
+    `fest_ufo`.`event_date`,
+    `fest_ufo`.`event_long_description`,
+    `fest_ufo`.`event_short_description`,
+    `fest_ufo`.`info_info_pic`,
+    `fest_ufo`.`info_info_text`,
+    `fest_ufo`.`info_hist_pic`,
+    `fest_ufo`.`info_hist_text`,
+    `fest_ufo`.`q_coupon_img`,
+    `fest_ufo`.`info_program_pic`,
+    CONVERT(`fest_ufo`.info_program_text	USING utf8) info_program_text,
+    `fest_ufo`.`info_location_pic`,
+    `fest_ufo`.`info_location_text`,
+    `fest_ufo`.`info_contact_pic`,
+    `fest_ufo`.`info_contact_text`,
+    `fest_ufo`.`q1_img`,
+    `fest_ufo`.`q2_img`,
+    `fest_ufo`.`q3_img`,
+    `fest_ufo`.`q4_img`,
+    `fest_ufo`.`q5_img`,
+    `fest_ufo`.`q6_img`,
+    `fest_ufo`.`q7_img`,
+    `fest_ufo`.`q_coupon_txt`,
+    `fest_ufo`.`q_coupon_txt2`,
+    `fest_ufo`.`q_coupon_txt3`,
+    `fest_ufo`.`ufo_time_stamp`,
+    `fest_ufo`.`q_graphic`,
+    `fest_ufo`.`para`,
+    `fest_ufo`.`menu`,
+    `fest_ufo`.`location_title`,
+    `fest_ufo`.`info_title`,
+    `fest_ufo`.`program_title`,
+    `fest_ufo`.`history_title`,
+    `fest_ufo`.`apk_name`,
+    `fest_ufo`.`go_rad`,
+    `fest_ufo`.`ufo_tag`,
+    `fest_ufo`.`ufo_go_desc`,
+    `fest_ufo`.`ufo_go_title`,
+    `fest_ufo`.`ufo_qr_title`,
+    `fest_ufo`.`ufo_qr_desc`,
+    `fest_ufo`.`ufo_survey_title`,
+    `fest_ufo`.`ufo_survey_desc`,
+    `fest_ufo`.`qr_pic`,
+    `fest_ufo`.`qr_info`,
+    `fest_ufo`.`qr_info_title`,
+    `fest_ufo`.`fb_live`,
+    `fest_ufo`.`ufo_notice1`,
+    `fest_ufo`.`ufo_notice2`,
+    `fest_ufo`.`ufo_notice3`,
+    `fest_ufo`.`winner_msg`,
+    `fest_ufo`.`footer_msg`,
+    `fest_ufo`.`photo_pix`,
+    `fest_ufo`.`photo_comp`,
+    `fest_ufo`.`pin_booth`,
+    `fest_ufo`.`pin_comp`,
+    `fest_ufo`.`minwon_map`,
+    `fest_ufo`.`minwon_how_to`
 	FROM `pix`.`fest_ufo`
 	WHERE `fest_ufo`.`para` = #{param}
 	</select>
@@ -375,9 +434,6 @@
 		<if test="info_program_pic != null and info_program_pic != ''">
 			,info_program_pic = #{info_program_pic}
 		</if>
-		<if test="info_program_text != null and info_program_text != ''">
-			,info_program_text = #{info_program_text}
-		</if>
 		<if test="info_location_pic != null and info_location_pic != ''">
 			,info_location_pic = #{info_location_pic}
 		</if>
@@ -481,7 +537,18 @@
 			,ufo_notice1 = #{ufo_notice1}
 			,ufo_notice2 = #{ufo_notice2}
 			,ufo_notice3 = #{ufo_notice3}
-			
+			,winner_msg = #{winner_msg}
+			,footer_msg = #{footer_msg}
+			,photo_pix = #{photo_pix}
+			,photo_comp = #{photo_comp}
+			<if test="pin_booth != null and pin_booth != ''">
+			,pin_booth = #{pin_booth}
+			</if>
+			<if test="pin_comp != null and pin_comp != ''">
+			,pin_comp = #{pin_comp}
+			</if>
+			,minwon_map = #{minwon_map}
+			,minwon_how_to = #{minwon_how_to}
 	WHERE
 		idfest_ufo = #{idfest_ufo}
 	</update>
@@ -530,7 +597,7 @@
 	A.info_hist_pic					,
 	A.info_hist_text				,
 	A.info_program_pic				,
-	A.info_program_text				,
+	CONVERT(A.info_program_text	USING utf8)			,
 	A.info_location_pic				,
 	A.info_location_text			,
 	A.info_contact_pic				,
@@ -760,7 +827,7 @@
 	WHERE
 		go_para = #{param}
 	AND
-		ufo_go_type = 'go'
+		ufo_go_type in ('go', 'booth')
 	</select>
 	<select id="selectUfoQrByPara" parameterType="String" resultType="UfoGoVO">
 	SELECT
@@ -780,6 +847,19 @@
 	WHERE
 	para = #{param}
 	</select>
+	
+	<select id="selectUfoGoRecordByVoPage" parameterType="UfoGoRecord" resultType="UfoGoRecord">
+	SELECT 
+	*
+	FROM
+	pix.ufo_go_record
+	WHERE
+	para = #{para}
+	ORDER BY id desc
+	LIMIT #{startNum}, #{pageRowNum}
+	</select>
+	
+	
 	<select id="selectUfoGoRecordByParaAndUid" parameterType="UfoGoRecord" resultType="UfoGoRecord">
 	select
 	a.ufo_gid,
@@ -975,6 +1055,7 @@
 		SELECT *
 		FROM UfoWinnerRecord 
 	 	WHERE para = #{param}
+	 	ORDER BY idUfoWinnerRecord desc
 	</select>
 	<update id="updateWinnerLike" parameterType="Integer">
 		update UfoWinnerRecord set winner_like = winner_like + 1 where idUfoWinnerRecord = #{param}
@@ -995,4 +1076,88 @@
 	Values
 	(#{uid}, now(), #{para}, #{gid})
 	</insert>
+	<select id="selectFbNumPart" parameterType="String" resultType="Integer">
+	SELECT count(distinct uid) from pix.fest_sns_log where sns_return = #{param}
+	</select>
+	<select id="selectFbLogCheckNum" parameterType="String" resultType="Integer">
+	SELECT count(0) from pix.fest_sns_log where sns_return = #{param}
+	</select>
+	<select id="selectGoPartNumber" parameterType="String" resultType="Integer">
+	SELECT count(distinct uid) from pix.fest_sns_log where sns_return = #{param}
+	</select>
+	<select id="selectGoPart" parameterType="String" resultType="String">
+	SELECT distinct uid from pix.fest_sns_log where sns_return = #{param}
+	</select>
+	<select id="selectGoPartHistoryByParaAndUid" parameterType="UfoGoRecord" resultType="UfoGoRecord">
+	SELECT * from pix.fest_sns_log where sns_return = #{para} and uid = #{user_uid}
+	</select>
+	<select id="selectBarcodeLogCountUnique" parameterType="String" resultType="Integer">
+	SELECT count(0) FROM pix.ufo_barcode_log where para = #{param}
+	</select>
+	<select id="selectShareParNumByPara" parameterType="String" resultType="Integer">
+	SELECT count(distinct uid) FROM pix.ufo_share where para = #{param}
+	</select>
+	<select id="selectShareNumByPara" parameterType="String" resultType="Integer">
+	SELECT count(0) FROM pix.ufo_share where para = #{param}
+	</select>
+	<select id="selectQrPartNumByPara" parameterType="String" resultType="Integer">
+	SELECT count(distinct user_uid) FROM pix.ufo_go_record where para = #{param} and login_type = 'qr'
+	</select>
+	<select id="selectQrNumByPara" parameterType="String" resultType="Integer">
+	SELECT count(0) FROM pix.ufo_go_record where para = #{param} and login_type = 'qr'
+	</select>
+	
+	
+	<select id="selectUfoLableByPara" parameterType="String" resultType="UfoLable">
+	SELECT * 
+	FROM pix.ufo_lable
+	WHERE para = #{param}
+	</select>
+	
+	<select id="selectUfoMinwonByPara" parameterType="String" resultType="UfoMinwon">
+	SELECT * 
+	FROM pix.ufo_minwon
+	WHERE para = #{param}
+	</select>
+	<select id="selectUfoMinwonById" parameterType="Integer" resultType="UfoMinwon">
+	SELECT * 
+	FROM pix.ufo_minwon
+	WHERE id = #{param}
+	</select>
+	<select id="selectUfoMinwonByVo" parameterType="UfoMinwon" resultType="UfoMinwon">
+	SELECT * 
+	FROM pix.ufo_minwon
+	WHERE para = #{para}
+	and minwonUid = #{minwonUid}
+	</select>
+	<insert id="insertUfoMinwon" parameterType="UfoMinwon">
+	INSERT INTO `pix`.`ufo_minwon`
+	(
+	`para`,
+	`minwonDesc`,
+	`minwonLat`,
+	`minwonLng`,
+	`minwonImg`,
+	`minwonUid`,
+	`minwonFn`,
+	`minwonLn`,
+	`minwonEm`,
+	`minwon_tsmp`
+	)
+	VALUES
+	(
+	#{para },
+	#{minwonDesc },
+	#{minwonLat },
+	#{minwonLng },
+	#{minwonImg },
+	#{minwonUid },
+	#{minwonFn },
+	#{minwonLn },
+	#{minwonEm },
+	now()
+	)
+	</insert>
+	
+	
 </mapper>

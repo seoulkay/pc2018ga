@@ -31,11 +31,14 @@ import pix.gdc.com.vo.Notice_VO;
 import pix.gdc.com.vo.UfoBarcodeLog;
 import pix.gdc.com.vo.UfoGoRecord;
 import pix.gdc.com.vo.UfoGoVO;
+import pix.gdc.com.vo.UfoLable;
+import pix.gdc.com.vo.UfoMinwon;
 import pix.gdc.com.vo.UfoShare;
 
 
 @Repository
 public class FestDAO extends SqlSessionDaoSupport{
+	
 	
 	public FestLogin checkLogin(FestLogin vo){
 		return getSqlSession().selectOne("BasicMapper.FestloginCheck", vo);
@@ -226,7 +229,10 @@ public class FestDAO extends SqlSessionDaoSupport{
 	
 	// UFO 다가지고 오기
 	public FestUfo SelectUfoByPara(String param){
-		return getSqlSession().selectOne("BasicMapper.SelectUfoByPara", param);
+		UfoLable ufoLable = getSqlSession().selectOne("BasicMapper.selectUfoLableByPara", param);
+		FestUfo vo = getSqlSession().selectOne("BasicMapper.SelectUfoByPara", param);
+		vo.setUfoLable(ufoLable);
+		return vo;
 	}
 	
 	//질문 다가지고 오기
@@ -491,8 +497,89 @@ public class FestDAO extends SqlSessionDaoSupport{
 	public int insertBarcodeLog(UfoBarcodeLog vo){
 		return getSqlSession().insert("BasicMapper.insertBarcodeLog", vo);
 	}
+	//페이스북 로그인 인원
+	public int selectFbNumPart(String para){
+		return getSqlSession().selectOne("BasicMapper.selectFbNumPart", para);
+	}
+	//페이스북 로그인 체크 횟수
+	public int selectFbLogCheckNum(String para){
+		return getSqlSession().selectOne("BasicMapper.selectFbLogCheckNum", para);
+	}
+	//미션 완료 인원수 
+	public int selectGoPartNumber(String para){
+		return getSqlSession().selectOne("BasicMapper.selectGoPartNumber", para);
+	}
+	//미션 완료 인원수 
+	public List<String> selectGoPart(String para){
+		return getSqlSession().selectList("BasicMapper.selectGoPart", para);
+	}
+	//미션 완전히 완료한 사람 인원수
+	public int selectGoCompPartNum(String para){
+		List<String> list = selectGoPart(para);
+		int count = 0;
+		for(String ele : list){
+			UfoGoRecord vo = new UfoGoRecord();
+			vo.setPara(para);
+			vo.setUser_uid(ele);
+			int comp = selectPartDoneStamp(vo);
+			if(comp == 1){
+				count++;
+			}
+		}
+		return count;
+	}
+	//유저 스탬프 히스토리 구하기 
+	public List<UfoGoRecord> selectGoPartHistoryByParaAndUid(UfoGoRecord vo){
+		return getSqlSession().selectList("BasicMapper.selectGoPartHistoryByParaAndUid", vo);
+	}
+	
+	//인쇄한 사진 수
+	public int selectBarcodeLogCountUnique(String para){
+		return getSqlSession().selectOne("BasicMapper.selectBarcodeLogCountUnique", para);
+	}
+	//selectShareParNumByPara selectShareNumByPara selectQrPartNumByPara selectQrNumByPara
+	//공유 인원
+	public int selectShareParNumByPara(String para){
+		return getSqlSession().selectOne("BasicMapper.selectShareParNumByPara", para);
+	}
+	//공유 숫자
+	public int selectShareNumByPara(String para){
+		return getSqlSession().selectOne("BasicMapper.selectShareNumByPara", para);
+	}
+	//큐알 참여 인원
+	public int selectQrPartNumByPara(String para){
+		return getSqlSession().selectOne("BasicMapper.selectQrPartNumByPara", para);
+	}
+	//큐알 참여 숫자
+	public int selectQrNumByPara(String para){
+		return getSqlSession().selectOne("BasicMapper.selectQrNumByPara", para);
+	}
 	
 	
+	//파라로 라벨 가지고 오자
+	public UfoLable selectUfoLableByPara(String para){
+		return getSqlSession().selectOne("BasicMapper.selectUfoLableByPara", para);
+	}
+	//민원 넣기
+	public int insertUfoMinwon(UfoMinwon vo){
+		return getSqlSession().insert("BasicMapper.insertUfoMinwon", vo);
+	}
 	
+	//민원 파라로 가지고 오기
+	public List<UfoMinwon> selectUfoMinwonByPara(String para){
+		return getSqlSession().selectList("BasicMapper.selectUfoMinwonByPara", para);
+	}
+	//민원 id 로 가지고 오기
+	public UfoMinwon selectUfoMinwonById(Integer para){
+		return getSqlSession().selectOne("BasicMapper.selectUfoMinwonById", para);
+	}
+	//민원 vo 로 가지고 오기
+	public List<UfoMinwon> selectUfoMinwonByVo(UfoMinwon para){
+		return getSqlSession().selectList("BasicMapper.selectUfoMinwonByVo", para);
+	}
 	
+	//스탬프 랠리 가지고 오기 위드 페이징 하기
+	public List<UfoGoRecord> selectUfoGoRecordByVoPage(UfoGoRecord para){
+		return getSqlSession().selectList("BasicMapper.selectUfoGoRecordByVoPage", para);
+	}
 }

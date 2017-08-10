@@ -28,6 +28,10 @@ public class UfoGoRecord {
 	private Date winner_time;
 	private int winner_like;
 	
+	//페이징
+	private int startNum;
+	private int pageRowNum;
+	
 	public int getId() {
 		return id;
 	}
@@ -147,6 +151,18 @@ public class UfoGoRecord {
 	}
 	public void setLogin_type(String login_type) {
 		this.login_type = login_type;
+	}
+	public int getStartNum() {
+		return startNum;
+	}
+	public void setStartNum(int startNum) {
+		this.startNum = startNum;
+	}
+	public int getPageRowNum() {
+		return pageRowNum;
+	}
+	public void setPageRowNum(int pageRowNum) {
+		this.pageRowNum = pageRowNum;
 	}
 	
 

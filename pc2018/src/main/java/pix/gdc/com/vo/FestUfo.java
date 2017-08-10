@@ -55,6 +55,17 @@ public class FestUfo {
 	private String ufo_notice1;
 	private String ufo_notice2;
 	private String ufo_notice3;
+	private String winner_msg;
+	private String footer_msg;
+	private String photo_pix;
+	private String photo_comp;
+	private String pin_booth;
+	private String pin_comp;
+	private String minwon_how_to;
+	private String minwon_map;
+	
+	//라벨
+	private UfoLable ufoLable;
 	
 	
 	public Integer getIdfest_ufo() {
@@ -369,5 +380,58 @@ public class FestUfo {
 	public void setUfo_notice3(String ufo_notice3) {
 		this.ufo_notice3 = ufo_notice3;
 	}
-	
+	public String getWinner_msg() {
+		return winner_msg;
+	}
+	public void setWinner_msg(String winner_msg) {
+		this.winner_msg = winner_msg;
+	}
+	public String getFooter_msg() {
+		return footer_msg;
+	}
+	public void setFooter_msg(String footer_msg) {
+		this.footer_msg = footer_msg;
+	}
+	public UfoLable getUfoLable() {
+		return ufoLable;
+	}
+	public void setUfoLable(UfoLable ufoLable) {
+		this.ufoLable = ufoLable;
+	}
+	public String getPhoto_pix() {
+		return photo_pix;
+	}
+	public void setPhoto_pix(String photo_pix) {
+		this.photo_pix = photo_pix;
+	}
+	public String getPhoto_comp() {
+		return photo_comp;
+	}
+	public void setPhoto_comp(String photo_comp) {
+		this.photo_comp = photo_comp;
+	}
+	public String getPin_booth() {
+		return pin_booth;
+	}
+	public void setPin_booth(String pin_booth) {
+		this.pin_booth = pin_booth;
+	}
+	public String getPin_comp() {
+		return pin_comp;
+	}
+	public void setPin_comp(String pin_comp) {
+		this.pin_comp = pin_comp;
+	}
+	public String getMinwon_how_to() {
+		return minwon_how_to;
+	}
+	public void setMinwon_how_to(String minwon_how_to) {
+		this.minwon_how_to = minwon_how_to;
+	}
+	public String getMinwon_map() {
+		return minwon_map;
+	}
+	public void setMinwon_map(String minwon_map) {
+		this.minwon_map = minwon_map;
+	}
 }

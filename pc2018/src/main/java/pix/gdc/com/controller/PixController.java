@@ -31,6 +31,7 @@ import pix.gdc.com.vo.PixComment;
 import pix.gdc.com.vo.PixLike;
 import pix.gdc.com.vo.UfoGoRecord;
 import pix.gdc.com.vo.UfoGoVO;
+import pix.gdc.com.vo.UfoMinwon;
 
 /**
  * Handles requests for the application home page.
@@ -161,6 +162,12 @@ public class PixController {
 		return ufoGo;
 	}
 	
+	@RequestMapping(value = "get/ufominwon/{para}", method = {RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody List<UfoMinwon> getMinwon(@PathVariable("para")String para){
+		List<UfoMinwon> ufoGo = dao.selectUfoMinwonByPara(para); 
+		return ufoGo;
+	}
+	
 	@RequestMapping(value = "/ufogo/insert", method = {RequestMethod.POST})
 	public @ResponseBody int insertUfogo(@ModelAttribute("vo")UfoGoRecord vo, @RequestParam("file") MultipartFile file){
 		if (!file.isEmpty()) {
@@ -184,6 +191,36 @@ public class PixController {
         	int result;
         	try{
         		result = dao.insertUfoRecord(vo);
+        	}catch(Exception e){
+        		result = 0;
+        	}
+        	return  result; 
+        }
+	}
+	
+	@RequestMapping(value = "/ufogo/insertMinwon", method = {RequestMethod.POST})
+	public @ResponseBody int insertUfogoMinwon(@ModelAttribute("vo")UfoMinwon vo, @RequestParam("file") MultipartFile file){
+		if (!file.isEmpty()) {
+            try {
+                String[] fileInfo = restService.writeFileToServer(file);
+                
+                vo.setMinwonImg(fileInfo[0]);
+                
+                int result;
+            	try{
+            		result = dao.insertUfoMinwon(vo);
+            	}catch(Exception e){
+            		result = 0;
+            	}
+            	return  result; 
+            } catch (Exception e) {
+                System.out.println("You failed to upload => " + e.getMessage() +e.getStackTrace());
+                return 0;
+            }
+        } else {
+        	int result;
+        	try{
+        		result = dao.insertUfoMinwon(vo);
         	}catch(Exception e){
         		result = 0;
         	}
