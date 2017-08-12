@@ -121,14 +121,14 @@
 		   			<img src="https://www.ufo79.com/image/${ufo.q1_img}" class="img-responsive" alt="" style="width:25em; margin: 0 auto;" data-dismiss="modal">
 			</c:when>
 			<c:otherwise>
-			<div style="height:3em"></div>
-					<h2 class="headline" style="font-size: 25px;font-weight: 600;text-shadow: 2px 2px 30px #000000;">${ufo.title }</h2>
-					<div class="intro" style="font-size: 25px;font-weight: 600;text-shadow: 2px 2px 30px #000000;">${ufo.event_date }</div><br>
+			<div style="height:1em"></div>
+					<h2 class="headline" style="color: #015794; font-size: 25px;font-weight: 600; text-shadow: 2px 2px rgba(255,255,255,0.8);">${ufo.title }</h2>
+					<div class="intro" style="color: #015794; font-size: 25px;font-weight: 600; text-shadow: 2px 2px rgba(255,255,255,0.8);">${ufo.event_date }</div><br>
 			</c:otherwise>
 		</c:choose>			
 			<div class="actions">
                  <div class="actions">
-         			<a class="scrollto" href="#page-nav-wrapper"><button class="btn" style="background-color: #ed45a4;">스탬프랠리 시작하기</button></a>
+         			<a class="scrollto" href="#page-nav-wrapper"><button class="btn" style="background-color: #EE334E;">Go!</button></a>
    				</div>
             </div><!--//actions-->
 		</div>
@@ -143,7 +143,7 @@
 					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지</a></li>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프랠리</a></li></c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">서베이</a></li></c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">축제정보</a></li></c:if>
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">베뉴정보</a></li></c:if>
 					<!-- <li><a class="scrollto" href="#survey-section">서베이 결과보기</a></li> -->
 				</ul>
 				<!--//page-nav-->
@@ -158,9 +158,9 @@
 <section id="page-nav-wrapper" class="support-section section text-center" style="padding-top:2em; padding-bottom:2em; padding-left:15px; padding-right:15px;">
 	<div class="team-figure" >
 		<div id="map" style="height: 25em;"></div>
-		<div class="row">
-			<button class="btn" onClick="getUfo('go')" style="background-color: #ed45a4; color: white">스탬프 찍기</button>
-			<button class="btn btn-warning" onClick="redirectGallery('go')" style="margin:1em; background-color: #00a27c; border-color: #00a27c;"><span class="btn-text">갤러리로 가기</span></button> 
+		<div class="row" style="color:#ffffff;">
+			<button class="btn" onClick="getUfo('go')" style="margin-top:1em; margin-right: 1em; background-color: #EE334E;">스탬프 찍기</button>
+			<button class="btn" onClick="redirectGallery('go')" style="margin-top:1em; margin-left: 1em; background-color: #0081C8;">갤러리 보기</button> 
 		</div>					
 	</div>
 </section>

@@ -465,7 +465,7 @@ textarea {
   background: none;
 }
 .page-nav-wrapper .page-nav li.active a {
-  color: #159bc0;
+  color: #0081C8;
   background: none;
 }
 .page-nav-wrapper .page-nav li a {
@@ -485,8 +485,9 @@ textarea {
 }
 /* ====== Header ======= */
 .header {
-  background: rgba(53, 55, 60, 0.8);
-  color: #fff;
+  /* background: rgba(53, 55, 60, 0.8); */
+  background: rgba(1, 87, 148, 0.5);
+  color: #000000;
   position: absolute;
   top: 0;
   width: 100%;
@@ -536,15 +537,18 @@ textarea {
   display: block;
 }
 .main-nav .nav .nav-item.active a {
-  color: #fff;
+  color: #337ab7;
   background: none;
   font-weight: bold;
 }
+/* 메뉴 글씨 색 */
 .main-nav .nav .nav-item a {
-  color: rgba(255, 255, 255, 0.8);
+  color: #ffffff;
+  font-size: 1.3em;
+  font-weight: bold;
 }
 .main-nav .nav .nav-item a:hover {
-  color: #fff;
+  color: #337ab7;
   background: none;
 }
 .main-nav .nav .nav-item a:focus {
@@ -1134,7 +1138,7 @@ body.sticky-page-nav .overview-section {
   margin-bottom: 30px;
 }
 .signup-section {
-  background-color: #159bc0;
+  background-color: #0081C8;
 }
 .signup-section .section-inner {
   background: url('../images/map.svg') no-repeat left top;
@@ -1260,7 +1264,7 @@ body.sticky-page-nav .overview-section {
 }
 
 .features-page .actions {
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .features-page .actions a {
@@ -2145,7 +2149,7 @@ body.sticky-page-nav .overview-section {
   background-size: cover;
 }
 .blog-page .actions {
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 .blog-page .actions a {
   color: #fff;

@@ -10,7 +10,7 @@
 		<div class="logo">
 		<c:choose>
 			<c:when test="${not empty ufo.logo}">
-				<a href="index"> <img src="https://www.ufo79.com/image/${ufo.logo }" alt="" style="height: 2em; max-height: 3em"></a>
+				<a href="index"> <img src="https://www.ufo79.com/image/${ufo.logo }" alt="" style="max-height: 3em"></a>
 			</c:when>
 			<c:otherwise>
 				<a href="index"> <img src="https://www.ufo79.com/PIX/resources/ulc/images/logo_ufo_white.png" alt="" style="height: 2em; margin-top: 0 auto; margin-bottom: 0 auto;"></a>
@@ -40,7 +40,7 @@
 						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">서베이</a></li>
 					</c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}">
-					 <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">축제정보</a></li>
+					 <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">베뉴정보</a></li>
 					</c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'blog')}">
 						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/blog">공지사항</a></li>
