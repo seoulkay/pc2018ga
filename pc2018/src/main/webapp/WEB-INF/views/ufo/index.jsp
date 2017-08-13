@@ -38,7 +38,9 @@
 		<jsp:param name="param" value="value1" />
 	</jsp:include>
 	
-	<!-- 상단 이미지 & 버튼 -->
+	<div style="height: 6em;"></div>
+	
+	<%-- <!-- 상단 이미지 & 버튼 -->
 	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
 			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image})"></div>
@@ -51,7 +53,7 @@
 			<div style="height:1em"></div>		
 			<div class="actions">
 	                 <div class="actions">
-	         			<a class="scrollto" href="#page-nav-wrapper1"><button class="btn" style="background-color: #EE334E;">공지사항</button></a>
+	         			<a class="scrollto" href="#page-nav-wrapper1"><button class="btn" style="background-color: #EE334E;">포토 콘테스트</button></a>
 	   				</div>
             </div>
 		</div>
@@ -62,34 +64,34 @@
 		<div id="page-nav-wrapper" class="page-nav-wrapper text-center">
 			<div class="container">
 				<ul id="page-nav" class="nav page-nav list-inline">
-					<li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지사항</a></li>
+					<li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">포토 콘테스트</a></li>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li></c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li></c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">설문조사</a></li></c:if>
 				</ul>
 			</div>
 		</div>
-	</div>	
+	</div> --%>	
 	
 	<section id="page-nav-wrapper1" class="support-section section text-center" style="padding:1em;">
 		<div class="team-figure" >	
 			<!-- 공지 -->
 			<c:if test="${not empty ufo.ufo_notice1 && not empty ufo.ufo_notice2 && not empty ufo.ufo_notice3}">
 				<div class="row" style="margin-left:0px; margin-right:0px; margin-bottom:15px; padding:0;">
-					<h3 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #ed45a4">${ufo.ufoLable.index_title}</span></h3>
+					<h3 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #EE334E">공지사항</span></h3>
 				</div>		
 				<div class="row" >
 					<marquee>
-					<h4 style="white-space:nowrap;">
-					<c:if test="${not empty ufo.ufo_notice1 }">${ufo.ufo_notice1}<span style="color: #0081C8; ">&emsp;||&emsp;</span></c:if>
-					<c:if test="${not empty ufo.ufo_notice2 }">${ufo.ufo_notice2}<span style="color: #0081C8; ">&emsp;||&emsp;</span></c:if> 
+					<h4 style="white-space:nowrap; color:#000000;">
+					<c:if test="${not empty ufo.ufo_notice1 }">${ufo.ufo_notice1}<span style="color: #0081C8;">&emsp;<strong>||</strong>&emsp;</span></c:if>
+					<c:if test="${not empty ufo.ufo_notice2 }">${ufo.ufo_notice2}<span style="color: #0081C8;">&emsp;<strong>||</strong>&emsp;</span></c:if> 
 					<c:if test="${not empty ufo.ufo_notice3 }">${ufo.ufo_notice3}</c:if>
 					</h4>
 					</marquee>
 				</div>
 				<!-- 공지 선 -->
 				<div class="row">
-					<div style="height:0.2em; background-color: #0081C8"></div>
+					<div style="height:0.1em; background-color: #0081C8"></div>
 					<div style="height:1.5em"></div>
 				</div>
 			</c:if>

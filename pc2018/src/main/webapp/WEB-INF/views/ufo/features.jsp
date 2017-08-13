@@ -43,7 +43,9 @@
 		<jsp:param name="param" value="value1" />
 	</jsp:include>
 	
-	<!-- 상단 이미지 & 버튼 -->
+	<div style="height: 6em;"></div>
+	
+	<%-- <!-- 상단 이미지 & 버튼 -->
 	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
 			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image}"></div>
@@ -67,14 +69,14 @@
 		<div id="page-nav-wrapper" class="page-nav-wrapper text-center">
 			<div class="container">
 				<ul id="page-nav" class="nav page-nav list-inline">
-					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지사항</a></li>
+					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">포토 콘테스트</a></li>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li></c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li></c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">설문조사</a></li></c:if>					
 				</ul>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	
 	<c:if test="${fn:contains(sessionScope.eventMenu, 'info')}">
 	<!-- Section 01 -->

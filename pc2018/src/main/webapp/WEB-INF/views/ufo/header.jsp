@@ -30,12 +30,12 @@
 			<!--//navbar-header-->
 			<div id="navbar-collapse" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'index')}">
-					   <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지사항</a></li>
-					</c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}">
 						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li>
-					</c:if>					
+					</c:if>	
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'index')}">
+					   <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">포토 콘테스트</a></li>
+					</c:if>									
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}">
 					 <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li>
 					</c:if>

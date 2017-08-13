@@ -55,13 +55,15 @@
             </div>
 		</div>
 	</section>
+	
+	<div style="height: 6em;"></div>
 
-	<!-- 중간 메뉴 -->
+	<%-- <!-- 중간 메뉴 -->
 	<div class="page-nav-space-holder">
 		<div id="page-nav-wrapper" class="page-nav-wrapper text-center">
 			<div class="container">
 				<ul id="page-nav" class="nav page-nav list-inline">
-					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지사항</a></li>
+					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">포토 콘테스트</a></li>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li></c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li></c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">설문조사</a></li></c:if>					
@@ -80,7 +82,7 @@
 							
 <!-- 						우선 단오제용 -->
 <!-- 							<img class="img-responsive" -->
-<%-- 								src="${pageContext.request.contextPath}/resources/pix/img/${ele.ques_img }.png" --%>
+								src="${pageContext.request.contextPath}/resources/pix/img/${ele.ques_img }.png"
 <!-- 								alt=""> -->
 							<img class="img-responsive"
 								src="${pageContext.request.contextPath}/resources/ufo/assets/images/stories/dano_survey_thumb0${statusEle.count }.jpg"
@@ -108,7 +110,7 @@
 		</div>
 		<!--//story-block-->
 </c:forEach>
-	</div>
+	</div> --%>
 
 
 <form id="surveyForm" method="post" enctype="multipart/form-data">
