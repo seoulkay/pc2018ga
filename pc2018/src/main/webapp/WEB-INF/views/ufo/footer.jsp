@@ -7,40 +7,33 @@
 <!-- ******FOOTER****** -->
 <footer class="footer">
 	<div class="container">
+		<!-- 약관 -->
 		<div class="row">
-			<div class="footer-col col-xs-6 col-sm-3">
-				<div class="footer-col-inner">
-					<div class="col-title"><a href="https://www.ufo79.com/home">UFO79.com</a>
-					</div>
-				</div>
-			</div>
-			<!--//footer-col-->
-			<div class="footer-col col-xs-6 col-sm-3">
+			<div class="footer-col col-xs-6 col-sm-4">
 				<div class="footer-col-inner">
 					<div class="col-title">
 						<a href="https://www.ufo79.com/PIX/ULC/terms">이용약관</a>
 					</div>
 				</div>
 			</div>
-			<!--//footer-col-->
-			<div class="footer-col col-xs-6 col-sm-3">
+			<div class="footer-col col-xs-6 col-sm-4">
 				<div class="footer-col-inner">
 					<div class="col-title">
 						<a href="https://www.ufo79.com/PIX/ULC/privacy">개인정보 취급방침</a>
 					</div>
 				</div>
 			</div>
-			<div class="footer-col col-xs-6 col-sm-3">
+			<div class="footer-col col-xs-6 col-sm-4">
 				<div class="footer-col-inner">
 					<div class="col-title">
-						<a href="reader">UFO BARCODE READER</a>
+						<a href="reader">BARCODE READER</a>
 					</div>
 				</div>
 			</div>
-			<!--//footer-col-->
 		</div>
-		<!--//row-->
+		
 		<div class="divider"></div>
+		<!-- SNS -->
 		<div class="footer-bottom text-center">
 			<ul class="social-media list-inline">
 				<li><a href="http://www.twitter.com/share?=url=www.ufo79.com/PIX/ufo/${sessionScope.eventPara }/index"><i
@@ -50,8 +43,8 @@
 				<li><a href="http://plus.google.com/share?url=www.ufo79.com/PIX/ufo/${sessionScope.eventPara }/index"><i
 						class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 			</ul>
-
-			<small class="copyright"><a href="https://www.ufo79.com/" target="_blank">© UFO79 Corp.</a></small>
+			<!--  -->
+			<small class="copyright"><a href="https://www.pyeongchang2018.com/" target="_blank">© 2018 평창동계올림픽 베뉴 스탬프 투어</a></small>
 		</div>
 	</div>
 	<!--//container-->

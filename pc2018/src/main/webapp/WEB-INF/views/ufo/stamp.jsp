@@ -108,13 +108,18 @@
 
 </head>
 
-<body data-spy="scroll" data-target="#page-nav" class="blog-page">
-<section class="heading-section section section-on-bg" style="padding-top:7em">
+<body class="blog-page" data-spy="scroll" data-target="#page-nav">
+	<!-- ******HEADER****** -->
+	<jsp:include page="header.jsp" flush="true">
+		<jsp:param name="param" value="value1" />
+	</jsp:include>
+	
+	<!-- 상단 이미지 & 버튼 -->
+	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
-			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.q2_img})"></div>
+			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image})"></div>
 			<div class="hero-mask-gradient"></div>
 		</div>
-		<!--//hero-wrapper-->
 		<div class="container heading-content">
 		<c:choose>
 			<c:when test="${!empty ufo.q1_img}">
@@ -130,190 +135,178 @@
                  <div class="actions">
          			<a class="scrollto" href="#page-nav-wrapper"><button class="btn" style="background-color: #EE334E;">Go!</button></a>
    				</div>
-            </div><!--//actions-->
+            </div>
 		</div>
-		<!--//container-->
 	</section>
-	<!--//heading-section-->
-
-<div class="page-nav-space-holder">
+	
+	<!-- 중간 메뉴 -->
+	<div class="page-nav-space-holder">
 		<div class="page-nav-wrapper text-center">
 			<div class="container">
 				<ul id="page-nav" class="nav page-nav list-inline">
-					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지</a></li>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프랠리</a></li></c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">서베이</a></li></c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">베뉴정보</a></li></c:if>
-					<!-- <li><a class="scrollto" href="#survey-section">서베이 결과보기</a></li> -->
+					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지사항</a></li>
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li></c:if>
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li></c:if>
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">설문조사</a></li></c:if>				
 				</ul>
-				<!--//page-nav-->
 			</div>
 		</div>
-		<!--//page-nav-wrapper-->
-	</div>
-	<!--//page-nav-space-holder-->
-	<jsp:include page="header.jsp" flush="true">
-		<jsp:param name="param" value="value1" />
-	</jsp:include><!--//header-->
-<section id="page-nav-wrapper" class="support-section section text-center" style="padding-top:2em; padding-bottom:2em; padding-left:15px; padding-right:15px;">
-	<div class="team-figure" >
-		<div id="map" style="height: 25em;"></div>
-		<div class="row" style="color:#ffffff;">
-			<button class="btn" onClick="getUfo('go')" style="margin-top:1em; margin-right: 1em; background-color: #EE334E;">스탬프 찍기</button>
-			<button class="btn" onClick="redirectGallery('go')" style="margin-top:1em; margin-left: 1em; background-color: #0081C8;">갤러리 보기</button> 
-		</div>					
-	</div>
-</section>
-<section id="signup-section" class="signup-section section" style="padding-top: 1em;padding-bottom: em">
+	</div>	
+	
+	<!-- 스탬프 섹션 -->
+	<section id="page-nav-wrapper" class="support-section section text-center" style="padding-top:2em; padding-bottom:2em; padding-left:15px; padding-right:15px;">
+		<div class="team-figure" >
+			<!-- 스탬프 지도 -->
+			<div id="map" style="height: 25em;"></div>
+			<!-- 스탬프 찍기 & 갤러리 보기 -->
+			<div class="row" style="color:#ffffff;">
+				<button class="btn" onClick="getUfo('go')" style="margin-top:1em; margin-right: 1em; background-color: #EE334E;">스탬프 찍기</button>
+				<button class="btn" onClick="redirectGallery('go')" style="margin-top:1em; margin-left: 1em; background-color: #0081C8;">갤러리 보기</button> 
+			</div>					
+		</div>
+	</section>
+	
+	<!-- 참여 방법 -->
+	<section id="signup-section" class="signup-section section" style="padding-top: 1em;padding-bottom: em">
 		<div class="section-inner" style="padding-top: 2em">
 			<div class="container text-center">
 				<div class="counter-container"></div>
 				<!--//counter-container-->
-			<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}">
-				<div class="form-wrapper">
-					<div class="form-box">
-						<div class="form-desc">${ufo.ufo_go_title }</div>
-						<!--//social-buttons-->
-						<div class="divider">
+				<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}">
+					<div class="form-wrapper">
+						<div class="form-box">
+							<div class="form-desc"><strong>${ufo.ufo_go_title }</strong></div>
+							<div class="form-desc2" style="text-align: left; padding-left: 1em;">${ufo.ufo_go_desc}</div>		
 						</div>
-						<div class="quotes">
-							<div class="row">
-								<div class="quote-item col-sm-12 text-center" style="padding-top:30px">
-									<div class="inner" style="padding-top:45px; padding-left:15px; padding-right:15px; padding-bottom: 20px;">			
-										<i class="fa fa-quote-left" aria-hidden="true"></i>
-										${ufo.ufo_go_desc}
-									</div>
-									<!--//inner-->
-								</div>
-								<!--//quote-item2-->			
-							</div>
-							<!--//row-->
-						</div>
-						<!--//quotes-->			
 					</div>
-					<!--//form-box-->
-				</div>
-				<!--//form-wrapper-->
-			</c:if>
+				</c:if>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
 		
-<!-- 스템프  -->
-<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}">
-<button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#stampRally" style="display:none;" id="rallyTrigger">RALLYTRINGGER</button>
-<div class="modal" id="stampRally" role="dialog">
-	<div class="modal-dialog">
-	<div class="modal-content">
-	   <div class="modal-header">
-	  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	  		<h3 style="font-family:football;">스탬프랠리</h3>
-	   </div>
-	   <div class="modal-body">
-	   		<div class="row">
-	   			<c:forEach items="${ufoGo }" var="ele" varStatus="statusEle">
-	   			<div class="col-xs-6" style="padding:0px;" id='${ele.ufo_gid }' style="position : relative; max-width:150px">
-					<div>
-		   				<img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; top:10%; left:20%; display:none; opacity:1; height:5em;" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp.svg">
-			   			<div id="stamp_${ele.ufo_gid }" style="display:none;border-radius: 5px;position:absolute; top:4%; left:10%;  opacity:0.5; width:80%; background-color: #00a27c; height:5.5em;" onclick="showSingleStamp('${ele.ufo_gid }')"></div>
-			   			<c:choose>
-			   				<c:when test="${!empty ele.go_icon_img }">
-			   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block; height:6em" class="img-responsive" src="https://www.ufo79.com/image/${ele.go_icon_img }">
-			   				</c:when>
-			   				<c:otherwise>
-			   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block;height:6em" class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp_0${statusEle.count < 9 ? statusEle.count : statusEle.count - 8}_off.svg">
-			   				</c:otherwise>
-			   			</c:choose>
-			   		</div>
-						<p style="margin-bottom:3px; text-align:center; font-size: 1em;">${ele.go_content }</p>
-	   			</div>
-	   			</c:forEach>
-	   		</div>
+	<!-- 스템프  modal-->
+	<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}">
+		<button type="button" class="btn btn-info btn-lg" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#stampRally" style="display:none;" id="rallyTrigger">RALLYTRINGGER</button>
+		
+		<div class="modal" id="stampRally" role="dialog">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				   <div class="modal-header">
+				  		<button type="button" class="close" data-dismiss="modal">&times;</button>
+				  		<h3 style="font-family:football;">스탬프 투어</h3>
+				   </div>
+				   <div class="modal-body">
+				   		<div class="row">
+				   			<c:forEach items="${ufoGo }" var="ele" varStatus="statusEle">
+					   			<div class="col-xs-6" style="padding:0px;" id='${ele.ufo_gid }' style="position : relative; max-width:150px">
+									<div>
+						   				<img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; top:10%; left:20%; display:none; opacity:1; height:5em;" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp.svg">
+							   			<div id="stamp_${ele.ufo_gid }" style="display:none;border-radius: 5px;position:absolute; top:4%; left:10%;  opacity:0.5; width:80%; background-color: #00a27c; height:5.5em;" onclick="showSingleStamp('${ele.ufo_gid }')"></div>
+							   			<c:choose>
+							   				<c:when test="${!empty ele.go_icon_img }">
+							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block; height:6em" class="img-responsive" src="https://www.ufo79.com/image/${ele.go_icon_img }">
+							   				</c:when>
+							   				<c:otherwise>
+							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block;height:6em" class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp_0${statusEle.count < 9 ? statusEle.count : statusEle.count - 8}_off.svg">
+							   				</c:otherwise>
+							   			</c:choose>
+							   		</div>
+										<p style="margin-bottom:3px; text-align:center; font-size: 1em;">${ele.go_content }</p>
+					   			</div>
+				   			</c:forEach>
+				   		</div>
+					</div>
+					<div class="modal-footer">
+				    	<button type="button" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-dismiss="modal" style=" color:#d7579f; border-color: #d7579f;" onClick="fbLogin('go_re')">완료</button>
+				  	</div>
+				</div>
+			</div>
 		</div>
-		<div class="modal-footer">
-	    <button type="button" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-dismiss="modal" style=" color:#d7579f; border-color: #d7579f;" onClick="fbLogin('go_re')">완료</button>
-	  	</div>
-	</div>
-	</div>
-</div>
-<c:forEach var="ele" varStatus="statusEle" items="${ufoGo }">
-<div class="modal" id="stamp_${ele.ufo_gid }_modal" role="dialog">
-	<div class="modal-dialog">
-	<div class="modal-content">
-	   <div class="modal-header">
-	  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	  		<h3 style="font-family:football;">스탬프 미션 ${statusEle.count }번</h3>
-	   </div>
-	   <div class="modal-body" style="padding-top:0px; padding-bottom:15px; padding-left: 15px; padding-right: 15px;">
-   			<div style="padding-bottom:10px;">다음 장소에서 사진을 찍어주세요 : ${ele.go_content }<br>
-   			</div>
-			<!-- 스탬프 미션 사진, 내용 -->			
-			<div>
-   				<img class="img-responsive" style="padding-bottom:10px" src="https://www.ufo79.com/image/${ele.go_image }">
-   			</div>
-   			<div style="padding-bottom:10px" id="desc${ele.ufo_gid }">${ele.go_desc}<br>
-   			</div>
-   			<form id="stampForm${ele.ufo_gid }" action="/PIX/ufogo/insert" method="post" enctype="multipart/form-data">
-			  	<div class="filebox bs3-success">
-                <label for="stamp_go${ele.ufo_gid }">사진찍기</label> 
-			  	<input type="file" id="stamp_go${ele.ufo_gid }" name="temp" class="form-control" accept="image/*">
-			    </div>
-			  	
-				<input type="hidden" id="first_name_go${ele.ufo_gid }" name="first_name">
-				<input type="hidden" id="last_name_go${ele.ufo_gid }" name="last_name">
-				<input type="hidden" id="uid_go${ele.ufo_gid }" name="user_uid">
-				<input type="hidden" id="email_go${ele.ufo_gid }" name="email">
-				<input type="hidden" id="type_go${ele.ufo_gid }" name="ufo_go_type" value="go">
-				<input type="hidden" id="gid_go${ele.ufo_gid }" name="ufo_gid" value="${ele.ufo_gid }">
-				<input type="hidden" id="para${ele.ufo_gid }" name="para" value="${sessionScope.eventPara}">
-				<input type="hidden" id="login_type" name="login_type" value="${type }">
-			</form>
+		
+		<c:forEach var="ele" varStatus="statusEle" items="${ufoGo }">
+			<div class="modal" id="stamp_${ele.ufo_gid }_modal" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					
+					   <div class="modal-header">
+					  		<button type="button" class="close" data-dismiss="modal">&times;</button>
+					  		<h3 style="font-family:football;">스탬프 미션 ${statusEle.count }번</h3>
+					   </div>
+					   
+					   <div class="modal-body" style="padding-top:0px; padding-bottom:15px; padding-left: 15px; padding-right: 15px;">
+				   			<div style="padding-bottom:10px;">다음 장소에서 사진을 찍어주세요 : ${ele.go_content }<br>
+				   			</div>
+							
+							<!-- 스탬프 미션 사진, 내용 -->			
+							<div>
+				   				<img class="img-responsive" style="padding-bottom:10px" src="https://www.ufo79.com/image/${ele.go_image }">
+				   			</div>
+				   			
+				   			<div style="padding-bottom:10px" id="desc${ele.ufo_gid }">${ele.go_desc}<br>
+				   			</div>
+				   			<!-- 스탬프 미션 form -->
+				   			<form id="stampForm${ele.ufo_gid }" action="/PIX/ufogo/insert" method="post" enctype="multipart/form-data">
+							  	<!-- 사진찍기 & 파일첨부 -->
+							  	<div class="filebox bs3-success">
+					                <label for="stamp_go${ele.ufo_gid }">사진찍기</label> 
+								  	<input type="file" id="stamp_go${ele.ufo_gid }" name="temp" class="form-control" accept="image/*">
+							    </div>							  	
+								<input type="hidden" id="first_name_go${ele.ufo_gid }" name="first_name">
+								<input type="hidden" id="last_name_go${ele.ufo_gid }" name="last_name">
+								<input type="hidden" id="uid_go${ele.ufo_gid }" name="user_uid">
+								<input type="hidden" id="email_go${ele.ufo_gid }" name="email">
+								<input type="hidden" id="type_go${ele.ufo_gid }" name="ufo_go_type" value="go">
+								<input type="hidden" id="gid_go${ele.ufo_gid }" name="ufo_gid" value="${ele.ufo_gid }">
+								<input type="hidden" id="para${ele.ufo_gid }" name="para" value="${sessionScope.eventPara}">
+								<input type="hidden" id="login_type" name="login_type" value="${type }">
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal" onClick="getUfo('go')">뒤로</button>
+						    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" onClick="stampPostSubmit('${ele.ufo_gid }')" id="btn${ele.ufo_gid }" disabled>제출</button>
+					  	</div>
+					</div>
+				</div>
+			</div>
+		<script>
+		document.getElementById('stamp_go'+'${ele.ufo_gid }').onchange = function (e) {
+		    loadImage(
+		        e.target.files[0],
+		        function (img) {
+		        	var node = document.getElementById('desc'+'${ele.ufo_gid }');
+		        	while(node.firstChild){
+		        		node.removeChild(node.firstChild);
+		        	}
+		        	img.toDataURL('image/jpeg');
+		        	img.id = 'img'+'${ele.ufo_gid }';
+		        	img.className = "img-responsive";
+		        	node.appendChild(img);
+		        },
+		        {maxWidth: 500, orientation: true, canvas:true, downsamplingRatio: 0.5} // Options
+		    );
+		};
+		
+		$(document).ready(function() {
+		    $('#stamp_go${ele.ufo_gid }').change(function() {
+		           $('#btn${ele.ufo_gid }').prop('disabled', false);
+		           $('#btn${ele.ufo_gid }').addClass("btn-primary");
+		    });
+		});
+		</script>
+		</c:forEach>
+	
+	<div class="modal" id="qr_info" role="dialog">
+		<div class="modal-dialog">
+	   			<img src="https://www.ufo79.com/image/${ufo.qr_pic}" class="img-responsive" alt="" style="width:100%" data-dismiss="modal">
 		</div>
-		<div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal" onClick="getUfo('go')">뒤로</button>
-	    <button type="button" class="btn btn-default" data-dismiss="modal" data-toggle="modal" onClick="stampPostSubmit('${ele.ufo_gid }')" id="btn${ele.ufo_gid }" disabled>제출</button>
-	  	</div>
 	</div>
-	</div>
-</div>
-<script>
-document.getElementById('stamp_go'+'${ele.ufo_gid }').onchange = function (e) {
-    loadImage(
-        e.target.files[0],
-        function (img) {
-        	var node = document.getElementById('desc'+'${ele.ufo_gid }');
-        	while(node.firstChild){
-        		node.removeChild(node.firstChild);
-        	}
-        	img.toDataURL('image/jpeg');
-        	img.id = 'img'+'${ele.ufo_gid }';
-        	img.className = "img-responsive";
-        	node.appendChild(img);
-        },
-        {maxWidth: 500, orientation: true, canvas:true, downsamplingRatio: 0.5} // Options
-    );
-};
-
-$(document).ready(function() {
-    $('#stamp_go${ele.ufo_gid }').change(function() {
-           $('#btn${ele.ufo_gid }').prop('disabled', false);
-           $('#btn${ele.ufo_gid }').addClass("btn-primary");
-    });
-});
-</script>
-</c:forEach>
-
-<div class="modal" id="qr_info" role="dialog">
-	<div class="modal-dialog">
-   			<img src="https://www.ufo79.com/image/${ufo.qr_pic}" class="img-responsive" alt="" style="width:100%" data-dismiss="modal">
-	</div>
-</div>
-</c:if>
+	</c:if>
 
 	<!-- ******FOOTER****** -->
 	<jsp:include page="footer.jsp" flush="false">
 		<jsp:param name="param" value="value1" />
-	</jsp:include><!--//footer-->
+	</jsp:include>
+	
 <script>
 function showSingleStamp(para){
 	$("#stampRally").modal('hide');

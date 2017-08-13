@@ -31,21 +31,17 @@
 			<div id="navbar-collapse" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav">
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'index')}">
-					   <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지</a></li>
+					   <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지사항</a></li>
 					</c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}">
-						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프랠리</a></li>
+						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li>
+					</c:if>					
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}">
+					 <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li>
 					</c:if>
 					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}">
-						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">서베이</a></li>
+						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">설문조사</a></li>
 					</c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}">
-					 <li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">베뉴정보</a></li>
-					</c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'blog')}">
-						<li class="nav-item"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/blog">공지사항</a></li>
-					</c:if>
-					<!--//dropdown-->
 				</ul>
 				<!--//nav-->
 			</div>

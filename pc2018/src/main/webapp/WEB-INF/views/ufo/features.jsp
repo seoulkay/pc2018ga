@@ -41,15 +41,14 @@
 	<!-- ******HEADER****** -->
 	<jsp:include page="header.jsp" flush="true">
 		<jsp:param name="param" value="value1" />
-	</jsp:include><!--//header-->
-	<!--//header-->
-
-<section class="heading-section section section-on-bg" style="padding-top:7em">
+	</jsp:include>
+	
+	<!-- 상단 이미지 & 버튼 -->
+	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
-			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.q2_img}"></div>
+			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image}"></div>
 			<div class="hero-mask-gradient"></div>
 		</div>
-		<!--//hero-wrapper-->
 		<div class="container heading-content">
 			<c:choose>
 			<c:when test="${!empty ufo.q1_img}">
@@ -60,33 +59,29 @@
 					<h2 class="headline" style="color: #015794; font-size: 25px;font-weight: 600; text-shadow: 2px 2px rgba(255,255,255,0.8);">${ufo.title }</h2>
 					<div class="intro" style="color: #015794; font-size: 25px;font-weight: 600; text-shadow: 2px 2px rgba(255,255,255,0.8);">${ufo.event_date }</div><br>
 			</c:otherwise>
-		</c:choose>		
+			</c:choose>		
 			<div class="actions">
                  <div class="actions">
          			<a class="scrollto" href="#info-section"><button class="btn" style="background-color: #EE334E;">베뉴정보</button></a>
    				</div>
-            </div><!--//actions-->
+            </div>
 		</div>
-		<!--//container-->
 	</section>
-	<!--//heading-section-->
-
-<div class="page-nav-space-holder">
+	
+	<!-- 중간 메뉴 -->
+	<div class="page-nav-space-holder">
 		<div id="page-nav-wrapper" class="page-nav-wrapper text-center">
 			<div class="container">
 				<ul id="page-nav" class="nav page-nav list-inline">
-					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지</a></li>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프랠리</a></li></c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">서베이</a></li></c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">베뉴정보</a></li></c:if>
-					<!-- <li><a class="scrollto" href="#survey-section">서베이 결과보기</a></li> -->
+					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">공지사항</a></li>
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li></c:if>
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li></c:if>
+					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">설문조사</a></li></c:if>					
 				</ul>
-				<!--//page-nav-->
 			</div>
 		</div>
-		<!--//page-nav-wrapper-->
 	</div>
-	<!--//page-nav-space-holder-->
+	
 	<c:if test="${fn:contains(sessionScope.eventMenu, 'info')}">
 	<!-- Section 01 -->
 	<section id="info-section">

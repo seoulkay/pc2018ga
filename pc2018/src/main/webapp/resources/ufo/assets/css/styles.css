@@ -1198,7 +1198,7 @@ body.sticky-page-nav .overview-section {
   font-size: 28px;
 }
 .signup-section .form-desc {
-  margin-bottom: 30px;
+  margin-bottom: 1.5em;
 }
 .signup-section .legal-note {
   font-size: 14px;
@@ -1332,7 +1332,7 @@ body.sticky-page-nav .overview-section {
   background-size: cover;
 }
 .stories-page .actions {
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 .stories-page .actions a {
   color: #fff;
