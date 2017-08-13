@@ -5,12 +5,8 @@
                 <div class="row">
                     <div class="col-sm-4 margin-btm-30">
                         <div class="footer-col">
-                            <h3 class="widget-title">
-                               UFO79?
-                            </h3>
-                            <p>
-                            UFO는 스탬프랠리와 설문조사를 솔루션을 통해 축제 방문객의 참여를 유도하고 피드백을 받을 수 있는 통합형 축제관리 서비스를 제공합니다.
-                            </p>
+                            <h3 class="widget-title">UFO79?</h3>
+                            <p>UFO79는 스탬프 투어와 설문조사 솔루션을 통해 축제 방문객의 참여를 유도하고 피드백을 받을 수 있는 통합형 축제관리 서비스를 제공합니다.</p>
                         </div><!--footer-col-->
 
                         <div class="footer-col">
