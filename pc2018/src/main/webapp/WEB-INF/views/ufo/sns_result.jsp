@@ -39,42 +39,53 @@
 <!-- 	  		<button type="button" class="close" data-dismiss="modal">&times;</button> -->
 		<c:choose>
 			<c:when test="${userSize eq ufoSize }">
-				<h3 style="color : #d7579f; font-family:football; margin-top:10px;">${rallyType}를 완성하였습니다! ${userSize }/${ufoSize }</h3>
+				<h3 style="color : #0081C8; font-family:football; margin-top:10px;">${rallyType}를 완성하였습니다! ${userSize }/${ufoSize }</h3>
 			</c:when>
 			<c:otherwise>
-				<h3 style="color : #d7579f; font-family:football;">${rallyType}를 진행중입니다. ${userSize }/${ufoSize }</h3>
+				<h3 style="color : #0081C8; font-family:football;">${rallyType}를 진행중입니다. ${userSize }/${ufoSize }</h3>
 			</c:otherwise>
 		</c:choose>
 		
 	   </div>
-	   <div class="modal-body" style="background-color: #d7579f;">
+	   <div class="modal-body" style="background-color: #0081C8;">
 	   		<div class="row" id="stampResultList">
 	   			<c:forEach items="${ufoResult }" var="ele" varStatus="statusEle">
-	   			<div class="col-xs-4" id='qr_div_${ele.ufo_gid }' style="position : relative; padding-left: 0.2em;padding-right: 0.2em">
+	   			<c:choose>
+	   				<c:when test="${ele.ufo_go_type eq type}">
+	   			<div class="col-xs-6" id='qr_div_${ele.ufo_gid }' style="position : relative; padding-left: 0.2em;padding-right: 0.2em">
 	   				<div style="padding-top:3px; padding-bottom:3px">
 	   				<c:choose>
 	   					<c:when test="${not ele.submit}">
-	   						<div style="position:absolute; top:20%; left:20%; width: 60%; height:60%; background-color: BLACK; opacity: 0.5;"><p style="color: WHITE;  padding: 0.5em; padding-top: 2em;">미완료</p></div>
-		   					<div style="border: 2px solid #FFF; height:10em; overflow:hidden; background-color: WHITE;"><img src="https://www.ufo79.com/image/${ele.go_image}" class="img-responsive"></div>
+	   						<div style="position:absolute; top:20%; left:20%; width: 60%; height:60%;z-index: 5">
+		   						<br>
+		   						<img src="https://www.ufo79.com/image/stamp_please.svg" class="img-responsive" align="middle" style="margin: 0 auto">
+	   						</div>
+		   					<div style="border: 2px solid #FFF; height:10em; overflow:hidden; background-color: WHITE;">
+		   					</div>
 	   					</c:when>
 	   					<c:otherwise>
-	   					<a style="display:block" href="https://www.pc2018.ga/PIX/ufo/${ufo.para }/result/${type}/${uid}/${ele.ufo_gid }">
-	   							<div style="border: 2px solid #FFF; height:10em; overflow:hidden; background-color: WHITE;"><img src="https://www.ufo79.com/image/${ele.go_image}" class="img-responsive"></div>
-	   					</a>
+	   						<a style="display:block" href="https://www.pc2018.ga/PIX/ufo/${ufo.para }/result/${type}/${uid}/${ele.ufo_gid }">
+	   							<div style="border: 2px solid #FFF; height:10em; overflow:hidden; background-color: WHITE;">
+	   							<img src="https://www.ufo79.com/image/${ele.go_image}" class="img-responsive">
+	   							</div>
+	   						</a>
 	   					</c:otherwise>
 	   				</c:choose>
 	   				</div>
 	   			</div>
+	   			</c:when>
+	   			</c:choose>
 	   			</c:forEach>
 	   		</div>
 	   		<br>
 	   		<h5 style="font-family:football; color:WHITE; float:right;"><fmt:formatDate pattern="yyyy.MM.dd" value="${now}" /> ${ufo.title } </h5>
 			<br>
 		</div>
-	 	<div style="background: url('${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_collage_02_500px.svg')">
+	 	<%-- <div style="background: url('${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_collage_02_500px.svg')"> --%>
+	 	<div style="background: url('https://www.pc2018.ga/image/bg_collage_02_500px.svg')">
 			<div class="modal-footer">
 			<br>
-		    	<span class="btn" style="background-color:WHITE; color:#d7579f; border:2px solid #d7579f" onClick="location.href='https://www.pc2018.ga/PIX/ufo/${ufo.para}/stamp'"><span class="btn-text">확인</span></span>
+		    	<span class="btn" style="background-color:WHITE; color:#0081C8; border:2px solid #0081C8" onClick="location.href='https://www.pc2018.ga/PIX/ufo/${ufo.para}/stamp'"><span class="btn-text">확인</span></span>
 		    	<span id="shareBtn" class="btn btn-social btn-facebook" style="margin: auto;"><i class="fa fa-facebook" aria-hidden="true"></i><span class="btn-text">공유하기</span></span>
 		    <br>
 		    </div>

@@ -211,7 +211,7 @@
 				   		</div>
 					</div>
 					<div class="modal-footer">
-				    	<button type="button" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-dismiss="modal" style=" color:#d7579f; border-color: #d7579f;" onClick="fbLogin('go_re')">완료</button>
+				    	<button type="button" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-dismiss="modal" style=" color:#EE334E; border-color:#EE334E;" onClick="fbLogin('go_re')">완료</button>
 				  	</div>
 				</div>
 			</div>
@@ -307,19 +307,19 @@ function showSingleStamp(para){
  	$('#stamp_'+para+'_modal').modal({backdrop: 'static',keyboard: false}); 
 	$('#stamp_'+para+'_modal').modal('show');
 }
-var iconBase = 'https://www.ufo79.com/image/';
+var iconBase = 'https://www.pc2018.ga/image/';
 var icons = {
   me:{
-	  icon: iconBase + 'NEW_icon_UFO_me.svg'
+	  icon: iconBase + 'me_icon_3.png'
   },
   ufoOn:{
-	  icon: iconBase + 'icon_pin_20px.svg'
+	  icon: iconBase + 'icon_pin_15px_on.svg'
   },
   ufoOff:{
 	  icon: iconBase +'icon_pin_15px_off.svg'
   },
   ufoDone:{
-	  icon: iconBase +'icon_done.svg'
+	  icon: iconBase +'icon_pin_15px_fn_02.svg'
   }
 };
         
