@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>UFO79</title>
+<title>PYC2018</title>
 </head>
 <body>
-<h2>UFO79</h2>
+<h2>PYC2018</h2>
 <h4>We're sorry. 404 occurred.</h4>
 </body>
 </html>

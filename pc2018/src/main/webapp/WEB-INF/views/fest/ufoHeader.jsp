@@ -11,32 +11,48 @@
                           <span class="icon-bar"></span>
                           <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/resources/pix/img/symbol.png" class="img-responsive" width="50em"></a>
-             </div>
+         <a class="navbar-brand" href="#" style="padding-top: 0"><img src="https://www.pc2018.ga/image/tisImage/dual_logo.png" class="img-responsive" width="100em"></a>
+                            </div>
              <div class="navbar-collapse collapse">	
                  <ul class="nav navbar-nav navbar-right scrollto">
-                 	 <li><a href="festInfo?idx=${sessionScope.currentEvent }">축제정보</a></li>                          
-                     <li><a href="festQuestion?idx=${sessionScope.currentEvent }">축제모듈</a></li>
-                     <li><a href="festStat?idx=${sessionScope.currentEvent }">통계</a></li>
-                 	 <li><a href="festNotice?idx=${sessionScope.currentEvent }">공지사항</a></li>                          
-                     <li><a href="#"><span class="glyphicon glyphicon-user" ></span> ${sessionScope.UserName }</a></li>
-                     <li><a href="signOut"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a></li>   
-                     <li><div style="padding-top: 10px; padding-left: 10px">
-			        <div class="dropdown pull-right">
-					  <button class="btn btn-default dropdown-toggle dropdown-menu-right" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-					    행사 선택
-					    <span class="caret"></span>
-					  </button>
-					  
-					  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-					  	<c:forEach var="var" items="${sessionScope.eventNames}" varStatus="status">
+                 	 <li><a href="festInfo?idx=${sessionScope.currentEvent }">Looks & Feels</a></li>                          
+                     <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Modules<span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+						    <li><a href="festQuestion?idx=${sessionScope.currentEvent }">Stamp Rally</a></li>
+						    <li><a href="festQuestion2?idx=${sessionScope.currentEvent }">Survey</a></li>
+						    <li><a href="festQuestion3?idx=${sessionScope.currentEvent }">Report</a></li>
+					     </ul>
+				     </li>
+                     <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">History<span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+						    <li><a href="festStat?idx=${sessionScope.currentEvent }&startNum=0&pageRowNum=10">Stamp Rally</a></li>
+						    <li><a href="festStat2?idx=${sessionScope.currentEvent }">Winners</a></li>
+						    <li><a href="festStat3?idx=${sessionScope.currentEvent }">SNS posts</a></li>
+						    <li><a href="festStat4?idx=${sessionScope.currentEvent }">Statistics</a></li>
+					     </ul>
+				     </li>
+<!-- 				     공지사항 모듈 일단 코멘트 -->
+<%--                  	 <li><a href="festNotice?idx=${sessionScope.currentEvent }">공지사항</a></li>                           --%>
+					  <li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events<span class="caret"></span></a>
+				          <ul class="dropdown-menu">
+				          	<c:forEach var="var" items="${sessionScope.eventNames}" varStatus="status">
 						    <li><a href="festChange?idx=${var.key}"> ${var.value}</a></li>
-					    </c:forEach> 
-					  </ul>
-					</div>
-                     	</div>
-                     </li> 
+					    	</c:forEach> 
+				          </ul>
+				        </li>
+                    	<p class="navbar-text navbar-right"><a href="signOut">Logout</a></p>   
+                    	<p class="navbar-text navbar-right"><span class="glyphicon glyphicon-user" ></span> ${sessionScope.UserName }</p>
+			      </ul>
+				      
+<!--                     <div class="dropdown pull-right"> -->
+<!-- 					</div> -->
+<!--                      	</div> -->
+                      
                  </ul>
+                 		
              </div><!--/.nav-collapse -->
          </div><!--/.container -->  
      </div><!--navbar-default-->

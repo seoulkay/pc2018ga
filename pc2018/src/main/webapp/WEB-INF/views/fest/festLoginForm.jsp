@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UFO</title>
+        <title>ADMIN</title>
 
         <!-- Bootstrap -->
         <link href="${pageContext.request.contextPath}/resources/pix/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -42,13 +42,9 @@
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="container">
                     <div class="navbar-header">
-                        
-                        <a class="navbar-brand" href="#"><img src="${pageContext.request.contextPath}/resources/pix/img/symbol.png" class="img-responsive" width="60em"></a>
+                        <a class="navbar-brand" href="#" style="padding-top: 0"><img src="https://www.pc2018.ga/image/tisImage/dual_logo.png" class="img-responsive" width="100em"></a>
                     </div>
                     <div class="navbar-collapse collapse">
-
-                        
-
                     </div><!--/.nav-collapse -->
                 </div><!--/.container -->
             </div><!--navbar-default-->
@@ -56,15 +52,15 @@
         <section id="blog-wrapper" class="section-padding">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
                     <div class="col-sm-4">
                     </div>
                     
                     <div class="col-sm-4">
 	                    <form action="festLoginAction" method="POST" enctype="multipart/form-data">
 		                    <div class="text-center">
-		                    <span style="color:orange; font-size: 60px; " >Login</span><br><br>
-		                    <span style="color:orange; font-size: 60px; " class="glyphicon glyphicon-user" aria-hidden="true"></span><br><br>
+		                    <span style="color:#0081C8; font-size: 3em; " >스탬프 투어 로그인</span><br><br>
+							
+							<img class="img-responsive" alt="" src="https://www.pc2018.ga/image/tisImage/ban.png" style="margin: 0 auto">
 							</div>
 							<input type="text" name="id" class="form-control" placeholder="E-mail"><br>
 							<input type="password" name="password" class="form-control"  placeholder="Password"><br>
@@ -72,73 +68,18 @@
 							<span style="float: right;"><a href="festPassFinder">비밀번호 찾기</a></span>
 							<br>
 							<input type="submit" value="로그인" class="form-control">
-							<br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 						</form>
 					</div>		
-					
+					<div class="col-sm-4">
+                    </div>
+                    
                     </div>  
                 </div>
-                
-                
-               
            </div><!--blog-post col-->          
         </section><!--blog wrapper-->
         
-   <footer id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 margin-btm-30">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                               UFO79?
-                            </h3>
-                            <p>
-                            UFO는 스탬프랠리와 설문조사를 솔루션을 통해 축제 방문객의 참여를 유도하고 피드백을 받을 수 있는 통합형 축제관리 서비스를 제공합니다.
-                            </p>
-                        </div><!--footer-col-->
 
-                        <div class="footer-col">
-                            <ul class="list-inline social-1">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            </ul>
-                        </div><!--footer-col-->
-                    </div>
-
-                    <div class="col-sm-4 margin-btm-30">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                                웹과 모바일 지원
-                            </h3>
-                            <p>UFO는 웹사이트와 모바일사이트를 통합형으로 구축하여 사이트 관리에 최적화되어 있습니다. UFO는 모바일 앱을 다운로드 하는 번거로움이 없습니다.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                                바이럴 마케팅 솔루션
-                            </h3>
-                            <p>
-                            	이벤트 내용을 자동으로 SNS에 업데이트 해주는 바이럴마케팅 지원
-                            </p>
-                            <form role="form" class="subscribe-form">
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Enter email to subscribe">
-                                    <span class="input-group-btn">
-                                        <a class="btn  btn-theme btn-lg" href="#">Ok</a>
-                                        <!--<button class="btn  btn-theme btn-lg">Ok</button>-->
-                                    </span>
-                                </div>
-                            </form>
-                        </div><!--footer-col-->
-                    </div>
-                </div>
-            </div>
-        </footer><!--footer-->
         <div class="footer-btm">
             <ul class="footer-nav list-inline text-center">
                 <li><a href="#">Terms of use</a></li>
@@ -147,7 +88,7 @@
                 <li><a href="#">Sign In</a></li>
             </ul>
             <div class="copyright text-center">
-                Copyright &copy; 2017 UFO
+                Copyright &copy; 2017 Team PYC
             </div>
         </div><!--footer-btm-->
         <!--back to top-->
