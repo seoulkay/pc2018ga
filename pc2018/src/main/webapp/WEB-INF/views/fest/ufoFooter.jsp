@@ -1,56 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<footer id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 margin-btm-30">
-                        <div class="footer-col">
-                            <h3 class="widget-title">UFO79?</h3>
-                            <p>UFO79는 스탬프 투어와 설문조사 솔루션을 통해 축제 방문객의 참여를 유도하고 피드백을 받을 수 있는 통합형 축제관리 서비스를 제공합니다.</p>
-                        </div><!--footer-col-->
-
-                        <div class="footer-col">
-                            <ul class="list-inline social-1">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            </ul>
-                        </div><!--footer-col-->
-                    </div>
-
-                    <div class="col-sm-4 margin-btm-30">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                                웹과 모바일 지원
-                            </h3>
-                            <p>UFO는 웹사이트와 모바일사이트를 통합형으로 구축하여 사이트 관리에 최적화되어 있습니다. UFO는 모바일 앱을 다운로드 하는 번거로움이 없습니다.</p>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                                바이럴 마케팅 솔루션
-                            </h3>
-                            <p>
-                            	이벤트 내용을 자동으로 SNS에 업데이트 해주는 바이럴마케팅 지원
-                            </p>
-                            <form role="form" class="subscribe-form">
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Enter email to subscribe">
-                                    <span class="input-group-btn">
-                                        <a class="btn  btn-theme btn-lg" href="#">Ok</a>
-                                        <!--<button class="btn  btn-theme btn-lg">Ok</button>-->
-                                    </span>
-                                </div>
-                            </form>
-                        </div><!--footer-col-->
-                    </div>
-                </div>
-            </div>
-        </footer><!--footer-->
         <div class="footer-btm">
             <ul class="footer-nav list-inline text-center">
                 <li><a href="#">Terms of use</a></li>
@@ -59,7 +8,7 @@
                 <li><a href="#">Sign In</a></li>
             </ul>
             <div class="copyright text-center">
-                Copyright &copy; 2017 UFO
+                Copyright &copy; 2017 Team PYC
             </div>
         </div><!--footer-btm-->
         <!--back to top-->

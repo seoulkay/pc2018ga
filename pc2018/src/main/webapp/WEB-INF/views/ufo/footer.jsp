@@ -9,21 +9,28 @@
 	<div class="container">
 		<!-- 약관 -->
 		<div class="row">
-			<div class="footer-col col-xs-6 col-sm-4">
+			<div class="footer-col col-xs-6 col-sm-3">
 				<div class="footer-col-inner">
 					<div class="col-title">
-						<a href="https://www.ufo79.com/PIX/ULC/terms">이용약관</a>
+						<a href="${pageContext.request.contextPath}/ufo/squid/stamp">한국어</a>
 					</div>
 				</div>
 			</div>
-			<div class="footer-col col-xs-6 col-sm-4">
+			<div class="footer-col col-xs-6 col-sm-3">
 				<div class="footer-col-inner">
 					<div class="col-title">
-						<a href="https://www.ufo79.com/PIX/ULC/privacy">개인정보 취급방침</a>
+						<a href="${pageContext.request.contextPath}/ufo/tanger/stamp">ENGLISH</a>
 					</div>
 				</div>
 			</div>
-			<div class="footer-col col-xs-6 col-sm-4">
+			<div class="footer-col col-xs-6 col-sm-3">
+				<div class="footer-col-inner">
+					<div class="col-title">
+						<a href="https://www.ufo79.com/PIX/ULC/terms">Terms and conditions</a>
+					</div>
+				</div>
+			</div>
+			<div class="footer-col col-xs-6 col-sm-3">
 				<div class="footer-col-inner">
 					<div class="col-title">
 						<a href="reader">BARCODE READER</a>
@@ -233,11 +240,11 @@ function fbLogin(para){
        }else if(para == 'qr'){
     	   qrRally();
        }else if(para == 'go_re'){
-    	   top.location.href="https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/result/go/"+window.sessionStorage.getItem('uid');
+    	   top.location.href="https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/result/go/"+window.sessionStorage.getItem('uid');
        }else if(para == 'qr_re'){
-    	   top.location.href="https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/result/qr/"+window.sessionStorage.getItem('uid');
+    	   top.location.href="https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/result/qr/"+window.sessionStorage.getItem('uid');
        }else if(para == 'qr_list'){
-    	   top.location.href="https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/catch/qr/${gid}";
+    	   top.location.href="https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/catch/qr/${gid}";
        }else if(para =="survey"){
     	   surveyInit();
        }else if(para =="logbtn"){
@@ -419,7 +426,7 @@ function redirectGallery(tt){
 	if(window.sessionStorage.getItem('uid') == 'undefined' || window.sessionStorage.getItem('uid') == null){
 			fbLogin('go_re');
 	}else{
-		   top.location.href="https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/result/"+tt+"/"+window.sessionStorage.getItem('uid');
+		   top.location.href="https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/result/"+tt+"/"+window.sessionStorage.getItem('uid');
 		
 	}
 }
@@ -429,11 +436,11 @@ function redirectGallery(tt){
  */
 function redirectIndex(tt){
 	if(tt === 'go'){
-		top.location.href="https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/stamp";
+		top.location.href="https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/stamp";
 	}else if(tt === 've'){
-		top.location.href="https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/stories";
+		top.location.href="https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/stories";
 	}else{
-		   top.location.href="https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/index";
+		   top.location.href="https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/index";
 	}
 }
 

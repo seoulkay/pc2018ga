@@ -7,7 +7,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>UFO</title>
+        <title>ADMIN</title>
 
         <!-- Bootstrap -->
         <link href="${pageContext.request.contextPath}/resources/pix/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,8 +44,8 @@
                 <div class="container">
                     <div class="navbar-header">
                         
-                        <a class="navbar-brand" href="#">UFO</a>
-                    </div>
+                     <a class="navbar-brand" href="#" style="padding-top: 0"><img src="https://www.pc2018.ga/image/tisImage/dual_logo.png" class="img-responsive" width="100em"></a>
+                       </div>
                     <div class="navbar-collapse collapse">
 
                         
@@ -65,7 +65,6 @@
                     <div class="col-sm-4">
 		                    <div class="text-center">
 		                   	<h3 style="color:orange"> 로그인에 실패 하셨습니다.</h3>
-		                    <span style="color:orange; font-size: 60px; " class="glyphicon glyphicon-user" aria-hidden="true"></span><br><br>
 		                    <h3><a href="festLoginForm">다시하기</a></h3>
 							</div>
 							
@@ -87,60 +86,6 @@
                     
               
         </section><!--blog wrapper-->
-        <footer id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-4 margin-btm-30">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                               픽스란?
-                            </h3>
-                            <p>
-                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text
-                            </p>
-                        </div><!--footer-col-->
-
-                        <div class="footer-col">
-                            <ul class="list-inline social-1">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            </ul>
-                        </div><!--footer-col-->
-                    </div>
-
-                    <div class="col-sm-4 margin-btm-30">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                                최신 정보
-                            </h3>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <div class="footer-col">
-                            <h3 class="widget-title">
-                                뉴스레터를 받아 보세요.
-                            </h3>
-                            <p>
-                                There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.
-                            </p>
-                            <form role="form" class="subscribe-form">
-                                <div class="input-group">
-                                    <input type="email" class="form-control" placeholder="Enter email to subscribe">
-                                    <span class="input-group-btn">
-                                        <a class="btn  btn-theme btn-lg" href="#">Ok</a>
-                                        <!--<button class="btn  btn-theme btn-lg">Ok</button>-->
-                                    </span>
-                                </div>
-                            </form>
-                        </div><!--footer-col-->
-                    </div>
-                </div>
-            </div>
-        </footer><!--footer-->
         <div class="footer-btm">
             <ul class="footer-nav list-inline text-center">
                 <li><a href="#">Terms of use</a></li>
