@@ -35,6 +35,13 @@
 <!-- Theme CSS -->
 <link id="theme-style" rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/ufo/assets/css/styles.css">
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;width:100%;}
+.tg td{font-size:14px;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+.tg th{font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:0px;overflow:hidden;word-break:normal;border-top-width:1px;border-bottom-width:1px;}
+.tg .tg-6wtj{vertical-align:middle;text-align:center;}					
+.tg .tg-2qjy{background-color:#16adde;color:#ffffff;text-align:center}
+</style>
 </head>
 
 <body class="features-page" data-spy="scroll" data-target="#page-nav">
