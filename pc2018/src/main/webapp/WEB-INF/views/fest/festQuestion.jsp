@@ -21,29 +21,29 @@
 		<div><img id="barcode" style="width:350px"/></div>
 		</div> -->	
 			<table class="table table-bordered table-hover table-condensed">
-			<h3>Stamp Rally  <button class="btn" style="background-color: #FD7A02; color: white" onclick="stampInsert()">Add new</button></h3>
+			<h3>스탬프 투어 &nbsp;<button class="btn" style="background-color: #FD7A02; color: white" onclick="stampInsert()">추가하기</button></h3>
 				<tr class="table table_striped">					
-					<td class="hk">Stamp Id.</td>
-					<td class="hk">Stamp board Image</td>	
-					<td class="hk">Stamp Title</td>
-					<td class="hk">Stamp Description</td>
-					<td class="hk">Stamp Image</td>				
-					<td class="hk">Latitude</td>
-					<td class="hk">Longitude</td>
-					<td class="hk">Edit</td>
+					<td class="hk3" style="width:5%;">스탬프 번호</td>
+					<td class="hk3" style="width:10%;">스탬프 보드 이미지</td>	
+					<td class="hk3" style="width:20%;">스탬프 제목</td>
+					<td class="hk3" style="width:30%;">스탬프 미션 </td>
+					<td class="hk3" style="width:10%;">스탬프 미션 이미지</td>				
+					<td class="hk3" style="width:10%;">Latitude</td>
+					<td class="hk3" style="width:10%;">Longitude</td>
+					<td class="hk3" style="width:5%;">Edit</td>
 				</tr>
-					<c:forEach items="${goList}" var="ele">
-					<tr id="${ele.id_ufo_go }">						
-						<td class="hk2">${ele.ufo_gid}</td>
-						<td class="icon_img hk2"><c:if test="${ele.go_icon_img ne null}"><img src="https://www.ufo79.com/image/${ele.go_icon_img}" class="img-responsive" alt="" style="width:100px"></c:if></td>
-						<td class="hk2">${ele.go_content}</td>
-						<td class="hk2">${ele.go_desc}</td>
-						<td class="go_img hk2"><c:if test="${ele.go_image ne null}"><img src="https://www.ufo79.com/image/${ele.go_image}" class="img-responsive" alt="" style="width:100px"></c:if></td>												
-						<td class="hk2">${ele.go_lat}</td>
-						<td class="hk2">${ele.go_alt}</td>
-						<td class="hk2"><button class="btn" style="background-color: #FD7A02; color: white" onclick="stampUpdate('${ele.id_ufo_go }', '${ele.go_para }')">Edit</button></td>						
-					</tr>
-					</c:forEach>
+				<c:forEach items="${goList}" var="ele">
+				<tr id="${ele.id_ufo_go }">						
+					<td class="hk4">${ele.ufo_gid}</td>
+					<td class="icon_img hk4"><c:if test="${ele.go_icon_img ne null}"><img src="https://www.ufo79.com/image/${ele.go_icon_img}" class="img-responsive" alt="" style="width:100px"></c:if></td>
+					<td class="hk4">${ele.go_content}</td>
+					<td class="hk4">${ele.go_desc}</td>
+					<td class="go_img hk4"><c:if test="${ele.go_image ne null}"><img src="https://www.ufo79.com/image/${ele.go_image}" class="img-responsive" alt="" style="width:100px"></c:if></td>												
+					<td class="hk4">${ele.go_lat}</td>
+					<td class="hk4">${ele.go_alt}</td>
+					<td class="hk4"><button class="btn" style="background-color: #FD7A02; color: white" onclick="stampUpdate('${ele.id_ufo_go }', '${ele.go_para }')">Edit</button></td>						
+				</tr>
+				</c:forEach>
 			</table>
 		</div>
 		<div style="height:2em"></div>

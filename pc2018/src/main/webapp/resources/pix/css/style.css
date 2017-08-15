@@ -1239,3 +1239,20 @@ a.sbtn:hover {border: 1px solid #091940; background-color:#1f326a; color:#fff;}
 	vertical-align: middle !important; 
 	font-weight: bold;
 }
+.hk2{
+	width: 10%; 
+	color: #999;
+	font-weight: bold;
+}
+.hk3{
+	background-color:#4FCDB9;
+	font-size: 0.9em; 
+	color: #ffffff;
+	vertical-align: middle;
+	text-align: center; 
+	font-weight: bold;
+}
+.hk4{
+	width: 10%; 
+	color: #999;
+}

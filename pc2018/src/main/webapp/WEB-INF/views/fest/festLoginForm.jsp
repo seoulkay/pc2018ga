@@ -58,11 +58,10 @@
                     <div class="col-sm-4">
 	                    <form action="festLoginAction" method="POST" enctype="multipart/form-data">
 		                    <div class="text-center">
-		                    <span style="color:#0081C8; font-size: 3em; " >스탬프 투어 로그인</span><br><br>
-							
-							<img class="img-responsive" alt="" src="https://www.pc2018.ga/image/tisImage/ban.png" style="margin: 0 auto">
+		                    <span style="color:#0081C8; font-size: 3em;">스탬프 투어 로그인</span><br><br>							
+							<img class="img-responsive" alt="" src="https://www.pc2018.ga/image/mascots-min.png" style="margin: 0 auto; padding-bottom: 1em;">
 							</div>
-							<input type="text" name="id" class="form-control" placeholder="E-mail"><br>
+							<input type="text" name="id" class="form-control" placeholder="ID"><br>
 							<input type="password" name="password" class="form-control"  placeholder="Password"><br>
 							<input type="checkbox" id="idSaveCheck"> 아이디 기억하기
 							<span style="float: right;"><a href="festPassFinder">비밀번호 찾기</a></span>

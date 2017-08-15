@@ -5,15 +5,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!-- Global CSS -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/ufo/assets/plugins/bootstrap/css/bootstrap.min.css">	
+
+<!-- Theme CSS -->
+<link id="theme-style" rel="stylesheet"	href="${pageContext.request.contextPath}/resources/ufo/assets/css/styles.css">
+
 <title>UFO79 reader</title>
 </head>
 <body>
-UFO79 Reader ${para }
-<input type="text" id="link">
+	<div style="text-align: center; padding: 3em;">
+	    <span style="color:#0081C8; font-size: 1.5em; font-weight: bold;">바코드를 읽어주세요.</span><br><br>					
+		<img src="https://www.pc2018.ga/image/sb-min.JPG" style="max-height: 10em;"><br><br>
+		<input type="text" id="link">
+	</div>
+	
+	<!-- ******FOOTER****** -->
+	<jsp:include page="footer.jsp" flush="false">
+		<jsp:param name="param" value="value1" />
+	</jsp:include>
 
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/jquery-1.12.4.min.js"></script>
-<script>
+	<script type="text/javascript"
+		src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/jquery-1.12.4.min.js"></script>
+	<script>
 
 var str = "//dd";
 var match = test.match(\(\/\/.*){2}\);

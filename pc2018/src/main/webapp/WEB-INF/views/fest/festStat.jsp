@@ -14,13 +14,24 @@
 <div class="container">
 	<div style="height:2em"></div>
 	<div class="row">
-	<h3>스탬, 큐알 랠리</h3>
+	<h3>스탬프 투어 히스토리</h3>
 		<table class="table table-bordered table-hover table-condensed">
-			<tr class="success">
-				<td>ufo_date</td><td>ufo_image</td><td>first_name</td><td>last_name</td><td>ufo_go_type</td><td>ufo_gid</td>
+			<tr class="table table_striped">
+				<td class="hk3" style="width:20%;">날짜</td>
+				<td class="hk3" style="width:35%;">스탬프 미션 사진</td>
+				<td class="hk3" style="width:10%;">이름</td>
+				<td class="hk3" style="width:10%;">성</td>
+				<td class="hk3" style="width:15%;">위치(go) / 큐알(qr)</td>
+				<td class="hk3" style="width:10%;">스탬프 번호</td>
 			</tr>
 				<c:forEach items="${resultList}" var="ele" begin="0" end="10">
-				<tr><td>${ele.ufo_date}</td><td class="go_img"><c:if test="${ele.ufo_image ne null}"><img src="https://www.pc2018.ga/image/${ele.ufo_image}" class="img-responsive" alt="" style="height:100px"></c:if></td><td>${ele.first_name }</td><td>${ele.last_name}</td><td>${ele.ufo_go_type}</td><td>${ele.ufo_gid}</td></tr>
+				<tr>
+				<td class="hk4">${ele.ufo_date}</td>
+				<td class="go_img hk4"><c:if test="${ele.ufo_image ne null}"><img src="https://www.pc2018.ga/image/${ele.ufo_image}" class="img-responsive" alt="" style="height:100px"></c:if></td>
+				<td class="hk4">${ele.first_name }</td>
+				<td class="hk4">${ele.last_name}</td>
+				<td class="hk4">${ele.ufo_go_type}</td>
+				<td class="hk4">${ele.ufo_gid}</td></tr>
 				</c:forEach>
 		</table>
 		<nav aria-label="Page navigation">

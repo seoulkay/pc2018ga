@@ -50,7 +50,8 @@
 				<li><a href="http://plus.google.com/share?url=www.ufo79.com/PIX/ufo/${sessionScope.eventPara }/index"><i
 						class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 			</ul>
-			<!--  -->
+			<!-- COPYRIGHT -->
+			<small class="copyright">${ufo.footer_msg }</small><br>
 			<small class="copyright"><a href="https://www.pyeongchang2018.com/" target="_blank">© 2018 평창동계올림픽 베뉴 스탬프 투어</a></small>
 		</div>
 	</div>
