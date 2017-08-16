@@ -34,6 +34,11 @@ public class UfoLable {
 	private String minwon_btn;
 	private String features_btn;
 	
+	private String header_stamp;
+	private String header_index;
+	private String header_features;
+	private String header_stories;
+	
 	
 	public int getId() {
 		return id;
@@ -203,6 +208,30 @@ public class UfoLable {
 	}
 	public void setFeatures_btn(String features_btn) {
 		this.features_btn = features_btn;
+	}
+	public String getHeader_stamp() {
+		return header_stamp;
+	}
+	public void setHeader_stamp(String header_stamp) {
+		this.header_stamp = header_stamp;
+	}
+	public String getHeader_index() {
+		return header_index;
+	}
+	public void setHeader_index(String header_index) {
+		this.header_index = header_index;
+	}
+	public String getHeader_features() {
+		return header_features;
+	}
+	public void setHeader_features(String header_features) {
+		this.header_features = header_features;
+	}
+	public String getHeader_stories() {
+		return header_stories;
+	}
+	public void setHeader_stories(String header_stories) {
+		this.header_stories = header_stories;
 	}
 	
 }

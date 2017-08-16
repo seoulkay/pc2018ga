@@ -110,8 +110,8 @@
                     </div>
                     
                     <div class="header-btn">
-                    	<a href="https://www.pc2018.ga/PIX/ufo/tanger/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>PyeongChang 2018</a>
-                    	<a href="https://www.pc2018.ga/PIX/ufo/squid/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>2018 평창동계올림픽</a>                    	
+                    	<a href="https://www.pc2018.ga/PIX/ufo/tanger/stamp" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>PyeongChang 2018</a>
+                    	<a href="https://www.pc2018.ga/PIX/ufo/squid/stamp" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>2018 평창동계올림픽</a>                    	
                         <a href="https://www.pc2018.ga/PIX/FEV/" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on App Store"><i class="ion ion-coffee"></i>관리자 사이트</a>
                     </div>
                     
@@ -445,7 +445,7 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1074619385980281";
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=1508199992578149";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 <script>

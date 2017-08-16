@@ -78,7 +78,7 @@
 			<!-- 공지 -->
 			<c:if test="${not empty ufo.ufo_notice1 && not empty ufo.ufo_notice2 && not empty ufo.ufo_notice3}">
 				<div class="row" style="margin-left:0px; margin-right:0px; margin-bottom:15px; padding:0;">
-					<h3 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #EE334E">공지사항</span></h3>
+					<h3 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #EE334E">${ufo.ufoLable.index_title }</span></h3>
 				</div>		
 				<div class="row" >
 					<marquee>

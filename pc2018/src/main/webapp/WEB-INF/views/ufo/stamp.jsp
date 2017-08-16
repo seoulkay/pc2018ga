@@ -154,8 +154,8 @@
 			<div id="map" style="height: 25em;"></div>
 			<!-- 스탬프 찍기 & 갤러리 보기 -->
 			<div class="row" style="color:#ffffff;">
-				<button class="btn" onClick="getUfo('go')" style="margin-top:1em; margin-right: 1em; background-color: #EE334E;">스탬프 찍기</button>
-				<button class="btn" onClick="redirectGallery('go')" style="margin-top:1em; margin-left: 1em; background-color: #0081C8;">갤러리 보기</button> 
+				<button class="btn" onClick="getUfo('go')" style="margin-top:1em; margin-right: 1em; background-color: #EE334E;">${ufo.ufoLable.stamp_punch} </button>
+				<button class="btn" onClick="redirectGallery('go')" style="margin-top:1em; margin-left: 1em; background-color: #0081C8;">${ufo.ufoLable.stamp_goGallery }</button> 
 			</div>					
 		</div>
 	</section>
@@ -187,7 +187,7 @@
 				<div class="modal-content">
 				   <div class="modal-header">
 				  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-				  		<h3 style="font-family:football;">스탬프 투어</h3>
+				  		<h3 style="font-family:football;">${ufo.ufoLable.navi_stamp }</h3>
 				   </div>
 				   <div class="modal-body">
 				   		<div class="row">
@@ -211,7 +211,7 @@
 				   		</div>
 					</div>
 					<div class="modal-footer">
-				    	<button type="button" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-dismiss="modal" style=" color:#EE334E; border-color:#EE334E;" onClick="fbLogin('go_re')">완료</button>
+				    	<button type="button" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-dismiss="modal" style=" color:#EE334E; border-color:#EE334E;" onClick="fbLogin('go_re')">${ufo.ufoLable.gen_complete }</button>
 				  	</div>
 				</div>
 			</div>
@@ -226,7 +226,6 @@
 					  		<button type="button" class="close" data-dismiss="modal">&times;</button>
 					  		<h3 style="font-family:football;">스탬프 미션 ${statusEle.count }번</h3>
 					   </div>
-					   
 					   <div class="modal-body" style="padding-top:0px; padding-bottom:15px; padding-left: 15px; padding-right: 15px;">
 				   			<div style="padding-bottom:10px;">다음 장소에서 사진을 찍어주세요 : ${ele.go_content }<br>
 				   			</div>

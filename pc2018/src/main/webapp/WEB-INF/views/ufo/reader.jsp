@@ -26,19 +26,40 @@
 		<jsp:param name="param" value="value1" />
 	</jsp:include>
 
-	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/jquery-1.12.4.min.js"></script>
-	<script>
+<script>
+//var str = "//dd";
+//var match = test.match(\(\/\/.*){2}\);
+// console.log(match);
 
-var str = "//dd";
-var match = test.match(\(\/\/.*){2}\);
-console.log(match);
+// $(document).keypress(function(e) {
+//     if(e.which == 13) {
+//     	var link = "https://www.pc2018.ga/PIX/ufo/${para}/result/";
+//     	link = link + $("#link").val();
+//     	location.href = link;
+//     }
+// });
+
+
+var patt = new RegExp("(/.*){2}");
 
 $(document).keypress(function(e) {
     if(e.which == 13) {
-    	var link = "https://www.pc2018.ga/PIX/ufo/${para}/result/";
+    	var link = "https://www.ufo79.com/PIX/ufo/${para}/result/";
     	link = link + $("#link").val();
-    	location.href = link;
+    	var n = $("#link").val().split("/");
+    	if(patt.test(link)){
+    		//3 gid 포함
+    		$.post( "/PIX/ufo/${para}/barcodeLog/"+n[1]+"/"+n[2], function( data ) {
+    			  console.log(data);
+    			  location.href = link;
+    		});
+    	}else{
+    		//gid 안 포함
+    		$.post( "/PIX/ufo/${para}/barcodeLog/"+n[1], function( data ) {
+  			  console.log(data);
+  			location.href = link;
+  			});
+    	}
     }
 });
 </script>

@@ -51,7 +51,7 @@
 			<div class="intro" style="color: #015794; font-size: 25px;font-weight: 600; text-shadow: 2px 2px rgba(255,255,255,0.8);">${ufo.event_date }</div>
 			<div style="height:1em"></div>		
 			<div class="actions">
-            	<button class="btn" style="background-color: #EE334E;" onclick="surveyInit()">설문조사 참여하기</button>
+            	<button class="btn" style="background-color: #EE334E;" onclick="surveyInit()">${ufo.ufoLable.stories_survey }</button>
             </div>
 		</div>
 	</section>
