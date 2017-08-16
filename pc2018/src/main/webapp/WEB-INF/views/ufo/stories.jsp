@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="https://www.ufo79.com/image/favicon.ico">
+<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!-- Global CSS -->
@@ -41,7 +41,7 @@
 	<!-- 상단 이미지 & 버튼 -->
 	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
-			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image}"></div>
+			<div class="hero-holder" style="background-image: url(https://www.pc2018.ga/image/${ufo.main_image}"></div>
 			<div class="hero-mask-gradient"></div>
 		</div>
 		<!--//hero-wrapper-->
@@ -266,7 +266,7 @@ $(document).ready(function() {
             success: function(result){
           	  console.log("처리되었습니다. : "+result);
           	  if(result == 1){
-          		  $("#mainbtn").append('<button class="btn" style="background-color: #00a27c" onclick="location.href=\'https://www.ufo79.com/PIX/ufo/${sessionScope.eventPara}/result/ve/'+window.sessionStorage.getItem('uid')+'\'">결과보기</button>');
+          		  $("#mainbtn").append('<button class="btn" style="background-color: #00a27c" onclick="location.href=\'https://www.pc2018.ga/PIX/ufo/${sessionScope.eventPara}/result/ve/'+window.sessionStorage.getItem('uid')+'\'">결과보기</button>');
           	  }
             },
             error: function(er){}

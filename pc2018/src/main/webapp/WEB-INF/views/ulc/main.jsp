@@ -50,7 +50,7 @@
     <noscript><link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/no-js.css"></noscript>
     
     <!-- Favicons -->
-	<link rel="shortcut icon" href="https://www.ufo79.com/image/favicon.ico">
+	<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">
 </head>
 <body>
     
@@ -110,17 +110,9 @@
                     </div>
                     
                     <div class="header-btn">
-                    	<a href="https://www.ufo79.com/PIX/ufo/gc/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>감천 문화 마을 축제</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/gc_eng/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>Gamcheon culture village</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/pyc2018/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>평창2018 베뉴 랠리</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/dano/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>강릉 단오제</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/coffee/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>강릉 커피 축제</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/tanger/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>삼척맹방유채꽃축제</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/squid/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>주문진오징어축제</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/art/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>춘천아트페어</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/worldbidde/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>월드비더스</a>
-                    	<a href="https://www.ufo79.com/PIX/ufo/seoul_sub/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>서울지하철 스탬프투어</a>
-                        <a href="https://www.ufo79.com/PIX/FEV/" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on App Store"><i class="ion ion-coffee"></i>관리자 사이트</a>
+                    	<a href="https://www.pc2018.ga/PIX/ufo/tanger/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>PyeongChang 2018</a>
+                    	<a href="https://www.pc2018.ga/PIX/ufo/squid/index" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on Play Store"><i class="ion ion-happy-outline"></i>2018 평창동계올림픽</a>                    	
+                        <a href="https://www.pc2018.ga/PIX/FEV/" class="btn-custom btn-white btn-border btn-rounded btn-icon" title="Download on App Store"><i class="ion ion-coffee"></i>관리자 사이트</a>
                     </div>
                     
                     <div class="header-img">
@@ -377,7 +369,7 @@
                 
                 <div class="pull-right">
 <!--                     <div class="pull-right affa-form-subscribe"> -->
-                    <div class="fb-comments" data-href="https://www.ufo79.com/PIX/ULC/" data-width="600px" data-numposts="2"></div>
+                    <div class="fb-comments" data-href="https://www.pc2018.ga/PIX/ULC/" data-width="600px" data-numposts="2"></div>
 <!--                     </div> -->
                 </div>
                 
@@ -402,8 +394,8 @@
             
             <div class="footer-links">
             	<a href="https://www.facebook.com/UFO79-727262880784383/" class="link-icon" title="Facebook"><i class="ion ion-social-facebook"></i></a>
-                <a href="http://www.twitter.com/share?=url=www.ufo79.com/PIX/ULC/" class="link-icon" title="Twitter"><i class="ion ion-social-twitter"></i></a>
-                <a href="http://plus.google.com/share?url=www.ufo79.com/PIX/ULC/" class="link-icon" title="Google Plus"><i class="ion ion-social-googleplus"></i></a>
+                <a href="http://www.twitter.com/share?=url=www.pc2018.ga/PIX/ULC/" class="link-icon" title="Twitter"><i class="ion ion-social-twitter"></i></a>
+                <a href="http://plus.google.com/share?url=www.pc2018.ga/PIX/ULC/" class="link-icon" title="Google Plus"><i class="ion ion-social-googleplus"></i></a>
 <!--                 <a href="#" class="link-icon" title="Dribbble"><i class="ion ion-social-dribbble"></i></a> -->
 <!--                 <a href="#" class="link-icon" title="Instagram"><i class="ion ion-social-instagram"></i></a> -->
                 <a href="#" class="scrollup">Back to Top<i class="ion ion-ios-arrow-up"></i></a>

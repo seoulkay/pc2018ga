@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="https://www.ufo79.com/image/favicon.ico">
+<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <link
 	href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic'
@@ -117,7 +117,7 @@
 	<!-- 상단 이미지 & 버튼 -->
 	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
-			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image})"></div>
+			<div class="hero-holder" style="background-image: url(https://www.pc2018.ga/image/${ufo.main_image})"></div>
 			<div class="hero-mask-gradient"></div>
 		</div>
 		<div class="container heading-content">
@@ -198,10 +198,10 @@
 							   			<div id="stamp_${ele.ufo_gid }" style="display:none;border-radius: 5px;position:absolute; top:4%; left:10%;  opacity:0.5; width:80%; background-color: #00a27c; height:5.5em;" onclick="showSingleStamp('${ele.ufo_gid }')"></div>
 							   			<c:choose>
 							   				<c:when test="${!empty ele.go_icon_img }">
-							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block; height:6em" class="img-responsive" src="https://www.ufo79.com/image/${ele.go_icon_img }">
+							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block;" class="img-responsive" src="https://www.pc2018.ga/image/${ele.go_icon_img }">
 							   				</c:when>
 							   				<c:otherwise>
-							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block;height:6em" class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp_0${statusEle.count < 9 ? statusEle.count : statusEle.count - 8}_off.svg">
+							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block;" class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp_0${statusEle.count < 9 ? statusEle.count : statusEle.count - 8}_off.svg">
 							   				</c:otherwise>
 							   			</c:choose>
 							   		</div>
@@ -233,7 +233,7 @@
 							
 							<!-- 스탬프 미션 사진, 내용 -->			
 							<div>
-				   				<img class="img-responsive" style="padding-bottom:10px" src="https://www.ufo79.com/image/${ele.go_image }">
+				   				<img class="img-responsive" style="padding-bottom:10px" src="https://www.pc2018.ga/image/${ele.go_image }">
 				   			</div>
 				   			
 				   			<div style="padding-bottom:10px" id="desc${ele.ufo_gid }">${ele.go_desc}<br>
@@ -291,7 +291,7 @@
 	
 	<div class="modal" id="qr_info" role="dialog">
 		<div class="modal-dialog">
-	   			<img src="https://www.ufo79.com/image/${ufo.qr_pic}" class="img-responsive" alt="" style="width:100%" data-dismiss="modal">
+	   			<img src="https://www.pc2018.ga/image/${ufo.qr_pic}" class="img-responsive" alt="" style="width:100%" data-dismiss="modal">
 		</div>
 	</div>
 	</c:if>

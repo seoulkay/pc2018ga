@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">    
-    <link rel="shortcut icon" href="https://www.ufo79.com/image/https://www.ufo79.com/image/favicon.ico">  
+    <link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">  
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
@@ -40,14 +40,14 @@
    
    <section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
-			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.info_program_pic}"></div>
+			<div class="hero-holder" style="background-image: url(https://www.pc2018.ga/image/${ufo.info_program_pic}"></div>
 			<div class="hero-mask-gradient"></div>
 		</div>
 		<!--//hero-wrapper-->
 		<div class="container heading-content">
 			<c:choose>
 			<c:when test="${!empty ufo.q1_img}">
-		   			<img src="https://www.ufo79.com/image/${ufo.q1_img}" class="img-responsive" alt="" style="width:25em; margin: 0 auto;" data-dismiss="modal">
+		   			<img src="https://www.pc2018.ga/image/${ufo.q1_img}" class="img-responsive" alt="" style="width:25em; margin: 0 auto;" data-dismiss="modal">
 			</c:when>
 			<c:otherwise>
 			<div style="height:3em"></div>
@@ -113,7 +113,7 @@
 			                	</c:when>
 			                	<c:otherwise>
 			                		 <div>
-                                     	<img src="https://www.ufo79.com/image/${var.photo_file}" class="img-responsive" alt="" style="width:750px; height: 340px">
+                                     	<img src="https://www.pc2018.ga/image/${var.photo_file}" class="img-responsive" alt="" style="width:750px; height: 340px">
                                      </div>  
 			                	</c:otherwise>
 			                    </c:choose>
@@ -166,7 +166,7 @@
 			                		<a href="blog-single?num=${var.idfest_ufo_notice }"><img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/blog/dano_notice_thumb01.jpg" alt=""></a>
 			                	</c:when>
 			                	<c:otherwise>
-			                		 <a href="blog-single?num=${var.idfest_ufo_notice }"><img src="https://www.ufo79.com/image/${var.photo_file}" class="img-responsive" alt="" style="width:750px; height: 340px"></a>
+			                		 <a href="blog-single?num=${var.idfest_ufo_notice }"><img src="https://www.pc2018.ga/image/${var.photo_file}" class="img-responsive" alt="" style="width:750px; height: 340px"></a>
 			                	</c:otherwise>
 			                    </c:choose>
                             </div>

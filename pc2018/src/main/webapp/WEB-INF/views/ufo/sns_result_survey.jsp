@@ -17,10 +17,10 @@
 	<meta property="og:type"               content="article" />
 	<meta property="og:title"              content="${ufo.title }" />
 	<meta property="og:description"        content="${ufo.event_short_description }" />
-	<meta property="og:image"         content="https://www.ufo79.com/image/${go_image}" />
+	<meta property="og:image"         content="https://www.pc2018.ga/image/${go_image}" />
   
   
-    <link rel="shortcut icon" href="https://www.ufo79.com/image/https://www.ufo79.com/image/favicon.ico">  
+    <link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">  
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css' media="all">
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css' media="all">
     <!-- Global CSS -->
@@ -63,7 +63,7 @@ button.close {
 <div class="modal-dialog">
 	<div class="modal-content">
 	   <div class="modal-header">
-	  		<button type="button" class="close" data-dismiss="modal" onclick="location.href='https://www.ufo79.com/PIX/ufo/${ufo.para}/stories';">&times;</button><br>
+	  		<button type="button" class="close" data-dismiss="modal" onclick="location.href='https://www.pc2018.ga/PIX/ufo/${ufo.para}/stories';">&times;</button><br>
 	   </div>
 	   <div class="modal-body" style="background-color: #d7579f;">
 	   		<div class="row" id="stampResultList">
@@ -80,7 +80,7 @@ button.close {
 	   			</ul>
 	   			
 	   			<div class="col-xs-12" id='qr_div' style="position : relative; padding-left: 0.2em;padding-right: 0.2em">
-	   					<div style="border: 2px solid #FFF;"><a href="https://www.ufo79.com/image/${answer.q7_a}" download><img alt="" src="https://www.ufo79.com/image/${answer.q7_a}" style="width:100%" class="img-responsive"></a></div>
+	   					<div style="border: 2px solid #FFF;"><a href="https://www.pc2018.ga/image/${answer.q7_a}" download><img alt="" src="https://www.pc2018.ga/image/${answer.q7_a}" style="width:100%" class="img-responsive"></a></div>
 		   		</div>
 	   			
 	   		</div>
@@ -90,7 +90,7 @@ button.close {
 	 	<div style="background: url('https://www.pc2018.ga/image/bg_collage_02_500px.svg')">
 			<div class="modal-footer">
 			<br>
-		    	<a href="https://www.ufo79.com/image/${answer.q7_a}" download><span class="btn" style="background-color:WHITE; color:#0081C8; border:2px solid #0081C8"><span class="btn-text">사진저장</span></span></a>
+		    	<a href="https://www.pc2018.ga/image/${answer.q7_a}" download><span class="btn" style="background-color:WHITE; color:#0081C8; border:2px solid #0081C8"><span class="btn-text">사진저장</span></span></a>
 		    	<span id="shareBtn" class="btn btn-social btn-facebook" style="margin: auto;"><i class="fa fa-facebook" aria-hidden="true"></i><span class="btn-text">공유하기</span></span>
 		    <br><br>
 		    <div><img id="barcode" style="width:350px; margin: 0 auto; display:block" class="img-responsive"/></div>

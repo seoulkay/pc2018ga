@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="https://www.ufo79.com/image/https://www.ufo79.com/image/favicon.ico">
+<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic'
 	rel='stylesheet' type='text/css'>
@@ -55,7 +55,7 @@
 	<%-- <!-- 상단 이미지 & 버튼 -->
 	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
-			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image}"></div>
+			<div class="hero-holder" style="background-image: url(https://www.pc2018.ga/image/${ufo.main_image}"></div>
 			<div class="hero-mask-gradient"></div>
 		</div>
 		<div class="container heading-content">
@@ -103,7 +103,7 @@
 					</div>
 					<div class="feature-figure col-md-6 col-sm-6 col-xs-12">
 						<c:if test="${ufo.info_info_pic ne null}">
-							<img class="img-responsive" src="https://www.ufo79.com/image/${ufo.info_info_pic}" alt="">
+							<img class="img-responsive" src="https://www.pc2018.ga/image/${ufo.info_info_pic}" alt="">
 						</c:if>
 					</div>
 				</div>
@@ -128,7 +128,7 @@
 					<div class="feature-figure col-md-6 col-sm-6 col-xs-12">
 						<div class="figure-holder" align="center">
 							<c:if test="${ufo.info_hist_pic ne null}">
-							<img class="img-responsive" src="https://www.ufo79.com/image/${ufo.info_hist_pic}" alt="">
+							<img class="img-responsive" src="https://www.pc2018.ga/image/${ufo.info_hist_pic}" alt="">
 							</c:if>
 						</div>
 					</div>
@@ -149,7 +149,7 @@
 					<div class="feature-content col-md-6 col-sm-6 col-xs-12">
 						<div class="figure-holder" align="center" style="box-shadow: -10px 10px 10px 1px #666666;">
 							<c:if test="${ufo.info_location_pic ne null}">
-							<img class="img-responsive" src="https://www.ufo79.com/image/${ufo.info_location_pic}" alt="">
+							<img class="img-responsive" src="https://www.pc2018.ga/image/${ufo.info_location_pic}" alt="">
 							</c:if>
 						</div>
 					</div>

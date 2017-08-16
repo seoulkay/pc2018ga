@@ -18,7 +18,7 @@
 	<meta property="og:title"              content="${ufo.title }" />
 	<meta property="og:description"        content="${ufo.event_short_description }" />
     
-    <link rel="shortcut icon" href="https://www.ufo79.com/image/https://www.ufo79.com/image/favicon.ico">  
+    <link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">  
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <!-- Global CSS -->
@@ -58,7 +58,7 @@
 	   					<c:when test="${not ele.submit}">
 	   						<div style="position:absolute; top:20%; left:20%; width: 60%; height:60%;z-index: 5">
 		   						<br>
-		   						<img src="https://www.ufo79.com/image/stamp_please.svg" class="img-responsive" align="middle" style="margin: 0 auto">
+		   						<img src="https://www.pc2018.ga/image/stamp_please.svg" class="img-responsive" align="middle" style="margin: 0 auto">
 	   						</div>
 		   					<div style="border: 2px solid #FFF; height:10em; overflow:hidden; background-color: WHITE;">
 		   					</div>
@@ -66,7 +66,7 @@
 	   					<c:otherwise>
 	   						<a style="display:block" href="https://www.pc2018.ga/PIX/ufo/${ufo.para }/result/${type}/${uid}/${ele.ufo_gid }">
 	   							<div style="border: 2px solid #FFF; height:10em; overflow:hidden; background-color: WHITE;">
-	   							<img src="https://www.ufo79.com/image/${ele.go_image}" class="img-responsive">
+	   							<img src="https://www.pc2018.ga/image/${ele.go_image}" class="img-responsive">
 	   							</div>
 	   						</a>
 	   					</c:otherwise>

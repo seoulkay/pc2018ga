@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">    
-    <link rel="shortcut icon" href="https://www.ufo79.com/image/https://www.ufo79.com/image/favicon.ico">  
+    <link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">  
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet" type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -64,7 +64,7 @@
         <div class="post-container">
         							<div>
 									<c:if test="${notice.photo_file ne null}">
-                                     	<img src="https://www.ufo79.com/image/${notice.photo_file}" class="img-responsive" alt="" style="width:750px; height: 340px">
+                                     	<img src="https://www.pc2018.ga/image/${notice.photo_file}" class="img-responsive" alt="" style="width:750px; height: 340px">
                                      </c:if>
                                      </div> 
             ${notice.content }

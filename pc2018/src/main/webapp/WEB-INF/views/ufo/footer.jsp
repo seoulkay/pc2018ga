@@ -26,7 +26,7 @@
 			<div class="footer-col col-xs-6 col-sm-3">
 				<div class="footer-col-inner">
 					<div class="col-title">
-						<a href="https://www.ufo79.com/PIX/ULC/terms">Terms and conditions</a>
+						<a href="https://www.pc2018.ga/PIX/ULC/terms">Terms and conditions</a>
 					</div>
 				</div>
 			</div>
@@ -43,11 +43,11 @@
 		<!-- SNS -->
 		<div class="footer-bottom text-center">
 			<ul class="social-media list-inline">
-				<li><a href="http://www.twitter.com/share?=url=www.ufo79.com/PIX/ufo/${sessionScope.eventPara }/index"><i
+				<li><a href="http://www.twitter.com/share?=url=www.pc2018.ga/PIX/ufo/${sessionScope.eventPara }/index"><i
 						class="fa fa-twitter" aria-hidden="true"></i></a></li>
-				<li><a href="https://www.facebook.com/sharer.php?u=www.ufo79.com/PIX/ufo/${sessionScope.eventPara }/index"><i
+				<li><a href="https://www.facebook.com/sharer.php?u=www.pc2018.ga/PIX/ufo/${sessionScope.eventPara }/index"><i
 						class="fa fa-facebook" aria-hidden="true"></i></a></li>
-				<li><a href="http://plus.google.com/share?url=www.ufo79.com/PIX/ufo/${sessionScope.eventPara }/index"><i
+				<li><a href="http://plus.google.com/share?url=www.pc2018.ga/PIX/ufo/${sessionScope.eventPara }/index"><i
 						class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 			</ul>
 			<!-- COPYRIGHT -->

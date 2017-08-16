@@ -101,7 +101,7 @@
                                     <div class="blog-post-info">
                                     	<div class="col-sm-6">
                                         <a href="#">
-                                            <img src="https://www.ufo79.com/image/${var.pix_image}" class="img-responsive" alt="">
+                                            <img src="https://www.pc2018.ga/image/${var.pix_image}" class="img-responsive" alt="">
                                         </a>
                                         </div>
                                         <div class="col-sm-6">

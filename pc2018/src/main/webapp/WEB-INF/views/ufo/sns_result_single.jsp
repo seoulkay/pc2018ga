@@ -17,10 +17,10 @@
 	<meta property="og:type"               content="article" />
 	<meta property="og:title"              content="${ufo.title }" />
 	<meta property="og:description"        content="${ufo.event_short_description }" />
-	<meta property="og:image"         content="https://www.ufo79.com/image/${go_image}" />
+	<meta property="og:image"         content="https://www.pc2018.ga/image/${go_image}" />
   
   
-    <link rel="shortcut icon" href="https://www.ufo79.com/image/https://www.ufo79.com/image/favicon.ico">  
+    <link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">  
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css' media="all">
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css' media="all">
     <!-- Global CSS -->
@@ -68,7 +68,7 @@ button.close {
 	   <div class="modal-body" style="background-color: #0081C8;">
 	   		<div class="row" id="stampResultList">
 	   			<div class="col-xs-12" id='qr_div_${ele.ufo_gid }' style="position : relative; padding-left: 0.2em;padding-right: 0.2em">
-	   						<div style="border: 2px solid #FFF;"><a href="https://www.ufo79.com/image/${go_image}" download><img alt="" src="https://www.ufo79.com/image/${go_image}" style="width:100%" class="img-responsive"></a></div>
+	   						<div style="border: 2px solid #FFF;"><a href="https://www.pc2018.ga/image/${go_image}" download><img alt="" src="https://www.pc2018.ga/image/${go_image}" style="width:100%" class="img-responsive"></a></div>
 		   		</div>
 	   		</div>
 	   		<h5 style="font-family:football; color:WHITE; float:right;"><fmt:formatDate pattern="yyyy.MM.dd" value="${now}" /> ${ufo.title } </h5>
@@ -77,7 +77,7 @@ button.close {
 	 	<div style="background: url('https://www.pc2018.ga/image/bg_collage_02_500px.svg')">
 			<div class="modal-footer">
 			<br>
-		    	<a href="https://www.ufo79.com/image/${go_image}" download><span class="btn" style="background-color:WHITE; color:#0081C8; border:2px solid #0081C8" ><span class="btn-text">사진저장</span></span></a>
+		    	<a href="https://www.pc2018.ga/image/${go_image}" download><span class="btn" style="background-color:WHITE; color:#0081C8; border:2px solid #0081C8" ><span class="btn-text">사진저장</span></span></a>
 <%-- 		    	<a href="https://www.facebook.com/sharer.php?u=${ shareLink}"><span class="btn btn-social btn-facebook" style="margin: auto;"><i class="fa fa-facebook" aria-hidden="true"></i><span class="btn-text">공유하기</span></span></a> --%>
 		    	<span id="shareBtn" class="btn btn-social btn-facebook" style="margin: auto;"><i class="fa fa-facebook" aria-hidden="true"></i><span class="btn-text">공유하기</span></span>
 		    <br><br>

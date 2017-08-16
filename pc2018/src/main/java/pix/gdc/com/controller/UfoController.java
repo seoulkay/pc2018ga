@@ -391,8 +391,8 @@ public class UfoController {
 				}
 			}
 			
-			String link = "https://www.ufo79.com/PIX/ufo/"+para+"/result/"+type+"/"+uid;
-			String homepage = "https://www.ufo79.com/PIX/ufo/"+para+"/index";
+			String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid;
+			String homepage = "https://wwww.pc2018.ga/PIX/ufo/"+para+"/index";
 			
 			model.addAttribute("ufoResult", ufoResult);
 			model.addAttribute("ufo", ufo);
@@ -432,8 +432,8 @@ public class UfoController {
 				}
 			}
 			
-			String link = "https://www.ufo79.com/PIX/ufo/"+para+"/result/"+type+"/"+uid;
-			String homepage = "https://www.ufo79.com/PIX/ufo/"+para+"/index";
+			String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid;
+			String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/index";
 			
 			model.addAttribute("answer", answer);
 			model.addAttribute("surveyList", surveyList);
@@ -451,8 +451,8 @@ public class UfoController {
 			paraMinwon.setMinwonUid(uid);
 			List<UfoMinwon> list = dao.selectUfoMinwonByVo(paraMinwon);
 			
-			String link = "https://www.ufo79.com/PIX/ufo/"+para+"/result/"+type+"/"+uid;
-			String homepage = "https://www.ufo79.com/PIX/ufo/"+para+"/index";
+			String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid;
+			String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/index";
 			
 			
 			model.addAttribute("shareLink", link);
@@ -475,8 +475,8 @@ public class UfoController {
 		FestUfo ufo = dao.SelectUfoByPara(para);
 		session.setAttribute("eventMenu", ufo.getMenu());
 		
-		String link = "https://www.ufo79.com/PIX/ufo/"+para+"/result/"+type+"/"+uid+"/"+gid;
-		String homepage = "https://www.ufo79.com/PIX/ufo/"+para+"/index";
+		String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid+"/"+gid;
+		String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/index";
 		String go_image = "";
 		String desc = "";
 		if(type.equals("mw")){

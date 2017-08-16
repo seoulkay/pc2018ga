@@ -103,7 +103,7 @@
   var fl = window.sessionStorage.getItem('first_name');
   var ln = window.sessionStorage.getItem('last_name');
   
-  var msg = q6+" https://www.ufo79.com/PIX/ufo/post/"+fl+"_"+ln+" #"+q1+" #"+q2+" #"+q3+" #"+q4+" #"+q5;
+  var msg = q6+" https://www.pc2018.ga/PIX/ufo/post/"+fl+"_"+ln+" #"+q1+" #"+q2+" #"+q3+" #"+q4+" #"+q5;
   
   fbPost(msg, "fb_survey", "survey");
   }
@@ -170,7 +170,7 @@ function sendNewsLetterEmail(){
   alert("구독해주셔서 감사합니다.");
   }
 	
-var iconBase = 'https://www.ufo79.com/PIX/resources/ufo/assets/images/icons/';
+var iconBase = 'https://www.pc2018.ga/PIX/resources/ufo/assets/images/icons/';
 var icons = {
   me:{
 	  icon: iconBase + 'me_icon01.png'
@@ -413,7 +413,7 @@ function stampPostSubmit(para){
 	              contentType: false,
 	              success: function(result){
 	            	  console.log("처리되었습니다. : "+result);
-	            	  var msg = "${ufo.title} 스탬프렐리에 참여하셨습니다! https://www.ufo79.com/PIX/get/"+window.sessionStorage.getItem('uid')+"/"+para;
+	            	  var msg = "${ufo.title} 스탬프렐리에 참여하셨습니다! https://www.pc2018.ga/PIX/get/"+window.sessionStorage.getItem('uid')+"/"+para;
    	            	  fbPost(msg, "fb_go", para);
 	            	  //location.reload();
 	              },
@@ -441,7 +441,7 @@ function checkLogin(){
 // 		// $('#qrcode').qrcode({width: 130,height: 130, render	: "table",
 // 		// 	text:'https://www.facebook.com/${vo.sns_return }'});
 // 		var qrcode = new QRCode("qrcode", {
-// 		    text: "https://www.ufo79.com/",
+// 		    text: "https://www.pc2018.ga/",
 // 		    width: 300,
 // 		    height: 300,
 // 		    colorDark : "#000000",
@@ -468,7 +468,7 @@ function getUfo(param){
         for(var i = 0; i < go.length; i++){
         	if(go[i].ufo_go_type == 'qr'){
         	  	//중복을 막는 코드가 필요함 
-        		$("#qrList").append('<div class="col-xs-3" style="position:relative;"><p style="position:absolute; top:40%; left:40%;">'+go[i].go_content+'</p><img class="img-responsive" style=" opacity: 0.2;" src="https://www.ufo79.com/image/stamp-01.png"></div>');
+        		$("#qrList").append('<div class="col-xs-3" style="position:relative;"><p style="position:absolute; top:40%; left:40%;">'+go[i].go_content+'</p><img class="img-responsive" style=" opacity: 0.2;" src="https://www.pc2018.ga/image/stamp-01.png"></div>');
         	}else if(go[i].ufo_go_type == 'go'){
         		$('#stamp_yes_'+go[i].ufo_gid).show();
         	}

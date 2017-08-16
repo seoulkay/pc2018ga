@@ -36,7 +36,7 @@ console.log(match);
 
 $(document).keypress(function(e) {
     if(e.which == 13) {
-    	var link = "https://www.ufo79.com/PIX/ufo/${para}/result/";
+    	var link = "https://www.pc2018.ga/PIX/ufo/${para}/result/";
     	link = link + $("#link").val();
     	location.href = link;
     }

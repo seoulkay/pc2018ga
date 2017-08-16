@@ -16,7 +16,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="https://www.ufo79.com/image/favicon.ico">
+<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">
 <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
 <!-- Global CSS -->
@@ -43,7 +43,7 @@
 	<%-- <!-- 상단 이미지 & 버튼 -->
 	<section class="heading-section section section-on-bg" style="padding-top:7em">
 		<div class="hero-wrapper">
-			<div class="hero-holder" style="background-image: url(https://www.ufo79.com/image/${ufo.main_image})"></div>
+			<div class="hero-holder" style="background-image: url(https://www.pc2018.ga/image/${ufo.main_image})"></div>
 			<div class="hero-mask-gradient"></div>
 		</div>		
 		<div class="container heading-content">		
@@ -107,7 +107,7 @@
 							<c:forEach items="${winner}" var="ele" varStatus="stat">
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<h4 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #ed45a4">${stat.count}. ${ele.last_name } ${ele.first_name } <span id="winner${ele.idUfoWinnerRecord}">${ele.winner_like }</span></span></h4>
-								<img alt="" src="https://www.ufo79.com/image/${ele.ufo_image }" class="img-responsive" style="width: 100%" onclick="winnerLike(${ele.idUfoWinnerRecord})"><br>
+								<img alt="" src="https://www.pc2018.ga/image/${ele.ufo_image }" class="img-responsive" style="width: 100%" onclick="winnerLike(${ele.idUfoWinnerRecord})"><br>
 							</div>
 							</c:forEach>
 						</c:when>
