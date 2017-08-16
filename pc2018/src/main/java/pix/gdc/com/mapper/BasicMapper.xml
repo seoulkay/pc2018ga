@@ -1021,8 +1021,8 @@
 	<select id="selectRandUfoRecordByPara" resultType="UfoGoRecord" parameterType="String">
 	SELECT ufo_date, first_name, last_name, ufo_image, para, user_uid, ufo_gid 
 	from ufo_go_record 
-	where ufo_date > date_sub(NOW(), interval 3 hour) and para = #{param}
-	order by rand() limit 10 
+	where ufo_date > date_sub(NOW(), interval 24 hour) and para = #{param}
+	order by rand()
 	</select>
 	<insert id="insertWinnerRecord" parameterType="UfoGoRecord">
 	INSERT into UfoWinnerRecord
@@ -1049,7 +1049,7 @@
 	<select id="selectUfoWinnerLastHourByPara" resultType="UfoGoRecord" parameterType="String">
 	SELECT idUfoWinnerRecord,winner_time, first_name, last_name, ufo_image, para, user_uid, ufo_gid, winner_like 
 	from UfoWinnerRecord 
-	where winner_time > date_sub(NOW(), interval 3 hour) and para = #{param}
+	where winner_time > date_sub(NOW(), interval 24 hour) and para = #{param}
 	</select>
 	<select id="selectUfoWinnerByPara" resultType="UfoGoRecord" parameterType="String">
 		SELECT *

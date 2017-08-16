@@ -237,7 +237,7 @@ public class UfoController {
 		
 		
 	//승리자를 찾기
-	@Scheduled(cron="0 0 12,14,17 * * *", zone="Asia/Seoul")
+	@Scheduled(cron="0 0 18 * * *", zone="Asia/Seoul")
 	public void winnerPicker(){
 		List<String> paras = dao.selectAllPara();
 		for(String ele : paras){
@@ -250,10 +250,14 @@ public class UfoController {
 					if(!finalTempRecord.containsKey(rec.getUser_uid())){
 						finalTempRecord.put(rec.getUser_uid(), rec);
 						//완성한 사람이 아니면 뺀다.
-						if(dao.selectPartDoneStamp(rec) != 1){
-							System.out.println("insert");
-							finalTempRecord.remove(rec.getUser_uid());
-						}
+//						if(dao.selectPartDoneStamp(rec) != 1){
+//							System.out.println("insert");
+//							finalTempRecord.remove(rec.getUser_uid());
+//						}
+					}
+					//4명이면 완성.
+					if(finalTempRecord.size() == 4){
+						break;
 					}
 				}
 				for(Map.Entry<String, UfoGoRecord> elem : finalTempRecord.entrySet()){
@@ -392,7 +396,7 @@ public class UfoController {
 			}
 			
 			String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid;
-			String homepage = "https://wwww.pc2018.ga/PIX/ufo/"+para+"/index";
+			String homepage = "https://wwww.pc2018.ga/PIX/ufo/"+para+"/stamp";
 			
 			model.addAttribute("ufoResult", ufoResult);
 			model.addAttribute("ufo", ufo);
@@ -433,7 +437,7 @@ public class UfoController {
 			}
 			
 			String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid;
-			String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/index";
+			String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/stamp";
 			
 			model.addAttribute("answer", answer);
 			model.addAttribute("surveyList", surveyList);
@@ -452,7 +456,7 @@ public class UfoController {
 			List<UfoMinwon> list = dao.selectUfoMinwonByVo(paraMinwon);
 			
 			String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid;
-			String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/index";
+			String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/stamp";
 			
 			
 			model.addAttribute("shareLink", link);
@@ -476,7 +480,7 @@ public class UfoController {
 		session.setAttribute("eventMenu", ufo.getMenu());
 		
 		String link = "https://www.pc2018.ga/PIX/ufo/"+para+"/result/"+type+"/"+uid+"/"+gid;
-		String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/index";
+		String homepage = "https://www.pc2018.ga/PIX/ufo/"+para+"/stamp";
 		String go_image = "";
 		String desc = "";
 		if(type.equals("mw")){

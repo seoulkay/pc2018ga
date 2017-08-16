@@ -17,7 +17,7 @@
 	<meta property="og:type"               content="article" />
 	<meta property="og:title"              content="${ufo.title }" />
 	<meta property="og:description"        content="${ufo.event_short_description }" />
-	<meta property="og:image"         content="https://www.pc2018.ga/image/${go_image}" />
+	<meta property="og:image"         content="http://www.pc2018.ga/image/${ufo.main_image}" />
   
   
     <link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">  

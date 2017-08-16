@@ -10,10 +10,10 @@
 		<div class="logo">
 		<c:choose>
 			<c:when test="${not empty ufo.logo}">
-				<a href="index"> <img src="https://www.pc2018.ga/image/${ufo.logo }" alt="" style="max-height: 3em"></a>
+				<a href="stamp"> <img src="https://www.pc2018.ga/image/${ufo.logo }" alt="" style="max-height: 3em"></a>
 			</c:when>
 			<c:otherwise>
-				<a href="index"> <img src="https://www.pc2018.ga/image/logo_ufo_white.png" alt="" style="height: 2em; margin-top: 0 auto; margin-bottom: 0 auto;"></a>
+				<a href="stamp"> <img src="https://www.pc2018.ga/image/logo_ufo_white.png" alt="" style="height: 2em; margin-top: 0 auto; margin-bottom: 0 auto;"></a>
 			</c:otherwise>
 		</c:choose>
 		</div>
