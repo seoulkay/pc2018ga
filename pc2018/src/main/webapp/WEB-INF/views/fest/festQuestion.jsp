@@ -14,12 +14,6 @@
 		<div class="container">
 		<div style="height:2em"></div>
 		<div class="row">
-		<h2>Modules</h2>
-		<div style="height:2em"></div>
-		<!-- <div style="margin:10px">
-		<div id="qrcode"></div>
-		<div><img id="barcode" style="width:350px"/></div>
-		</div> -->	
 			<table class="table table-bordered table-hover table-condensed">
 			<h3>스탬프 투어 &nbsp;<button class="btn" style="background-color: #FD7A02; color: white" onclick="stampInsert()">추가하기</button></h3>
 				<tr class="table table_striped">					

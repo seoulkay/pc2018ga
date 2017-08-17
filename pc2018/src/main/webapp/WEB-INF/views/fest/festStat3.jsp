@@ -14,13 +14,31 @@
 <div class="container">
 	<div style="height:2em"></div>
 	<div class="row">
-	<h3>서베이, SNS 포스트</h3>
+	<h3>설문조사 결과</h3>
 		<table class="table table-bordered table-hover table-condensed">
-			<tr class="success">
-				<td>time_log</td><td>q7_a</td><td>q1-q6</td><td>q6_a</td><td>uid_a</td><td>first_name_a</td><td>last_name_a</td><td>sns_type_a</td><td>sns_return</td>
+			<tr class="table table_striped">
+				<td class="hk3" style="width:10%;">날짜</td>
+				<td class="hk3" style="width:15%;">설문문항<br>답변(객)</td>
+				<td class="hk3" style="width:15%;">설문문항<br>답변(주)</td>
+				<td class="hk3" style="width:15%;">설문문항<br>답변(사진)</td>
+				<td class="hk3" style="width:15%;">포스트 아이디</td>
+				<td class="hk3" style="width:10%;">이름</td>
+				<td class="hk3" style="width:10%;">성</td>
+				<td class="hk3" style="width:10%;">참가유형</td>
+				<td class="hk3" style="width:5%;">sns_return</td>
 			</tr>
 				<c:forEach items="${answerVOs}" var="ele" begin="0" end="10">
-				<tr><td>${ele.time_log}</td><td class="post_img"><c:if test="${ele.q7_a ne null}"><img src="https://www.pc2018.ga/image/${ele.q7_a}" class="img-responsive" alt="" style="width:100px"></c:if></td><td>${ele.q1_a } ${ele.q2_a } ${ele.q3_a } ${ele.q4_a } ${ele.q5_a }</td><td>${ele.q6_a}</td><td>${ele.uid_a}</td><td>${ele.first_name_a}</td><td>${ele.last_name_a}</td><td>${ele.sns_type_a}</td><td>${ele.sns_return}</td></tr>
+				<tr>
+					<td>${ele.time_log}</td>					
+					<td>${ele.q1_a } ${ele.q2_a } ${ele.q3_a } ${ele.q4_a } ${ele.q5_a }</td>
+					<td>${ele.q6_a}</td>
+					<td class="post_img"><c:if test="${ele.q7_a ne null}"><img src="https://www.pc2018.ga/image/${ele.q7_a}" class="img-responsive" alt="" style="width:100px"></c:if></td>
+					<td>${ele.uid_a}</td>
+					<td>${ele.first_name_a}</td>
+					<td>${ele.last_name_a}</td>
+					<td>${ele.sns_type_a}</td>
+					<td>${ele.sns_return}</td>
+				</tr>
 				</c:forEach>
 		</table>
 	</div>

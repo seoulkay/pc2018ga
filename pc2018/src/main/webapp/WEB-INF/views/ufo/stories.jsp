@@ -58,61 +58,6 @@
 	
 	<div style="height: 6em;"></div>
 
-	<%-- <!-- 중간 메뉴 -->
-	<div class="page-nav-space-holder">
-		<div id="page-nav-wrapper" class="page-nav-wrapper text-center">
-			<div class="container">
-				<ul id="page-nav" class="nav page-nav list-inline">
-					<li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/index">포토 콘테스트</a></li>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'modal')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stamp">스탬프 투어</a></li></c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'features')}"><li style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/features">경기장 정보</a></li></c:if>
-					<c:if test="${fn:contains(sessionScope.eventMenu, 'stories')}"><li class="active" style="margin: 0%"><a href="${pageContext.request.contextPath}/ufo/${sessionScope.eventPara }/stories">설문조사</a></li></c:if>					
-				</ul>
-			</div>
-		</div>
-	</div>
-	
-	<div class="stories container">
-<c:forEach items="${quesVO}" var="ele" varStatus="statusEle" begin="0" end="4">
-		<div id="story-block-${statusEle.count }" class="story-block story-block-${ele.question }">
-			<div class="story-item">
-				<div class="row">
-					<div class="figure-holder col-sm-12 col-sm-6 col-md-7">
-						<div class="inner">
-							
-<!-- 						우선 단오제용 -->
-<!-- 							<img class="img-responsive" -->
-								src="${pageContext.request.contextPath}/resources/pix/img/${ele.ques_img }.png"
-<!-- 								alt=""> -->
-							<img class="img-responsive"
-								src="${pageContext.request.contextPath}/resources/ufo/assets/images/stories/dano_survey_thumb0${statusEle.count }.jpg"
-								alt="">
-							<div class="figure-mask"></div>
-						</div>
-						<!--//inner-->
-					</div>
-					<!--//figure-holder-->
-					<div class="content col-sm-12 col-sm-6 col-md-5">
-						<div class="inner">
-							<h3 class="question"><span class="question-number">문항 ${statusEle.count }.</span>${ele.question }</h3>
-							<c:forEach items="${ele.questionOptions }" var="var" varStatus="status">
-								<div class="answer">${status.count}. ${var.q_option }<span class="percentage">${var.percent }%</span></div>
-							</c:forEach>
-							<!--//desc-->
-						</div>
-						<!--//inner-->
-					</div>
-					<!--//content-->
-				</div>
-				<!--//row-->
-			</div>
-			<!--//story-item-->
-		</div>
-		<!--//story-block-->
-</c:forEach>
-	</div> --%>
-
-
 <form id="surveyForm" method="post" enctype="multipart/form-data">
 <c:forEach items="${quesVO}" var="ele" varStatus="statusEle" begin="0" end="4">
 <div class="modal fade" id="remodal_q${statusEle.count }" role="dialog">
@@ -120,15 +65,15 @@
 		<div class="modal-content">
 	      <div class="modal-header">
 	  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	  		<h4>${ele.question}</h4>
+	  		<h4><strong>${ele.question}</strong></h4>
 	  	 </div>	
   
 	   <div class="modal-body">
-	    7문항 중 ${statusEle.count }문항<br>
+	    7문항 중 ${statusEle.count }문항<br><br>
 	    <div class="progress">
 		  <div class="progress-bar progress-bar-success" style="width: ${statusEle.count * 100/ 7 }%">
 		  </div>
-		  <div class="progress-bar progress-bar-warning progress-bar-striped" style="width: ${100-(statusEle.count * 100 / 7)}%">
+		  <div class="progress-bar-striped" style="width: ${100-(statusEle.count * 100 / 7)}%">
 		  </div>
 		</div>
 	  
@@ -156,14 +101,14 @@
   <div class="modal-content">
 	   <div class="modal-header">
 	  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	  		<h4 id="modal1Title">${quesVO[5].question}</h4>
+	  		<h4 id="modal1Title"><strong>${quesVO[5].question}</strong></h4>
 	   </div>	
 	   <div class="modal-body">
-  			7문항 중 6문항<br>
+  			7문항 중 6문항<br><br>
   			<div class="progress">
 	  		<div class="progress-bar progress-bar-success" style="width: ${6 * 100/ 7 }%">
 	  		</div>
-	  		<div class="progress-bar progress-bar-warning progress-bar-striped" style="width: ${100-(6 * 100 / 7)}%">
+	  		<div class="progress-bar-striped" style="width: ${100-(6 * 100 / 7)}%">
 	  		</div>
 			</div>
   			<input class="form-control" type="text" id="q6_a" name="q6_a" maxlength="900"/>
@@ -182,14 +127,14 @@
 	<div class="modal-content">
 	   <div class="modal-header">
 	  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	  		<h4>${quesVO[6].question}</h4>
+	  		<h4><strong>${quesVO[6].question}</strong></h4>
 	   </div>
 	   <div class="modal-body">
-   		7문항 중 7문항<br>
+   		7문항 중 7문항<br><br>
 	 	 	<div class="progress">
 		  	<div class="progress-bar progress-bar-success" style="width: ${7 * 100/ 7 }%">
 		  	</div>
-		  	<div class="progress-bar progress-bar-warning progress-bar-striped" style="width: ${100-(7 * 100 / 7)}%">
+		  	<div class="progress-bar-striped" style="width: ${100-(7 * 100 / 7)}%">
 		  	</div>
 			</div>
 			<div id="descq7"></div>

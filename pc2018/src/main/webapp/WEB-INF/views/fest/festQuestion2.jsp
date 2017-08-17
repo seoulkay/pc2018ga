@@ -14,10 +14,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jsbarcode/3.5.8/barcodes/JsBarcode.code128.min.js"></script>
 
 <div class="container">
-<div style="margin:10px">
-<div id="qrcode"></div>
-<div><img id="barcode" style="width:350px"/></div>
-</div>
+<div style="height:2em"></div>
 <script>
 // $('#qrcode').qrcode({width: 130,height: 130, render	: "table",
 // 	text:'https://www.facebook.com/${vo.sns_return }'});
@@ -32,19 +29,30 @@ var qrcode = new QRCode("qrcode", {
 JsBarcode("#barcode", "go/1214903321890044/2222");
 //or with jQuery
 //$("#barcode").JsBarcode("https://www.facebook.com/${vo.sns_return }");
-</script>
-	
-	<div style="height:2em"></div>
+</script>	
 	<div class="row">
 	<h3>서베이</h3>
 		<table class="table table-bordered table-hover table-condensed">
-			<tr class="success">
-				<td>orderq</td><td>question</td><td>ques_time</td><td>ques_img</td>
+			<tr class="table table_striped">
+				<td class="hk3">번호</td>
+				<td class="hk3">질문</td>
+				<td class="hk3">ques_time</td>
+				<td class="hk3">질문 사진</td>
 			</tr>
 				<c:forEach items="${surveyList}" var="ele">
-				<tr class="info"><td>${ele.orderq}</td><td>${ele.question}</td><td>${ele.ques_time}</td><td><c:if test="${ele.ques_img ne null}"><img src="https://www.ufo79.com/image/${ele.ques_img}" class="img-responsive" alt="" style="width:100px"></c:if></td></tr>
+				<tr class="table table_striped" style="background: #ddd;">
+					<td>${ele.orderq}</td>
+					<td>${ele.question}</td>
+					<td>${ele.ques_time}</td>
+					<td><c:if test="${ele.ques_img ne null}"><img src="https://www.ufo79.com/image/${ele.ques_img}" class="img-responsive" alt="" style="width:100px"></c:if></td>
+				</tr>
 					<c:forEach items="${ele.questionOptions}" var="el">
-					<tr><td></td><td>${el.q_option }</td><td></td><td></td></tr>
+						<tr>
+							<td></td>
+							<td style="color:#999">&nbsp;${el.q_option }</td>
+							<td></td>
+							<td></td>
+						</tr>
 					</c:forEach>
 				</c:forEach>
 		</table>

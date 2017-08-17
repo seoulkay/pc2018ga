@@ -14,10 +14,15 @@
 <div class="container">
 	<div style="height:2em"></div>
 	<div class="row">
-	<h3>승리자들</h3>
+	<h3>포토 콘테스트 당첨자</h3>
 		<table class="table table-bordered table-hover table-condensed">
-			<tr class="success">
-				<td>winner_time</td><td>ufo_image</td><td>first_name</td><td>last_name</td><td>ufo_go_type</td><td>ufo_gid</td>
+			<tr class="table table_striped">
+				<td class="hk3" style="width:25%;">당첨 시간</td>
+				<td class="hk3" style="width:25%;">사진</td>
+				<td class="hk3" style="width:10%;">이름</td>
+				<td class="hk3" style="width:10%;">성</td>
+				<td class="hk3" style="width:15%;">위치(go) / 큐알(qr)</td>
+				<td class="hk3" style="width:15%;">스탬프 번호</td>
 			</tr>
 				<c:forEach items="${winner}" var="ele" begin="0" end="10">
 				<tr><td><fmt:formatDate type="both" value="${ele.winner_time}" /></td><td class="go_img"><c:if test="${ele.ufo_image ne null}"><img src="https://www.ufo79.com/image/${ele.ufo_image}" class="img-responsive" alt="" style="height:100px"></c:if></td><td>${ele.first_name }</td><td>${ele.last_name}</td><td>${ele.ufo_go_type}</td><td>${ele.ufo_gid}</td></tr>
