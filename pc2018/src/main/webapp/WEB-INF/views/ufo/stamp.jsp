@@ -190,9 +190,11 @@
 				  		<h3 style="font-family:football;">${ufo.ufoLable.navi_stamp }</h3>
 				   </div>
 				   <div class="modal-body">
-				   		<div class="row">
 				   			<c:forEach items="${ufoGo }" var="ele" varStatus="statusEle">
-					   			<div class="col-xs-6" style="padding:0px; position: relative;" id='${ele.ufo_gid }'>
+				   			 <c:if test="${statusEle.count % 2 != 0}">
+ 								<div class="row">
+ 							</c:if>
+					   			<div class="col-md-6" style="padding:0px; position: relative;" id='${ele.ufo_gid }'>
 									<div>
 						   				<%-- <img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; top:10%; left:20%; display:none; opacity:1; height:5em;" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp.svg"> --%>
 						   				<img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; display:none;" src="https://www.pc2018.ga/image/complete_b.png">
@@ -208,8 +210,10 @@
 							   		</div>
 										<p style="margin-bottom:1em; text-align:center; font-size: 0.75em;">${ele.go_content }</p>
 					   			</div>
+					   			 <c:if test="${statusEle.count % 2 == 0}">
+					   				</div>
+					   			</c:if>
 				   			</c:forEach>
-				   		</div>
 					</div>
 					<div class="modal-footer">
 				    	<button type="button" class="btn btn-default" data-backdrop="static" data-keyboard="false" data-dismiss="modal" style=" color:#EE334E; border-color:#EE334E;" onClick="fbLogin('go_re')">${ufo.ufoLable.gen_complete }</button>
@@ -222,7 +226,6 @@
 			<div class="modal" id="stamp_${ele.ufo_gid }_modal" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content">
-					
 					   <div class="modal-header">
 					  		<button type="button" class="close" data-dismiss="modal">&times;</button>
 					  		<h3 style="font-family:football;">스탬프 미션 ${statusEle.count }번</h3>
