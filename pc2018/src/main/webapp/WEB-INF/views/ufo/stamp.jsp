@@ -194,11 +194,12 @@
 				   			 <c:if test="${statusEle.count % 2 != 0}">
  								<div class="row">
  							</c:if>
-					   			<div class="col-md-6" style="padding:0px; position: relative;" id='${ele.ufo_gid }'>
+					   			<div class="col-xs-6" style="padding:0px; position: relative;" id='${ele.ufo_gid }'>
 									<div>
 						   				<%-- <img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; top:10%; left:20%; display:none; opacity:1; height:5em;" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp.svg"> --%>
-						   				<img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; display:none;" src="https://www.pc2018.ga/image/complete_b.png">
-							   			<div id="stamp_${ele.ufo_gid }" style="display:none; border-radius: 5px; position:absolute; top:4%; left:10%;  opacity:0.5; width:80%; background-color: #00a27c; height:5.5em;" onclick="showSingleStamp('${ele.ufo_gid }')"></div>
+						   				<img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2; position:absolute; display:none;" src="https://www.pc2018.ga/image/complete_b.png">
+							   			<%-- <div id="stamp_${ele.ufo_gid }" style="display:none; border-radius: 5px; position:absolute; top:4%; left:10%;  opacity:0.5; width:80%; background-color: #00a27c; height:5.5em;" onclick="showSingleStamp('${ele.ufo_gid }')"></div> --%>
+							   			<img id="stamp_${ele.ufo_gid }" class="img-responsive" style="display:none; position:absolute;" src="https://www.pc2018.ga/image/mission3.png" onclick="showSingleStamp('${ele.ufo_gid }')">
 							   			<c:choose>
 							   				<c:when test="${!empty ele.go_icon_img }">
 							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; display:block;" class="img-responsive" src="https://www.pc2018.ga/image/${ele.go_icon_img }">
