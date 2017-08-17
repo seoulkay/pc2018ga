@@ -154,8 +154,8 @@
 			<div id="map" style="height: 25em;"></div>
 			<!-- 스탬프 찍기 & 갤러리 보기 -->
 			<div class="row" style="color:#ffffff;">
-				<button class="btn" onClick="getUfo('go')" style="margin-top:1em; margin-right: 1em; background-color: #EE334E;">${ufo.ufoLable.stamp_punch} </button>
-				<button class="btn" onClick="redirectGallery('go')" style="margin-top:1em; margin-left: 1em; background-color: #0081C8;">${ufo.ufoLable.stamp_goGallery }</button> 
+				<button class="btn" onClick="getUfo('go')" style="margin-top:1em; margin-right: 1em; background-color: #EE334E;"><img src="https://www.pc2018.ga/image/icon_stamp.png" style="max-height: 1.3em;">&nbsp;&nbsp;${ufo.ufoLable.stamp_punch} </button>
+				<button class="btn" onClick="redirectGallery('go')" style="margin-top:1em; margin-left: 1em; background-color: #0081C8;"><img src="https://www.pc2018.ga/image/icon_gallery.png" style="max-height: 1.3em;">&nbsp;&nbsp;${ufo.ufoLable.stamp_goGallery }</button> 
 			</div>					
 		</div>
 	</section>
@@ -392,7 +392,8 @@ function CenterControl2(controlDiv) {
     controlText.style.paddingLeft = '5px';
     controlText.style.paddingRight = '5px';
     controlText.innerHTML = '<img src="${pageContext.request.contextPath}/resources/ufo/assets/images/icons/map_info.svg" style="width: 35px; height: 35px;">';
-    controlUI.appendChild(controlText);
+    //지도정보 아이콘
+    //controlUI.appendChild(controlText);
 
     // 센터 잡기
     controlUI.addEventListener('click', function() {
