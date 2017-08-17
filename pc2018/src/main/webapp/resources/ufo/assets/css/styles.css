@@ -544,7 +544,7 @@ textarea {
 /* 메뉴 글씨 색 */
 .main-nav .nav .nav-item a {
   color: #ffffff;
-  font-size: 1.3em;
+  font-size: 1em;
   font-weight: bold;
 }
 .main-nav .nav .nav-item a:hover {

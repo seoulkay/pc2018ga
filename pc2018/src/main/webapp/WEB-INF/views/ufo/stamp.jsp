@@ -192,20 +192,21 @@
 				   <div class="modal-body">
 				   		<div class="row">
 				   			<c:forEach items="${ufoGo }" var="ele" varStatus="statusEle">
-					   			<div class="col-xs-6" style="padding:0px;" id='${ele.ufo_gid }' style="position : relative; max-width:150px">
+					   			<div class="col-xs-6" style="padding:0px; position: relative;" id='${ele.ufo_gid }'>
 									<div>
-						   				<img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; top:10%; left:20%; display:none; opacity:1; height:5em;" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp.svg">
-							   			<div id="stamp_${ele.ufo_gid }" style="display:none;border-radius: 5px;position:absolute; top:4%; left:10%;  opacity:0.5; width:80%; background-color: #00a27c; height:5.5em;" onclick="showSingleStamp('${ele.ufo_gid }')"></div>
+						   				<%-- <img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; top:10%; left:20%; display:none; opacity:1; height:5em;" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp.svg"> --%>
+						   				<img id="stamp_yes_${ele.ufo_gid }" class="img-responsive"  style="z-index: 2;position:absolute; display:none;" src="https://www.pc2018.ga/image/complete_b.png">
+							   			<div id="stamp_${ele.ufo_gid }" style="display:none; border-radius: 5px; position:absolute; top:4%; left:10%;  opacity:0.5; width:80%; background-color: #00a27c; height:5.5em;" onclick="showSingleStamp('${ele.ufo_gid }')"></div>
 							   			<c:choose>
 							   				<c:when test="${!empty ele.go_icon_img }">
-							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block;" class="img-responsive" src="https://www.pc2018.ga/image/${ele.go_icon_img }">
+							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; display:block;" class="img-responsive" src="https://www.pc2018.ga/image/${ele.go_icon_img }">
 							   				</c:when>
 							   				<c:otherwise>
-							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; padding:5px; display:block;" class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp_0${statusEle.count < 9 ? statusEle.count : statusEle.count - 8}_off.svg">
+							   						<img id="stamp_back_${ele.ufo_gid }" style="opacity:1; width:100%; display:block;" class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/stamp/bg_stamp_0${statusEle.count < 9 ? statusEle.count : statusEle.count - 8}_off.svg">
 							   				</c:otherwise>
 							   			</c:choose>
 							   		</div>
-										<p style="margin-bottom:3px; text-align:center; font-size: 1em;">${ele.go_content }</p>
+										<p style="margin-bottom:1em; text-align:center; font-size: 0.75em;">${ele.go_content }</p>
 					   			</div>
 				   			</c:forEach>
 				   		</div>
