@@ -31,7 +31,7 @@ JsBarcode("#barcode", "go/1214903321890044/2222");
 //$("#barcode").JsBarcode("https://www.facebook.com/${vo.sns_return }");
 </script>	
 	<div class="row">
-	<h3>서베이</h3>
+	<h3>설문조사</h3>
 		<table class="table table-bordered table-hover table-condensed">
 			<tr class="table table_striped">
 				<td class="hk3">번호</td>

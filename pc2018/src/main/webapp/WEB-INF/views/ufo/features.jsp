@@ -17,7 +17,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon.ico">
+<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon2.ico">
 <link
 	href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,300italic,400italic,500italic,700,700italic'
 	rel='stylesheet' type='text/css'>
