@@ -126,7 +126,8 @@
 				<div class="row">
 					<div class="fb-video" data-href="${ufo.fb_live }" data-width="500" data-show-text="false"></div>
 				</div>
-			</c:if>					
+			</c:if>		
+			${ufo.event_long_description }			
 		</div>
 	</section>
 
@@ -135,6 +136,14 @@
 		<jsp:param name="param" value="value1" />
 	</jsp:include>
 	
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1508199992578149";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>	
 <script type="text/javascript">
 function winnerLike(param){
 	 $.ajax({
