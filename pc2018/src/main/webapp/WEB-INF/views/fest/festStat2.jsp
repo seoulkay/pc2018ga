@@ -25,7 +25,7 @@
 				<td class="hk3" style="width:15%;">스탬프 번호</td>
 			</tr>
 				<c:forEach items="${winner}" var="ele" begin="0" end="10">
-				<tr><td><fmt:formatDate type="both" value="${ele.winner_time}" /></td><td class="go_img"><c:if test="${ele.ufo_image ne null}"><img src="https://www.ufo79.com/image/${ele.ufo_image}" class="img-responsive" alt="" style="height:100px"></c:if></td><td>${ele.first_name }</td><td>${ele.last_name}</td><td>${ele.ufo_go_type}</td><td>${ele.ufo_gid}</td></tr>
+				<tr><td><fmt:formatDate type="both" value="${ele.winner_time}" /></td><td class="go_img"><c:if test="${ele.ufo_image ne null}"><img src="https://www.pc2018.ga/image/${ele.ufo_image}" class="img-responsive" alt="" style="height:100px"></c:if></td><td>${ele.first_name }</td><td>${ele.last_name}</td><td>${ele.ufo_go_type}</td><td>${ele.ufo_gid}</td></tr>
 				</c:forEach>
 		</table>
 	</div>

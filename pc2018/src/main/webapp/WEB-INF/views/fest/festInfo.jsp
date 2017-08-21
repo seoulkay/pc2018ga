@@ -24,7 +24,7 @@
                     	<tr><td class="hk2" rowspan="4">Header</td><td class="hk">로고 <c:if test="${ufo.logo ne null}"><img src="https://www.pc2018.ga/image/${ufo.logo}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="logo_file"></td></tr>
                     	<tr><td class="hk">메인이미지 <c:if test="${ufo.main_image ne null}"><img src="https://www.pc2018.ga/image/${ufo.main_image}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="main_image_file"></td></tr>
                    		<tr><td class="hk">제목</td><td><input class="form-control" type="text" name="title" value="${ufo.title }" maxlength="50"></td></tr>
-                   		<tr><td class="hk">기간</td><td><input type="text" class="form-control" name="event_date" value="${ufo.event_date }" maxlength="125"></td></tr>                   		
+                   		<tr><td class="hk">부제목</td><td><input type="text" class="form-control" name="event_date" value="${ufo.event_date }" maxlength="125"></td></tr>                   		
                    		<tr><td class="hk2">Footer</td><td class="hk">사업자 정보</td><td><textarea form="ufoForm" class="form-control" name="footer_msg"  maxlength="150">${ufo.footer_msg }</textarea></td></tr>
                    	</table><hr>
                    	
@@ -48,7 +48,11 @@
                     	<tr><td class="hk2" rowspan="3">Notice</td><td class="hk">한줄 공지1</td><td><textarea form="ufoForm" class="form-control" name="ufo_notice1"  maxlength="150">${ufo.ufo_notice1} </textarea></td></tr>
                     	<tr><td class="hk">한줄 공지2</td><td><textarea form="ufoForm" class="form-control" name="ufo_notice2"  maxlength="150">${ufo.ufo_notice2} </textarea></td></tr>
                     	<tr><td class="hk">한줄 공지3</td><td><textarea form="ufoForm" class="form-control" name="ufo_notice3"  maxlength="150">${ufo.ufo_notice3} </textarea></td></tr>  
-                    	<tr><td class="hk2">Winners</td><td class="hk">당첨자 메세지</td><td><textarea form="ufoForm" class="form-control" name="winner_msg"  maxlength="400">${ufo.winner_msg} </textarea></td></tr>                    	
+                    	<tr><td class="hk2" rowspan="3">Winners</td><td class="hk">당첨자 메세지</td><td><textarea form="ufoForm" class="form-control" name="winner_msg"  maxlength="400">${ufo.winner_msg} </textarea></td></tr>                    	
+<!-- 추가 부탁: 당첨자 수 & 당첨자 발표시간 -->
+                    	<tr><td class="hk">당첨자수</td><td><textarea form="ufoForm" class="form-control" name=""  maxlength="150"></textarea></td></tr>
+                    	<tr><td class="hk">당첨자 발표시간</td><td><textarea form="ufoForm" class="form-control" name=""  maxlength="150"></textarea></td></tr>
+<!--//추가 부탁: 당첨자 수 & 당첨자 발표시간 -->  
                     	<tr><td class="hk2" rowspan="2">L!VE</td><td class="hk">페이스북 라이브 피드 주소</td><td><input class="form-control" type="text" name="fb_live" value="${ufo.fb_live }"></td></tr>                   		
                    		<tr><td class="hk">페이스북 문의댓글창</td><td><textarea form="ufoForm" class="form-control" name="event_long_description"  maxlength="2500">${ufo.event_long_description }</textarea></td></tr>                 		                   		
                    	</table><hr>

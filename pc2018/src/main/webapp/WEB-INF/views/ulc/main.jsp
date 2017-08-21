@@ -50,7 +50,7 @@
     <noscript><link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ulc/css/no-js.css"></noscript>
     
     <!-- Favicons -->
-	<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon2.ico">
+	<link rel="shortcut icon" href="https://www.pc2018.ga/image/favicon3.ico">
 </head>
 <body>
     

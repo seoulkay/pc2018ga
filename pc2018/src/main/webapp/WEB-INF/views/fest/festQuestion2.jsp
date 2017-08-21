@@ -44,7 +44,7 @@ JsBarcode("#barcode", "go/1214903321890044/2222");
 					<td>${ele.orderq}</td>
 					<td>${ele.question}</td>
 					<td>${ele.ques_time}</td>
-					<td><c:if test="${ele.ques_img ne null}"><img src="https://www.ufo79.com/image/${ele.ques_img}" class="img-responsive" alt="" style="width:100px"></c:if></td>
+					<td><c:if test="${ele.ques_img ne null}"><img src="https://www.pc2018.ga/image/${ele.ques_img}" class="img-responsive" alt="" style="width:100px"></c:if></td>
 				</tr>
 					<c:forEach items="${ele.questionOptions}" var="el">
 						<tr>

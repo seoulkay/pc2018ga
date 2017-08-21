@@ -41,7 +41,7 @@ JsBarcode("#barcode", "go/1214903321890044/2222");
 				<td>id</td><td>minwonImg</td><td>minwonDesc</td><td>minwonLat</td><td>minwonLng</td><td>minwonFn</td><td>minwonLn</td><td>minwon_tsmp</td>
 			</tr>
 				<c:forEach items="${minwon}" var="ele">
-				<tr><td>${ele.id}</td><td class="go_img"><c:if test="${ele.minwonImg ne null}"><img src="https://www.ufo79.com/image/${ele.minwonImg}" class="img-responsive" alt="" style="width:100px"></c:if></td><td>${ele.minwonDesc}</td><td>${ele.minwonLat}</td>
+				<tr><td>${ele.id}</td><td class="go_img"><c:if test="${ele.minwonImg ne null}"><img src="https://www.pc2018.ga/image/${ele.minwonImg}" class="img-responsive" alt="" style="width:100px"></c:if></td><td>${ele.minwonDesc}</td><td>${ele.minwonLat}</td>
 				<td>${ele.minwonLng}</td><td>${ele.minwonFn}</td><td>${ele.minwonLn}</td><td>${ele.minwon_tsmp}</td></tr>
 				</c:forEach>
 		</table>
