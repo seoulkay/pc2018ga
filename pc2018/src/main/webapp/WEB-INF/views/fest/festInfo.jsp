@@ -36,8 +36,10 @@
                    		<tr><td class="hk2">Map</td><td class="hk">스탬프 활성화 반경</td><td><input type="text" class="form-control" name="go_rad" value="${ufo.go_rad }" maxlength="20"></td></tr>                   		
                    		<tr><td class="hk2" rowspan="2">How to</td><td class="hk">제목</td><td><textarea form="ufoForm" class="form-control" name="ufo_go_title" maxlength="1000">${ufo.ufo_go_title }</textarea></td></tr>
                    		<tr><td class="hk">설명</td><td><textarea form="ufoForm" class="form-control" name="ufo_go_desc" maxlength="1000">${ufo.ufo_go_desc }</textarea></td></tr>                   		
-    	                <tr><td class="hk2" rowspan="2">Icons</td><td class="hk">완성핀<c:if test="${ufo.pin_comp ne null}"><img src="https://www.pc2018.ga/image/${ufo.pin_comp}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q4_img_file"></td></tr>
-    	                <tr><td class="hk">부스핀<c:if test="${ufo.pin_booth ne null}"><img src="https://www.pc2018.ga/image/${ufo.pin_booth}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q5_img_file"></td></tr>
+   	                <!--Grace: display: none-->
+    	                <tr style="display: none"><td class="hk2" rowspan="2">Icons</td><td class="hk">완성핀<c:if test="${ufo.pin_comp ne null}"><img src="https://www.pc2018.ga/image/${ufo.pin_comp}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q4_img_file"></td></tr>
+    	                <tr style="display: none"><td class="hk">부스핀<c:if test="${ufo.pin_booth ne null}"><img src="https://www.pc2018.ga/image/${ufo.pin_booth}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q5_img_file"></td></tr>
+                   	<!--//Grace: display: none-->
                    	</table><hr>
                    	
            <!-- 포토콘테스트 섹션 -->     	
@@ -54,9 +56,9 @@
            <!-- 정보 섹션 -->           	
                    	<table class="table table_striped">
                    		<h3>Information</h3>                   		
-                  <!--Grace: display: none 삭제요망-->
+                  <!--Grace: display: none-->
                    		<tr style="display: none;"><td class="hk2">Header</td><td class="hk">메인이미지 <c:if test="${ufo.q3_img ne null}"><img src="https://www.pc2018.ga/image/${ufo.q3_img}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q3_img_file"></td></tr>	
-                  <!--//Grace: display: none 삭제요망-->
+                  <!--//Grace: display: none-->
                    		
                    		<tr><td class="hk2" rowspan="3">Block 1</td><td class="hk">제목1</td><td><input type="text" class="form-control" name="info_title" value="${ufo.info_title }" maxlength="45"></td></tr>
                    		<tr><td class="hk">사진1 <c:if test="${ufo.info_info_pic ne null}"><img src="https://www.pc2018.ga/image/${ufo.info_info_pic}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="info_info_pic_file"></td></tr>
@@ -80,14 +82,14 @@
                    		<tr><td class="hk2">Header</td><td class="hk">메인이미지 <c:if test="${ufo.info_program_pic ne null}"><img src="https://www.pc2018.ga/image/${ufo.info_program_pic}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="info_program_pic_file"></td></tr>
                    	</table>
                    	
-           		<!--Grace: display: none 삭제요망-->
+           		<!--Grace: display: none-->
                    	<table style="display: none" class="table table_striped">	
                    		<h3 style="display: none">Report</h3>
                    		<tr><td class="hk2">Header</td><td class="hk">메인이미지 <c:if test="${ufo.q2_img ne null}"><img src="https://www.pc2018.ga/image/${ufo.q2_img}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q2_img_file"></td></tr>
                    		<tr><td class="hk2" rowspan="2">How to</td><td class="hk">제목</td><td><textarea form="ufoForm" class="form-control" name="minwon_map" maxlength="1000">${ufo.minwon_map }</textarea></td></tr>
                    		<tr><td class="hk">설명</td><td><textarea form="ufoForm" class="form-control" name="minwon_how_to" maxlength="1000">${ufo.minwon_how_to }</textarea></td></tr>                   		
                    	</table>
-           		<!--//Grace: display: none 삭제요망--> 
+           		<!--//Grace: display: none--> 
                    	
            <!-- 파라미터 섹션 -->                 	
                     <table class="table table_striped">
@@ -96,7 +98,7 @@
                     	<tr><td class="hk">이벤트 코드</td><td><input type="text" class="form-control" name="para" value="${ufo.para }" maxlength="10" readonly></td></tr>
                     	<tr><td class="hk2">Menu</td><td class="hk">메뉴</td><td><input type="text" class="form-control" name="menu" value="${ufo.menu }" maxlength="100" readonly></td></tr>
                     	
-           		 <!--Grace: display: none 삭제요망-->
+           		 <!--Grace: display: none-->
                     	<tr style="display: none;"><td class="hk">q_coupon_img <c:if test="${ufo.logo ne null}"><img src="https://www.pc2018.ga/image/${ufo.logo}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q_coupon_img_file"></td></tr>              	
                    		<tr style="display: none;"><td class="hk">q4_img <c:if test="${ufo.q4_img ne null}"><img src="https://www.pc2018.ga/image/${ufo.q4_img}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q4_img_file"></td></tr>
                    		<tr style="display: none;"><td class="hk">q5_img <c:if test="${ufo.q5_img ne null}"><img src="https://www.pc2018.ga/image/${ufo.q5_img}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q5_img_file"></td></tr>
@@ -105,7 +107,7 @@
                    		<tr style="display: none;"><td class="hk">q_graphic <c:if test="${ufo.q_graphic ne null}"><img src="https://www.pc2018.ga/image/${ufo.q_graphic}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q_graphic_file"></td></tr>
                    		<tr style="display: none;"><td class="hk">qr_pic <c:if test="${ufo.qr_pic ne null}"><img src="https://www.pc2018.ga/image/${ufo.qr_pic}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="qr_pic_file"></td></tr>
                    		<tr style="display: none;"><td class="hk2" rowspan="7">Questions</td><td class="hk">질문 1 <c:if test="${ufo.q1_img ne null}"><img src="https://www.pc2018.ga/image/${ufo.q1_img}" class="img-responsive" alt="" style="width:100px"></c:if></td><td><input class="form-control" type="file" name="q1_img_file"></td></tr>
-           		<!--//Grace: display: none 삭제요망-->      		
+           		<!--//Grace: display: none-->      		
                    	</table><hr>
                    	
                    	<input type="submit" class="form-control btn btn-warning" style="background-color: #FD7A02; color: #ffffff; font-weight: bold;" value="업데이트!">
