@@ -67,6 +67,10 @@ public class FestUfo {
 	//라벨
 	private UfoLable ufoLable;
 	
+	//악세서리
+	private String crontime;
+	private int winnerNumber;
+	
 	
 	public Integer getIdfest_ufo() {
 		return idfest_ufo;
@@ -434,4 +438,18 @@ public class FestUfo {
 	public void setMinwon_map(String minwon_map) {
 		this.minwon_map = minwon_map;
 	}
+	public String getCrontime() {
+		return crontime;
+	}
+	public void setCrontime(String crontime) {
+		this.crontime = crontime;
+	}
+	public int getWinnerNumber() {
+		return winnerNumber;
+	}
+	public void setWinnerNumber(int winnerNumber) {
+		this.winnerNumber = winnerNumber;
+	}
+	
+	
 }

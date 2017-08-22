@@ -29,6 +29,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import pix.gdc.com.dao.FestDAO;
 import pix.gdc.com.service.RestService;
+import pix.gdc.com.util.InitValue;
 import pix.gdc.com.vo.FestAnswerVO;
 import pix.gdc.com.vo.FestNewsLetterEmail;
 import pix.gdc.com.vo.FestOption;
@@ -42,10 +43,14 @@ import pix.gdc.com.vo.UfoGoVO;
 import pix.gdc.com.vo.UfoMinwon;
 import pix.gdc.com.vo.UfoShare;
 
+
+
 @Controller
 public class UfoController {
 	//public String para = "dano";
 	//public int eventIdx = 1;
+
+	
 	
 	@Autowired
 	RestService restService;
@@ -235,9 +240,9 @@ public class UfoController {
 //		}
 //	}
 		
-		
+	
 	//승리자를 찾기
-	@Scheduled(cron="0 0 18 * * *", zone="Asia/Seoul")
+	@Scheduled(cron=InitValue.crontime, zone="Asia/Seoul")
 	public void winnerPicker(){
 		List<String> paras = dao.selectAllPara();
 		for(String ele : paras){
@@ -256,12 +261,12 @@ public class UfoController {
 //						}
 					}
 					//4명이면 완성.
-					if(finalTempRecord.size() == 4){
+					if(finalTempRecord.size() == InitValue.winnerNumber){
 						break;
 					}
 				}
 				for(Map.Entry<String, UfoGoRecord> elem : finalTempRecord.entrySet()){
-					System.out.println(elem.getValue().getUser_uid());
+					System.out.println("Winner is "+elem.getValue().getUser_uid());
 					dao.insertWinnerRecord(elem.getValue());
 				}
 			}

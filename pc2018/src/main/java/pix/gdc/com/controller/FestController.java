@@ -24,6 +24,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import pix.gdc.com.dao.BasicDAO;
 import pix.gdc.com.dao.FestDAO;
 import pix.gdc.com.service.RestService;
+import pix.gdc.com.util.InitValue;
 import pix.gdc.com.vo.FestAnswerVO;
 import pix.gdc.com.vo.FestEvent;
 import pix.gdc.com.vo.FestLogin;
@@ -233,6 +234,9 @@ public class FestController {
 		//session.setAttribute("currentEvent", idx);
 		int idx = (Integer) session.getAttribute("currentEvent");
 		FestUfo ufo = dao.SelectUfoByNumber(idx);
+		ufo.setWinnerNumber(InitValue.winnerNumber);
+		ufo.setCrontime(InitValue.crontime);
+		
 		
 		model.addAttribute("ufo", ufo);
 		return "fest/festInfo";

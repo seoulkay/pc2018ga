@@ -49,13 +49,19 @@
                     	<tr><td class="hk">한줄 공지2</td><td><textarea form="ufoForm" class="form-control" name="ufo_notice2"  maxlength="150">${ufo.ufo_notice2} </textarea></td></tr>
                     	<tr><td class="hk">한줄 공지3</td><td><textarea form="ufoForm" class="form-control" name="ufo_notice3"  maxlength="150">${ufo.ufo_notice3} </textarea></td></tr>  
                     	<tr><td class="hk2" rowspan="3">Winners</td><td class="hk">당첨자 메세지</td><td><textarea form="ufoForm" class="form-control" name="winner_msg"  maxlength="400">${ufo.winner_msg} </textarea></td></tr>                    	
-<!-- 추가 부탁: 당첨자 수 & 당첨자 발표시간 -->
-                    	<tr><td class="hk">당첨자수</td><td><textarea form="ufoForm" class="form-control" name=""  maxlength="150"></textarea></td></tr>
-                    	<tr><td class="hk">당첨자 발표시간</td><td><textarea form="ufoForm" class="form-control" name=""  maxlength="150"></textarea></td></tr>
-<!--//추가 부탁: 당첨자 수 & 당첨자 발표시간 -->  
+
+                    	<tr><td class="hk">당첨자수</td><td><input form="ufoForm" class="form-control" name=""  maxlength="150" value="${ufo.winnerNumber}" readonly></td></tr>
+                    	<tr><td class="hk">당첨자 발표시간</td><td><input form="ufoForm" class="form-control" name=""  maxlength="150" id="crontime" readonly></td></tr>
+
                     	<tr><td class="hk2" rowspan="2">L!VE</td><td class="hk">페이스북 라이브 피드 주소</td><td><input class="form-control" type="text" name="fb_live" value="${ufo.fb_live }"></td></tr>                   		
                    		<tr><td class="hk">페이스북 문의댓글창</td><td><textarea form="ufoForm" class="form-control" name="event_long_description"  maxlength="2500">${ufo.event_long_description }</textarea></td></tr>                 		                   		
                    	</table><hr>
+                   	<script>
+                    	var crontime = "${ufo.crontime}";
+                    	var res = crontime.split(" ");
+                    	crontime = res[2] + " 시";
+                    	document.getElementById('crontime').value = crontime;
+                    </script>
                    	
            <!-- 정보 섹션 -->           	
                    	<table class="table table_striped">
