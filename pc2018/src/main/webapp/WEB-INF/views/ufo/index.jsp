@@ -97,7 +97,7 @@
 			</c:if>
 			
 			<!-- 승리자 -->
-			<c:if test="${fn:contains(sessionScope.eventMenu, 'index_winner')}">
+<%-- 			<c:if test="${fn:contains(sessionScope.eventMenu, 'index_winner')}"> --%>
 				<div class="row" style="margin-left:0px; margin-right:0px; margin-bottom:15px; padding:0;">
 					<h3 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #16adde">${ufo.ufoLable.index_winner}</span></h3>
 				</div>
@@ -116,7 +116,7 @@
 						</c:otherwise>
 					</c:choose>
 				</div>		
-			</c:if>
+<%-- 			</c:if> --%>
 			
 			<!-- 페북라이브 & 댓글 -->
 			<c:if test="${not empty ufo.fb_live }">
