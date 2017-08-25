@@ -1,2 +1,3 @@
-# pc2018ga
-평창 2018 스탬프 투어 깃헙레포 입니다!
+2018 평창동계올림픽 베뉴 스탬프 투어
+
+PyeongChang2018 Venue Stamp tour
