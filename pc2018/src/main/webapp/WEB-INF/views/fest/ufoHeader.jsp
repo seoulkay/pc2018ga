@@ -30,7 +30,6 @@
 						    <li><a href="festStat?idx=${sessionScope.currentEvent }&startNum=0&pageRowNum=10">스탬프 투어 참여내역</a></li>
 						    <li><a href="festStat2?idx=${sessionScope.currentEvent }">포토콘테스트 당첨내역</a></li>
 						    <li><a href="festStat3?idx=${sessionScope.currentEvent }">설문조사 참여내역</a></li>
-						    <li><a href="festStat4?idx=${sessionScope.currentEvent }">통계</a></li>
 					     </ul>
 				     </li>
 <!-- 				     공지사항 모듈 일단 코멘트 -->

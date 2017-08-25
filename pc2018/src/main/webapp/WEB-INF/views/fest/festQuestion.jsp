@@ -53,9 +53,9 @@
 		<div class="modal" id="stampFormModal" role="dialog">
 			<div class="modal-dialog">
 			  <div class="modal-content">
-				   <div class="modal-header">
+				   <div class="modal-header" style="background-color: #4fcdb9; color: #ffffff;">
 				  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-				  		<h4 id="modal1Title">스탬프 폼</h4>
+				  		<h4 id="modal1Title" style="font-weight: 600;">스탬프 폼</h4>
 				   </div>	
 				   <div class="modal-body">
 				 		<form id="stampForm" method="post" enctype="multipart/form-data"> 

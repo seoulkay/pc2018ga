@@ -25,7 +25,7 @@
 				<td class="hk3" style="width:10%;">이름</td>
 				<td class="hk3" style="width:10%;">성</td>
 				<td class="hk3" style="width:10%;">참가유형</td>
-				<td class="hk3" style="width:5%;">sns_return</td>
+				<td class="hk3" style="display:none; width:5%;">sns_return</td>
 			</tr>
 				<c:forEach items="${answerVOs}" var="ele" begin="0" end="10">
 				<tr>
@@ -37,7 +37,7 @@
 					<td>${ele.first_name_a}</td>
 					<td>${ele.last_name_a}</td>
 					<td>${ele.sns_type_a}</td>
-					<td>${ele.sns_return}</td>
+					<td style="display:none;">${ele.sns_return}</td>
 				</tr>
 				</c:forEach>
 		</table>

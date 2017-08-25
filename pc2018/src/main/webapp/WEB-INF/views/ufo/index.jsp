@@ -74,7 +74,8 @@
 	</div> --%>	
 	
 	<section id="page-nav-wrapper1" class="support-section section text-center" style="padding:1em;">
-		<div class="team-figure" >	
+		<div class="team-figure" >
+							
 			<!-- 공지 -->
 			<c:if test="${not empty ufo.ufo_notice1 && not empty ufo.ufo_notice2 && not empty ufo.ufo_notice3}">
 				<div class="row" style="margin-left:0px; margin-right:0px; margin-bottom:15px; padding:0;">
@@ -90,11 +91,16 @@
 					</marquee>
 				</div>
 				<!-- 공지 선 -->
-				<div class="row">
+				<!-- <div class="row">
 					<div style="height:0.1em; background-color: #0081C8"></div>
 					<div style="height:1.5em"></div>
-				</div>
+				</div> -->
 			</c:if>
+			
+			<div class="row" style="margin-left:0px; margin-right:0px; margin-bottom:15px; padding:0;">
+					<h3 style="font-family: football;">${ufo.winner_msg}</h3>
+					<img class="img-responsive" style="padding-bottom:1em;" src="https://www.pc2018.ga/image/sb-min.JPG">					
+			</div>
 			
 			<!-- 승리자 -->
 <%-- 			<c:if test="${fn:contains(sessionScope.eventMenu, 'index_winner')}"> --%>
@@ -106,7 +112,7 @@
 						<c:when test="${not empty winner }">
 							<c:forEach items="${winner}" var="ele" varStatus="stat">
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<h4 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #ed45a4">${stat.count}. ${ele.last_name } ${ele.first_name } <span id="winner${ele.idUfoWinnerRecord}">${ele.winner_like }</span></span></h4>
+								<h4 class="feature-title" style="float: left; margin-top: 0px;"><span class="label label-default" style="background-color: #FCB131;">${stat.count}. ${ele.last_name } ${ele.first_name } <span id="winner${ele.idUfoWinnerRecord}">${ele.winner_like }</span></span></h4>
 								<img alt="" src="https://www.pc2018.ga/image/${ele.ufo_image }" class="img-responsive" style="width: 100%" onclick="winnerLike(${ele.idUfoWinnerRecord})"><br>
 							</div>
 							</c:forEach>

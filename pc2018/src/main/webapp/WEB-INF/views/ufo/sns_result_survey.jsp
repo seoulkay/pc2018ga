@@ -65,7 +65,7 @@ button.close {
 	   <div class="modal-header">
 	  		<button type="button" class="close" data-dismiss="modal" onclick="location.href='https://www.pc2018.ga/PIX/ufo/${ufo.para}/stories';">&times;</button><br>
 	   </div>
-	   <div class="modal-body" style="background-color: #d7579f;">
+	   <div class="modal-body" style="background-color: #0081C8;">
 	   		<div class="row" id="stampResultList">
 	   			<ul  class="list-group">
 	   			<c:forEach items="${surveyList }" var="ele" varStatus="statusEle">

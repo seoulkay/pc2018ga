@@ -26,7 +26,7 @@
 			<div class="footer-col col-xs-6 col-sm-3">
 				<div class="footer-col-inner">
 					<div class="col-title">
-						<a href="https://www.pc2018.ga/PIX/ULC/terms">Terms and conditions</a>
+						<a href="https://www.pc2018.ga/">Terms and conditions</a>
 					</div>
 				</div>
 			</div>
@@ -270,7 +270,7 @@ function fbLogin(para){
   
   
 /**
- * UFO 로그인 체크
+ * 로그인 체크
 */
 function checkLogin(){
 	if(window.sessionStorage.getItem('userName') === null || window.sessionStorage.getItem('uid') === null || window.sessionStorage.getItem('userName') === 'undefined' || window.sessionStorage.getItem('uid') === 'undefined'){

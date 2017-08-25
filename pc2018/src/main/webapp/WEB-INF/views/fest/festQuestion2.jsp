@@ -36,22 +36,16 @@ JsBarcode("#barcode", "go/1214903321890044/2222");
 			<tr class="table table_striped">
 				<td class="hk3">번호</td>
 				<td class="hk3">질문</td>
-				<td class="hk3">ques_time</td>
-				<td class="hk3">질문 사진</td>
 			</tr>
 				<c:forEach items="${surveyList}" var="ele">
 				<tr class="table table_striped" style="background: #ddd;">
 					<td>${ele.orderq}</td>
-					<td>${ele.question}</td>
-					<td>${ele.ques_time}</td>
-					<td><c:if test="${ele.ques_img ne null}"><img src="https://www.pc2018.ga/image/${ele.ques_img}" class="img-responsive" alt="" style="width:100px"></c:if></td>
+					<td>${ele.question}</td>					
 				</tr>
 					<c:forEach items="${ele.questionOptions}" var="el">
 						<tr>
 							<td></td>
 							<td style="color:#999">&nbsp;${el.q_option }</td>
-							<td></td>
-							<td></td>
 						</tr>
 					</c:forEach>
 				</c:forEach>
