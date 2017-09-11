@@ -1158,6 +1158,25 @@
 	now()
 	)
 	</insert>
-	
+	<update id="updateQuestion" parameterType="FestQuesListVO">
+	UPDATE `pix`.`fest_ufo_questions`
+	SET
+	`question` = #{question},
+	`ques_time` = now()
+	WHERE `idfest_ufo_questions` = #{idfest_ufo_questions};
+	</update>
+	<select id="selectOptionsByQnumber" parameterType="FestOption" resultType="FestOption">
+	SELECT * FROM pix.fest_ufo_q
+	WHERE para = #{para} and q_number = #{orderq}
+	order by orderq asc
+	</select>
+	<update id="updateOptionById" parameterType="FestOption">
+	UPDATE pix.fest_ufo_q
+	SET q_option = #{q_option}
+	WHERE idfest_ufo_q = #{idfest_ufo_q}
+	</update>
+	<select id="countGidNumberByGid" parameterType="Integer" resultType="Integer">
+ 	SELECT count(0) FROM pix.ufo_go where ufo_gid = #{param};
+ 	</select>
 	
 </mapper>

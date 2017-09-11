@@ -582,4 +582,20 @@ public class FestDAO extends SqlSessionDaoSupport{
 	public List<UfoGoRecord> selectUfoGoRecordByVoPage(UfoGoRecord para){
 		return getSqlSession().selectList("BasicMapper.selectUfoGoRecordByVoPage", para);
 	}
+	//설문조사 퀘스쳔 업데이트 
+	public int updateQuestion(FestQuesListVO vo){
+		return getSqlSession().update("BasicMapper.updateQuestion", vo);
+	}
+	//옵션 가지고 오기
+	public List<FestOption> selectOptionsByQnumber(FestOption vo){
+		return getSqlSession().selectList("BasicMapper.selectOptionsByQnumber", vo);
+	}
+	//옵션 업데이트
+	public int updateOptionById(FestOption vo){
+		return getSqlSession().update("BasicMapper.updateOptionById", vo);
+	}
+	//gid 존재 확인
+ 	public int countGidNumberByGid(int vo){
+ 		return getSqlSession().selectOne("BasicMapper.countGidNumberByGid", vo);
+ 	}
 }

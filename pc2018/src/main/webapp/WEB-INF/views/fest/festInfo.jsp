@@ -28,7 +28,7 @@
                    		<tr><td class="hk2">Footer</td><td class="hk">사업자 정보</td><td><textarea form="ufoForm" class="form-control" name="footer_msg"  maxlength="150">${ufo.footer_msg }</textarea></td></tr>
                    	</table><hr>
                    	
-                   	
+                
            <!-- 스탬프투어 섹션 -->        	
                    	<table class="table table_striped">	
                    		<h3>Stamp Tour</h3>

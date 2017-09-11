@@ -13,41 +13,28 @@
 </jsp:include>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jsbarcode/3.5.8/barcodes/JsBarcode.code128.min.js"></script>
 
-<div class="container">
-<div style="height:2em"></div>
-<script>
-// $('#qrcode').qrcode({width: 130,height: 130, render	: "table",
-// 	text:'https://www.facebook.com/${vo.sns_return }'});
-var qrcode = new QRCode("qrcode", {
-    text: "https://www.facebook.com/",
-    width: 200,
-    height: 200,
-    colorDark : "#000000",
-    colorLight : "#ffffff",
-    correctLevel : QRCode.CorrectLevel.H
-});
-JsBarcode("#barcode", "go/1214903321890044/2222");
-//or with jQuery
-//$("#barcode").JsBarcode("https://www.facebook.com/${vo.sns_return }");
-</script>	
-	<div class="row">
-	<h3>설문조사</h3>
+	<div class="container">
+	<div style="height:2em"></div>
+	<div class="row">	
 		<table class="table table-bordered table-hover table-condensed">
-			<tr class="table table_striped">
-				<td class="hk3">번호</td>
-				<td class="hk3">질문</td>
-			</tr>
-				<c:forEach items="${surveyList}" var="ele">
-				<tr class="table table_striped" style="background: #ddd;">
-					<td>${ele.orderq}</td>
-					<td>${ele.question}</td>					
+			<h3>설문조사</h3>
+				<tr class="table table_striped">
+					<td class="hk3" style="width:10%;">번호</td>
+					<td class="hk3" style="width:80%;">질문</td>
+					<td class="hk3" style="width:10%;">세부질문</td>
 				</tr>
-					<c:forEach items="${ele.questionOptions}" var="el">
-						<tr>
-							<td></td>
-							<td style="color:#999">&nbsp;${el.q_option }</td>
-						</tr>
-					</c:forEach>
+				<c:forEach items="${surveyList}" var="ele">
+				<tr style="background-color: #fff;" id="question_${ele.idfest_ufo_questions}" class="table table_striped" style="background: #ddd;">
+					<td class="hk4" style="text-align: center;" onclick="showUpdateQuestion('${ele.idfest_ufo_questions}')">${ele.orderq}</td>
+					<td class="hk4" onclick="showUpdateQuestion('${ele.idfest_ufo_questions}')">${ele.question}</td>					
+					<td class="hk4"><button class="btn" style="background-color:#fd7a02; color:#fff;" onclick="showUpdateDet(${ele.orderq})">세부질문</button></td>
+				</tr>
+<%-- 					<c:forEach items="${ele.questionOptions}" var="el"> --%>
+<!-- 						<tr> -->
+<!-- 							<td></td> -->
+<%-- 							<td style="color:#999">&nbsp;${el.q_option }</td> --%>
+<!-- 						</tr> -->
+<%-- 					</c:forEach> --%>
 				</c:forEach>
 		</table>
 	</div>
@@ -65,71 +52,100 @@ JsBarcode("#barcode", "go/1214903321890044/2222");
 <div class="modal" id="stampFormModal" role="dialog">
 <div class="modal-dialog">
   <div class="modal-content">
-	   <div class="modal-header">
+	   <div class="modal-header" style="background-color: #4fcdb9; color: #ffffff;">
 	  		<button type="button" class="close" data-dismiss="modal">&times;</button>
-	  		<h4 id="modal1Title">스탬프 폼</h4>
+	  		<h4 id="modal1Title" style="font-weight: 600;">설문조사</h4>
 	   </div>	
 	   <div class="modal-body">
-	 		<form id="stampForm" method="post" enctype="multipart/form-data"> 
-  			<label>go_content</label><input class="form-control" type="text" id="go_content" name="go_content" maxlength="45"/>
-  			<label>go_desc</label><input class="form-control" type="text" id="go_desc" name="go_desc" maxlength="1000"/>
-  			<label>ufo_gid</label><input class="form-control" type="text" id="ufo_gid" name="ufo_gid" maxlength="45"/>
-  			<label>go_alt</label><input class="form-control" type="text" id="go_alt" name="go_alt" maxlength="45"/>
-  			<label>go_lat</label><input class="form-control" type="text" id="go_lat" name="go_lat" maxlength="45"/>
-  			<input class="form-control" type="hidden" id="ufo_go_type" name="ufo_go_type" maxlength="100" value="go"/>
-  			<input class="form-control" type="hidden" id="go_para" name="go_para" maxlength="100" value="${ufo.para }"/>
-  			<input class="form-control" type="hidden" id="id_ufo_go" name="id_ufo_go" value="1"/>
-  			<input class="form-control" type="hidden" id="idx" name="idx" value="${param.idx}"/>
-  			<label>go_image</label><input class="form-control" type="file" id="file" name="file"/>
-  			<label>go_icon_img</label><input class="form-control" type="file" id="file2" name="file2"/>
+	 		<form id="updateQuestion" method="post"> 
+  			<label style="display:none;">연번</label><input style="display:none;" class="form-control" type="text" id="idfest_ufo_questions" name="idfest_ufo_questions" readonly/>
+  			<label style="display:none;">번호</label><input style="display:none;" class="form-control" type="text" id="orderq" name="orderq" readonly/>
+  			<label style="display:none;">이벤트코드</label><input style="display:none;" class="form-control" value="${ufo.para}" type="text" name="para" readonly/>
+  			<label>질문</label><input class="form-control" type="text" id="question" name="question" maxlength="100"/>
   			</form>
   		</div>
   		<div class="modal-footer">
-	    <button type="button" class="btn" data-dismiss="modal" id="stampSubmit" onclick="stampSubmit();">제출</button>
+	    <button type="button" class="btn" data-dismiss="modal" id="stampSubmit" onclick="questionSubmit();">제출</button>
+	  	</div>
+	</div>
+	</div>
+</div>
+<div class="modal" id="questionDetFormModal" role="dialog">
+<div class="modal-dialog">
+  <div class="modal-content">
+	   <div class="modal-header" style="background-color: #4fcdb9; color: #ffffff;">
+	  		<button type="button" class="close" data-dismiss="modal">&times;</button>
+	  		<h4 id="modal1Title" style="font-weight: 600;">설문조사 문항</h4>
+	   </div>	
+	   <form id="updateQuestion" method="post"> 
+	   <div class="modal-body" id="updateQuestionWrap">
+	 		
+  		</div>
+  		</form>
+  		
+  		<div class="modal-footer">
+<!-- 	    <button type="button" class="btn" data-dismiss="modal" id="stampSubmit" onclick="questionSubmit();">제출</button> -->
+	  	<div class="alert alert-success" role="alert" id="success_msg" style="text-align: left;display: none;">
+		  저장되었습니다.
+		</div>
+		<div class="alert alert-danger" role="alert" id="error_msg" style="text-align: left;display: none;">
+		  에러가 발생했습니다.
+		</div>
 	  	</div>
 	</div>
 	</div>
 </div>
 <script>
-var stampNew = false;
-
-function stampUpdate(id){
-	stampNew = false;
-	$("#id_ufo_go").val(id);
-	$("#go_content").val($("#"+id+" td:nth-child(2)").text());
-	$("#go_desc").val($("#"+id+" td:nth-child(3)").text());
-	$("#ufo_gid").val($("#"+id+" td:nth-child(6)").text());
-	$("#go_alt").val($("#"+id+" td:nth-child(7)").text());
-	$("#go_lat").val($("#"+id+" td:nth-child(8)").text());
-	$("#stampFormModal").modal("show");
+//질문은 7개가 고정 입니다. 1-5번 객관식 6번 주관식 7번 사진올리기
+//새로운 이벤트 창조시. 이니셜라이제이션이 필요합니다.
+function showUpdateQuestion(id){
+	$("#idfest_ufo_questions").val(id);
+	$("#orderq").val($("#question_"+id+" td:nth-child(1)").text());
+	$("#question").val($("#question_"+id+" td:nth-child(2)").text());
+	
+	$("#stampFormModal").modal().show();
 }
-function stampInsert(){
-	stampNew = true;
-	$("#stampFormModal").modal("show");
+function questionSubmit(){
+	$("#updateQuestion").attr("action", "updateQuestion/");
+	$("#updateQuestion").submit();
 }
-
-function stampSubmit(){
-	if(stampNew){
-		console.log("new");
-		$("#stampForm").attr("action", "stampNew/");
-		$("#stampForm").submit();
-	}else{
-		console.log("update");	
-		$("#stampForm").attr("action", "stampUpdate/");
-		$("#stampForm").submit();
-	}
+function showUpdateDet(orderq){
+	$.post( "getQuestionOptions", {orderq : orderq, para : "${ufo.para}"})
+	 .done(function( data ) {
+	  var vo = JSON.parse(JSON.stringify(data));
+	  //	console.log(vo);
+	  	$("#updateQuestionWrap").empty();
+	  	for(var i = 0; i < vo.length; i++){
+			 $("#updateQuestionWrap").append('<input class="form-control" type="text" value="'+vo[i].q_option+'" id=option_'+vo[i].idfest_ufo_q+'  onblur="updateOption('+vo[i].idfest_ufo_q+' )"/>');
+		 }
+	 });
+	$("#questionDetFormModal").modal().show();
 }
-
-
+function updateOption(id){
+	//console.log(id);
+	//console.log($("#option_"+id).val())
+	
+	$.post( "updateQuestionOptions", {idfest_ufo_q : id, q_option : $("#option_"+id).val()})
+	 .done(function( data ) {
+	  var vo = JSON.parse(JSON.stringify(data));
+	  	if(vo == 1){
+	  		$("#success_msg").fadeIn("slow");
+	  		$("#success_msg").delay(3000).fadeOut("slow");
+	  	}else{
+	  		$("#error_msg").fadeIn("slow");
+	  		$("#error_msg").delay(3000).fadeOut("slow");
+	  	}
+	 });
+}
 $(".go_img").click(function(){
 	$("#imgModal").find("img").attr("src", $(this).find("img").attr("src"));
 	$("#imgModal").modal("show");
 });
-
 $(".icon_img").click(function(){
 	$("#imgModal").find("img").attr("src", $(this).find("img").attr("src"));
 	$("#imgModal").modal("show");
 });
+
 </script>
 </body>
 </html>

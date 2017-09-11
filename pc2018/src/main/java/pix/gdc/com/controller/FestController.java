@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -210,17 +211,35 @@ public class FestController {
 	}
 	
 	@RequestMapping(value = "FEV/stampNew", method = RequestMethod.POST)
-	public String stampNew(@RequestParam("file") MultipartFile file, @RequestParam("idx") int idx, @ModelAttribute("vo") UfoGoVO go){
-		if (!file.isEmpty()) {
-            try {
-                String[] fileInfo = restService.writeFileToServer(file);
-        		go.setGo_image(fileInfo[0]);
-        		dao.insertUfoGo(go);
-            } catch (Exception e) {
-            }
-        } else {
-        	dao.insertUfoGo(go);
-        }
+	public String stampNew(@RequestParam("file") MultipartFile file, @RequestParam("file2") MultipartFile file2,@RequestParam("idx") int idx, @ModelAttribute("vo") UfoGoVO go){
+		//gid 정해주기
+		Random randomGenerator = new Random();
+		int randomInt = randomGenerator.nextInt(9999);
+		while(dao.countGidNumberByGid(randomInt) == 1){
+			randomInt = randomGenerator.nextInt(9999);
+		}
+		go.setUfo_gid(String.valueOf(randomInt));
+		
+		try{
+			if (!file.isEmpty()) {
+	            try {
+	                String[] fileInfo = restService.writeFileToServer(file);
+	        		go.setGo_image(fileInfo[0]);
+	            } catch (Exception e) {
+	            }
+			}
+	        if(!file2.isEmpty()){
+	        	try {
+	                String[] fileInfo = restService.writeFileToServer(file2);
+	        		go.setGo_icon_img(fileInfo[0]);
+	            } catch (Exception e) {
+	            }
+	        }
+		}catch(Exception e){
+			e.printStackTrace();
+		}finally{
+			dao.insertUfoGo(go);
+		}
 		return "redirect:/FEV/festQuestion?idx="+idx;
 	}
 	
@@ -671,6 +690,24 @@ public class FestController {
         	System.out.println("You failed to upload because the file was empty. at update ufo");
         }
 		return vo;
+	}
+	@RequestMapping(value ="FEV/updateQuestion", method = RequestMethod.POST)
+	public String updateQuestion(@ModelAttribute("vo") FestQuesListVO vo){
+		
+	
+		dao.updateQuestion(vo);
+		
+		int idx = dao.SelectUfoByPara(vo.getPara()).getIdfest_ufo();
+		return "redirect:/FEV/festQuestion2?idx="+idx;
+	}
+	@RequestMapping(value = "/FEV/getQuestionOptions", method = RequestMethod.POST)
+	public @ResponseBody List<FestOption> getQuestionOptions(@ModelAttribute("vo")FestOption vo) {
+		System.out.println(vo.getOrderq());
+		return dao.selectOptionsByQnumber(vo);
+	}
+	@RequestMapping(value = "/FEV/updateQuestionOptions", method = RequestMethod.POST)
+	public @ResponseBody int updateQuestionOptions(@ModelAttribute("vo")FestOption vo) {
+		return dao.updateOptionById(vo);
 	}
 	
 }
