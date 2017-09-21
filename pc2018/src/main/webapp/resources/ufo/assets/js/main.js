@@ -40,17 +40,21 @@ $(document).ready(function() {
         $('#page-nav-wrapper').removeClass('fixed');
          
          var scrollTop = $(this).scrollTop();
-         var topDistance = $('#page-nav-wrapper').offset().top;
+         var nav = $('#page-nav-wrapper');
+         if(nav.length){
+        	 var topDistance = nav.offset().top;
+        	 if ( (topDistance) > scrollTop ) {
+                 $('#page-nav-wrapper').removeClass('fixed');
+                 $('body').removeClass('sticky-page-nav');
+              }
+              else {
+                 $('#page-nav-wrapper').addClass('fixed');
+                 $('body').addClass('sticky-page-nav');
+              }
+         }
+        
          
-         if ( (topDistance) > scrollTop ) {
-            $('#page-nav-wrapper').removeClass('fixed');
-            $('body').removeClass('sticky-page-nav');
-         }
-         else {
-            $('#page-nav-wrapper').addClass('fixed');
-            $('body').addClass('sticky-page-nav');
-         }
-
+         
     });
 	
 	/* ======= Stop Video Playing When Close the Modal Window ====== */
