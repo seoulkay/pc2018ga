@@ -62,8 +62,10 @@ a.btn-cta,
 }
 a.btn-primary,
 .btn-primary {
-  background: #51a852;
-  border: 2px solid #51a852;
+  /* background: #51a852;
+  border: 2px solid #51a852; */
+  background: #159bc0;
+  border: 2px solid #159bc0;
   color: #fff;
 }
 a.btn-primary:hover,
@@ -72,8 +74,10 @@ a.btn-primary:active,
 .btn-primary:active,
 a.btn-primary:focus,
 .btn-primary:focus {
-  background: #49974a;
-  border: 2px solid #49974a;
+  /* background: #49974a;
+  border: 2px solid #49974a; */
+  background: #0f7692;
+  border: 2px solid #0f7692;
   color: #fff;
   outline: none;
 }
@@ -318,7 +322,9 @@ textarea {
   padding-left: 15px;
   padding-right: 15px;
   text-align: center;
-  color: #35373C;
+  font-weight: bold;
+  /* color: #35373C; */
+  color: #fcbc4e;
 }
 .section-intro {
   margin-top: 0;
@@ -716,8 +722,8 @@ textarea {
   color: rgba(255, 255, 255, 0.4);
 }
 .footer-col .col-title {
-  font-size: 16px;
-  color: #fff;
+  font-size: 14px;/* 
+  color: #fff; */
   font-weight: normal;
 }
 .footer-col .footer-menu li {
@@ -787,21 +793,21 @@ textarea {
   height: 680px;
 }
 .hero-slider-wrapper .flexslider .slide.slide-1 {
-  background: #35373C url('../images/hero/hero-1.jpg') no-repeat 50% top;
+  background: #35373C url('../images/hero/bg_01-min.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .hero-slider-wrapper .flexslider .slide.slide-2 {
-  background: #35373C url('../images/hero/hero-2.jpg') no-repeat 50% top;
+  background: #35373C url('../images/hero/dog01-min.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .hero-slider-wrapper .flexslider .slide.slide-3 {
-  background: #35373C url('../images/hero/hero-3.jpg') no-repeat 50% top;
+  background: #35373C url('../images/hero/dog02-min.jpg') no-repeat 50% top;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1021,19 +1027,19 @@ body.sticky-page-nav .overview-section {
   background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.8) 35%);
 }
 .customers-section .item-1 .item-inner {
-  background: url('../images/customers/customer-1.jpg') no-repeat 50% 50%;
+  background: url('../images/hero/dog01-min.jpg') no-repeat 50% 50%;
   background-size: cover;
 }
 .customers-section .item-2 .item-inner {
-  background: url('../images/customers/customer-2.jpg') no-repeat 50% 50%;
+  background: url('../images/hero/dog02-min.jpg') no-repeat 50% 50%;
   background-size: cover;
 }
 .customers-section .item-3 .item-inner {
-  background: url('../images/customers/customer-3.jpg') no-repeat 50% 50%;
+  background: url('../images/hero/dog01-min.jpg') no-repeat 50% 50%;
   background-size: cover;
 }
 .customers-section .item-4 .item-inner {
-  background: url('../images/customers/customer-4.jpg') no-repeat 50% 50%;
+  background: url('../images/hero/dog02-min.jpg') no-repeat 50% 50%;
   background-size: cover;
 }
 .customers-section .item-mask {
@@ -1095,7 +1101,7 @@ body.sticky-page-nav .overview-section {
   margin-bottom: 30px;
 }
 .signup-section {
-  background-color: #159bc0;
+  background-color: #159bc0;  
 }
 .signup-section .section-inner {
   background: url('../images/map.svg') no-repeat left top;
@@ -1108,6 +1114,7 @@ body.sticky-page-nav .overview-section {
   color: #fff;
   margin-top: 0;
   margin-bottom: 30px;
+  font-weight: bold;
 }
 .signup-section .form-title {
   color: #fff;
@@ -1211,7 +1218,7 @@ body.sticky-page-nav .overview-section {
   margin-bottom: 15px;
 }
 .features-page .hero-holder {
-  background: #35373C url('../images/hero/hero-features.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog04.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1244,7 +1251,7 @@ body.sticky-page-nav .overview-section {
   box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
 }
 .stories-page .hero-holder {
-  background: #35373C url('../images/hero/hero-stories.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog03.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1370,7 +1377,7 @@ body.sticky-page-nav .overview-section {
   width: 80px;
 }
 .story-single-page .hero-holder {
-  background: #35373C url('../images/hero/hero-story-single.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog02-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1518,7 +1525,7 @@ body.sticky-page-nav .overview-section {
   margin-bottom: 15px;
 }
 .pricing-page .hero-holder {
-  background: #35373C url('../images/hero/hero-pricing.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog01-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1732,7 +1739,7 @@ body.sticky-page-nav .overview-section {
   font-size: 14px;
 }
 .about-page .hero-holder {
-  background: #35373C url('../images/hero/hero-about.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog06-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1879,7 +1886,7 @@ body.sticky-page-nav .overview-section {
   color: #fff;
 }
 .career-page .hero-holder {
-  background: #35373C url('../images/hero/hero-career.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog06-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1985,7 +1992,7 @@ body.sticky-page-nav .overview-section {
   height: 360px;
 }
 .job-single-page .hero-holder {
-  background: #35373C url('../images/hero/hero-job-single.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog06-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2029,7 +2036,7 @@ body.sticky-page-nav .overview-section {
   font-weight: 500;
 }
 .blog-page .hero-holder {
-  background: #35373C url('../images/hero/hero-blog.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog06-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2150,7 +2157,9 @@ body.sticky-page-nav .overview-section {
   margin-top: 0;
   margin-bottom: 45px;
   font-size: 28px;
-  color: #35373C;
+  /* color: #35373C; */
+  color: #fcbc4e;
+  font-weight: bold;
 }
 .posts-block .nav-tabs {
   border: none;
@@ -2192,18 +2201,20 @@ body.sticky-page-nav .overview-section {
 .posts-block .post {
   max-width: 800px;
   margin: 0 auto;
-  margin-bottom: 45px;
+  margin-bottom: 45px;/* 
   padding-top: 45px;
-  border-top: 1px solid #eee;
+  border-top: 1px solid #eee; */
 }
 .posts-block .post .post-title {
-  font-size: 24px;
+  font-size: 20px;
   margin-bottom: 30px;
   text-align: left;
   padding-left: 200px;
+  font-weight: bold;
 }
 .posts-block .post .post-title a {
-  color: #656972;
+  /* color: #656972; */  
+  color: #159bc0;
 }
 .posts-block .post .post-title a:hover {
   color: #35373C;
@@ -2324,7 +2335,7 @@ body.sticky-page-nav .overview-section {
   background: rgba(0, 0, 0, 0.5);
 }
 .blog-single-page .hero-holder {
-  background: #35373C url('../images/hero/hero-blog-single.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog06-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2513,7 +2524,7 @@ body.sticky-page-nav .overview-section {
   opacity: 0.9;
 }
 .support-page .hero-holder {
-  background: #35373C url('../images/hero/hero-support.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog06-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -2566,7 +2577,9 @@ body.sticky-page-nav .overview-section {
   margin-top: 0;
   margin-bottom: 90px;
   font-size: 28px;
-  color: #35373C;
+  /* color: #35373C; */  
+  color: #fcbc4e;
+  font-weight: bold;
 }
 .topics-block .item {
   margin-bottom: 30px;
@@ -2625,7 +2638,9 @@ body.sticky-page-nav .overview-section {
   margin-top: 0;
   margin-bottom: 90px;
   font-size: 28px;
-  color: #35373C;
+  /* color: #35373C; */
+  color: #fcbc4e;
+  font-weight: bold;
 }
 .articles-block li {
   margin-bottom: 15px;
@@ -2639,7 +2654,9 @@ body.sticky-page-nav .overview-section {
   margin-top: 0;
   margin-bottom: 90px;
   font-size: 28px;
-  color: #35373C;
+  /* color: #35373C; */
+  color: #fcbc4e;
+  font-weight: bold;
 }
 .tips-block .item {
   margin-bottom: 15px;
@@ -2679,7 +2696,7 @@ body.sticky-page-nav .overview-section {
   height: 360px;
 }
 .contact-page .hero-holder {
-  background: #35373C url('../images/hero/hero-contact.jpg') no-repeat 50% 50%;
+  background: #35373C url('../images/hero/dog06-min.jpg') no-repeat 50% 50%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

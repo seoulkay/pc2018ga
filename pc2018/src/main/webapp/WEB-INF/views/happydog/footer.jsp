@@ -5,49 +5,70 @@
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="footer-col col-xs-6 col-md-3">
+                <div class="footer-col col-xs-4 col-md-2">
                     <div class="footer-col-inner">
-                        <h3 class="col-title">About</h3>
-                        <ul class="footer-menu list-unstyled">
+                        <h3 class="col-title">행복하개</h3>
+                        <!-- <ul class="footer-menu list-unstyled">
                             <li><a href="#">Company</a></li>
                             <li><a href="#">Blog</a></li>
                             <li><a href="#">Jobs</a> <label class="label label-new">We're hiring</label></li>
                             <li><a href="#">Press</a></li>
                             <li><a href="#">Contact</a></li>
-                        </ul>
+                        </ul> -->
                     </div><!--//footer-col-inner-->
                 </div><!--//footer-col-->
-                <div class="footer-col col-xs-6 col-md-3">
+                <div class="footer-col col-xs-4 col-md-2">
                     <div class="footer-col-inner">
-                        <h3 class="col-title">Product</h3>
-                        <ul class="footer-menu list-unstyled">
+                        <h3 class="col-title">사업소개</h3>
+                        <!-- <ul class="footer-menu list-unstyled">
                             <li><a href="#">Features</a></li>
                             <li><a href="#">Tutorials</a></li>
                             <li><a href="#">Support Center</a></li>
                             <li><a href="#">Pricing</a></li>
                             <li><a href="#">Customers</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div><!--//footer-col-->
-                <div class="footer-col col-xs-6 col-md-3">
+                <div class="footer-col col-xs-4 col-md-2">
                     <div class="footer-col-inner">
-                        <h3 class="col-title">Useful Links</h3>
-                        <ul class="footer-menu list-unstyled">
+                        <h3 class="col-title">행복하개 소식</h3>
+                        <!-- <ul class="footer-menu list-unstyled">
                             <li><a href="#">Sign up</a></li>
                             <li><a href="#">Login</a></li>
                             <li><a href="#">Become our partner</a></li>
                             <li><a href="#">FAQs</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                 </div><!--//footer-col-->
-                <div class="footer-col col-xs-6 col-md-3">
+                <div class="footer-col col-xs-4 col-md-2">
                     <div class="footer-col-inner">
-                        <h3 class="col-title">Legal</h3>
-                        <ul class="footer-menu list-unstyled">
+                        <h3 class="col-title">반려동물 보육교사</h3>
+                        <!-- <ul class="footer-menu list-unstyled">
                             <li><a href="#">Privacy</a></li>
                             <li><a href="#">Terms of Services</a></li>
                             <li><a href="#">Policies</a></li>
-                        </ul>
+                        </ul> -->
+                    </div>
+                </div><!--//footer-col-->
+                <div class="footer-col col-xs-4 col-md-2">
+                    <div class="footer-col-inner">
+                        <h3 class="col-title">정보마당</h3>
+                        <!-- <ul class="footer-menu list-unstyled">
+                            <li><a href="#">Sign up</a></li>
+                            <li><a href="#">Login</a></li>
+                            <li><a href="#">Become our partner</a></li>
+                            <li><a href="#">FAQs</a></li>
+                        </ul> -->
+                    </div>
+                </div><!--//footer-col-->
+                <div class="footer-col col-xs-4 col-md-2">
+                    <div class="footer-col-inner">
+                        <h3 class="col-title">고객문의</h3>
+                        <!-- <ul class="footer-menu list-unstyled">
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Terms of Services</a></li>
+                            <li><a href="#">Policies</a></li>
+                        </ul> -->
                     </div>
                 </div><!--//footer-col-->
             </div><!--//row-->
@@ -62,7 +83,7 @@
                     
                 </ul>
     
-                <small class="copyright">Template Copyright @ <a href="http://themes.3rdwavemedia.com/" target="_blank">3rd Wave Media</a></small> 
+                <small class="copyright">Copyright @ <a href="https://www.pc2018.ga/PIX/HD/" target="_blank">HAPPY DOG</a></small> 
             </div>
         </div><!--//container-->
     </footer><!--//footer-->
@@ -127,19 +148,14 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 id="signupModalLabel" class="modal-title text-center">Sign up to start your 30 day free trial!</h4>
+                    <h4 id="signupModalLabel" class="modal-title text-center" style="color:#0f7692; font-weight: bold;">행복하개 이용가이드</h4>
                 </div>
-                <div class="modal-body">
-                    <div class="social-login text-center">                        
-                        <ul class="social-buttons list-unstyled">
-                            <li><a href="#" class="btn btn-social btn-google btn-block"><i class="fa fa-google" aria-hidden="true"></i><span class="btn-text">Sign up with Google</span></a></li>
-                            <li><a href="#" class="btn btn-social btn-facebook btn-block"><i class="fa fa-facebook" aria-hidden="true"></i><span class="btn-text">Sign up with Facebook</span></a></li>
-                        </ul>
-                    </div>
+                <div class="modal-body">                    
                     <div class="divider">
-                        <span class="or-text">OR</span>
                     </div>
-                    <div class="login-form-container">
+                    이용가이드 내용 혹은 이미지가 들어갑니다.
+            		
+                    <div style="display: none;" class="login-form-container">
                         <form class="login-form">         
                             <div class="form-group full-name">
                                 <i class="material-icons icon">&#xE7FD;</i>
@@ -161,7 +177,7 @@
                             
                         </form>
                     </div><!--//login-form-container-->
-                    <div class="option-container">
+                    <div style="display: none;" class="option-container">
                         <div class="lead-text">Already have an account?</div> 
                         <a class="login-link btn btn-ghost-alt" id="login-link" href="#">Log in</a>                    
                     </div><!--//option-container-->

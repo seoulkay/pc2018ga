@@ -20,175 +20,90 @@
     <!-- Plugins CSS -->    
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ufo/assets/plugins/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/ufo/assets/plugins/flexslider/flexslider.css">
     <!-- Theme CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/resources/ufo/assets/css/styles_hd.css">
 </head> 
 
-<body class="about-page">   
+<body class="career-page" data-spy="scroll" data-target="#page-nav">   
     <jsp:include page="header.jsp" flush="true">
 		<jsp:param name="param" value="value1" />
 	</jsp:include>
     
-    <section class="heading-section section section-on-bg">
+   <section class="heading-section section section-on-bg">
         <div class="hero-wrapper">
-            <div class="hero-holder"></div>
-            <div class="hero-mask-solid"></div>
+            <div class="hero-holder" style="background: #35373C url('${pageContext.request.contextPath}/resources/ufo/assets/images/hero/02-min.jpg') no-repeat 50% 50%;"></div>
+            <div class="hero-mask-gradient"></div>
         </div><!--//hero-wrapper--> 
         <div class="container heading-content">                
-            <h2 class="headline">About Our Company</h2>
-            <div class="intro">Startup Kit is founded in 2016 with a distributed team lorem ipsum dolor sit amet <br>Aenean commodo ligula eget dolor. </div>
+            <h2 class="headline">반려동물 보육교사 신청</h2>
+            <div class="intro">반려동물 보육교사 신청 소제목 입니다.</div>
             <div class="actions">
-                 <a class="scrollto-no-offset" href="#team-block">Meet the team</a>
-                 <a class="scrollto-no-offset" href="#team-block"><img src="${pageContext.request.contextPath}/resources/ufo/assets/images/arrow-icon.svg" alt=""></a>
+                 <a class="scrollto-no-offset" href="#overview-section">서비스 정보 보기</a>
+                 <a class="scrollto-no-offset" href="#overview-section"><img src="${pageContext.request.contextPath}/resources/ufo/assets/images/arrow-icon.svg" alt=""></a>
             </div><!--//actions-->
         </div><!--//container-->
     </section><!--//heading-section-->
     
-    <div id="team-block" class="team-block">
-        <div class="container">
-            <h2 class="block-heading text-center">Our Team</h2>
-            <div class="block-intro text-center">Intro goes here ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.</div>
-            <div class="block-cta text-center">
-                <a class="btn btn-secondary" href="career.html">Want to Join Us?</a>
+    <div class="page-nav-space-holder hidden-xs">
+        <div id="page-nav-wrapper" class="page-nav-wrapper text-center">
+            <div class="container">
+                <ul id="page-nav" class="nav page-nav list-inline">
+                    <li><a class="scrollto" href="#overview-section">서비스 정보</a></li>
+                    <li><a class="scrollto"  href="#support-section">서비스 신청</a></li>
+                </ul><!--//page-nav-->
             </div>
-            <div class="row">
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-1.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">James Doe</div>
-                            <div class="title">Co-Founder, CEO</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                         </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-2.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">Mike Doe</div>
-                            <div class="title">Co-Founder, CTO</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                                
-                            </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-3.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">Kate Doe</div>
-                            <div class="title">Product Manager</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                               
-                            </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-4.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">David Doe</div>
-                            <div class="title">Full-Stack Developer</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                               
-                            </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-5.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">Mark Doe</div>
-                            <div class="title">App Developer</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-
-                            </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-6.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">Jennifer Doe</div>
-                            <div class="title">Product Designer</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                            </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-7.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">Tim Doe</div>
-                            <div class="title">Product Designer</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-github-alt" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                            </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-                <div class="item col-xs-6 col-md-3">
-                    <div class="item-inner">
-                        <img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team/member-8.jpg" alt="">
-                        <div class="mask">
-                        </div><!--//mask-->
-                        <div class="info text-center">
-                            <div class="name">Betty Doe</div>
-                            <div class="title">Customer Support</div>
-                            <ul class="social list-inline">
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-
-                            </ul><!--//social-->    
-                        </div><!--//info-->
-                    </div><!--//item-inner-->
-                </div><!--//item-->
-            </div><!--//row-->
-        </div><!--//container-->
-    </div><!--//team-block-->
+        </div><!--//page-nav-wrapper-->
+    </div><!--//page-nav-space-holder-->
+        
+    <section id="overview-section" class="overview-section section">
+        <h2 class="section-title">서비스 정보</h2>
+        <div class="section-intro">서비스 정보 내용이 들어갑니다.</div><!--//section-intro-->
+        <div class="figures-wrapper">
+            <div class="container text-center">
+                <figure class="macbook-screen"><img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/macbook-screen.png" alt=""></figure>
+                <figure class="ipad-screen"><img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/ipad-screen.png" alt=""></figure>
+                <figure class="iphone-screen"><img class="img-responsive" src="${pageContext.request.contextPath}/resources/ufo/assets/images/iphone-screen.png" alt=""></figure>
+                
+            </div><!--//container-->
+        </div><!--//figures-wrapper-->
+        <div class="benefits-wrapper" style="background-color: #fcbc4e;">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="item-inner">
+                            <img class="item-icon" src="${pageContext.request.contextPath}/resources/ufo/assets/images/icons/clock-white.svg" alt="">
+                            <h3 class="item-title">하나</h3>
+                            <div class="item-desc">서비스 정보 1</div>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="item-inner">
+                            <img class="item-icon" src="${pageContext.request.contextPath}/resources/ufo/assets/images/icons/presenter-white.svg" alt="">
+                            <h3 class="item-title">둘</h3>
+                            <div class="item-desc">서비스 정보 2</div>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                    <div class="item col-xs-12 col-sm-4">
+                        <div class="item-inner">
+                            <img class="item-icon" src="${pageContext.request.contextPath}/resources/ufo/assets/images/icons/chat-white.svg" alt="">
+                            <h3 class="item-title">셋</h3>
+                            <div class="item-desc">서비스 정보 3</div>
+                        </div><!--//item-inner-->
+                    </div><!--//item-->
+                </div><!--//row-->
+            </div><!--//container-->
+        </div><!--//benefits-->        
+    </section><!--//overview-section-->
+    
+    <section id="support-section" class="support-section section text-center">
+        <h2 class="section-title">서비스 신청</h2>
+        <div class="section-intro">서비스 신청 내용이 들어갑니다.</div>
+        <a class="btn btn-secondary" href="support.html">서비스 신청하기</a>
+        <div class="team-figure">
+            <img class="img-responsive support-team" src="${pageContext.request.contextPath}/resources/ufo/assets/images/team.png" alt="">
+        </div><!--//team-figure-->
+    </section><!--//support-section-->
             
     <jsp:include page="footer.jsp" flush="true">
 		<jsp:param name="param" value="value1" />

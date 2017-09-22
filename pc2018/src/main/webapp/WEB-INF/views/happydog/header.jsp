@@ -6,7 +6,7 @@
     <header id="header" class="header">  
         <div class="container">      
             <h1 class="logo">
-                <a href="index.html"><img src="${pageContext.request.contextPath}/resources/ufo/assets/images/logo.svg" alt=""><span class="text">Startup Kit</span></a>
+                <a href="index.html"><img style="max-height: 2em;" src="${pageContext.request.contextPath}/resources/ufo/assets/images/hd2.jpg" alt=""></a>
             </h1><!--//logo-->
             <nav class="main-nav navbar-right" role="navigation">
                 <div class="navbar-header">
@@ -35,8 +35,27 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/bootstrap-hover-dropdown.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/back-to-top.js"></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>    
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>  
+    <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ufo/assets/plugins/flexslider/jquery.flexslider-min.js"></script>       
     <script type="text/javascript" src="${pageContext.request.contextPath}/resources/ufo/assets/js/main.js"></script>
     
     <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
     <script src="${pageContext.request.contextPath}/resources/ufo/assets/js/demo/style-switcher.js"></script>
+    <script>
+	    $(document).ready(function() {
+	    
+	    /* ======= Header Background Slideshow - Flexslider ======= */    
+	    /* Ref: https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties */
+	    
+	    $('.hero-slider').flexslider({
+	        animation: "fade",
+	        directionNav: false, //remove the default direction-nav - https://github.com/woothemes/FlexSlider/wiki/FlexSlider-Properties
+	        controlNav: false, //remove the default control-nav
+	        slideshowSpeed: 8000,
+	        start: function(){
+	             $(this).find('.slide').css("display", "block"); //prevent flash of the images
+	        },
+	    });     
+	
+	});
+	</script>
